@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import styles from "../styles/register.module.css"
 
 
- const ref = React.createRef();
+const ref = React.createRef();
 const Register = () => {
      const {
          register,

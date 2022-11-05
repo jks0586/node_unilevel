@@ -1,36 +1,28 @@
 const express = require('express');
 const logger = require('morgan');
-// const mongoose = require('mongoose');
-
 const mongoose = require('./config/database');
 
 const movies = require('./routes/movies');
 const users = require('./routes/users');
+
+
 const bodyParser = require('body-parser');
+
+
+
 var jwt = require('jsonwebtoken');
 const app = express();
 
-app.set('secretKey', 'nodeRestApi');
-
-// connection to mongodb
-// mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
-// mongoose.connect('mongodb://localhost:27017/letscms', {
-//     useNewUrlParser: true,
-//     useFindAndModify: false,
-//     useUnifiedTopology: true
-// });
-
-
 app.get('/', function (req, res) {
-    res.json({ 
-        "letscms": "Api section By Letscms"
+    res.json({
+        "tutorial": "Build REST API with node.js"
     });
 });
 
@@ -38,10 +30,11 @@ app.get('/', function (req, res) {
 app.use('/users', users);
 // private route
 app.use('/movies', validateUser, movies);
-
 app.get('/favicon.ico', function (req, res) {
     res.sendStatus(204);
 });
+
+
 
 function validateUser(req, res, next) {
     jwt.verify(req.headers['x-access-token'], req.app.get('secretKey'), function (err, decoded) {
@@ -60,28 +53,24 @@ function validateUser(req, res, next) {
 
 }
 
-
-// express doesn't consider not found 404 as an error so we need to handle 404 explicitly
-// handle 404 error
 app.use(function (req, res, next) {
     let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 // handle errors
-app.use(function (err, req, res, next) {
-    console.log(err);
+// app.use(function (err, req, res, next) {
+//     console.log(err);
 
-    if (err.status === 404)
-        res.status(404).json({
-            message: "Not found"
-        });
-    else
-        res.status(500).json({
-            message: "Something looks wrong :( !!!"
-        });
-});
-
-app.listen(5000, function () {
-    console.log('Node server listening on port 5000');
+//     if (err.status === 404)
+//         res.status(404).json({
+//             message: "Not found"
+//         });
+//     else
+//         res.status(500).json({
+//             message: "Something looks wrong :( !!!"
+//         });
+// });
+app.listen(5001, function () {
+    console.log('Node server listening on port 5001');
 });
