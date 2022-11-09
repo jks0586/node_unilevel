@@ -1,22 +1,24 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const allRouter=require('./router');
-app.use (express.json());
-mongoose.connect('mongodb://127.0.0.1:27017/unilevel_mlm',{
+const allRouter = require("./router");
+app.use(express.json());
+mongoose
+  .connect("mongodb://127.0.0.1:27017/unilevel_mlm", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-   
-}).then(()=>{
+  })
+  .then(() => {
+    console.log("jjkjjs");
     console.log(`connection to database established`);
-}).catch(err=>{
+  })
+  .catch((err) => {
     console.log(`db error ${err.message}`);
-    process.exit(-1)
-})
+    process.exit(-1);
+  });
 
-app.use('/',allRouter);
+app.use("/", allRouter);
 
-app.listen(5000,()=>{
-    console.log("Server is listening on port 5000");
+app.listen(5000, () => {
+  console.log("Server is listening on port 5000");
 });
-
