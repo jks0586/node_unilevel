@@ -1,0 +1,13 @@
+.form{
+    background-color: rgb(204, 236, 240);
+    border-radius: 10px;
+    width: 400px;
+    margin: 20px auto;
+    padding: 50px;
+    height: 550px; 
+    
+}
+.header{
+    text-align: center;
+    color: rgb(43, 89, 226)
+}
