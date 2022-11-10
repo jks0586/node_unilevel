@@ -9,7 +9,6 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("jjkjjs");
     console.log(`connection to database established`);
   })
   .catch((err) => {
