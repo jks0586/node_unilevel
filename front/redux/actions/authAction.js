@@ -7,13 +7,13 @@ import {
   REQUEST_SUCCESS,
 } from "../../config/GlobalConstant";
 
-export const login = (data) => async (dispatch) => {
+export const signin = (data) => async (dispatch) => {
   dispatch({
     type: LOADING_START,
   });
 
   const response = await axios.post(
-    GLOBAL_CONSTANT.APP_URL + "auth/login",
+    GLOBAL_CONSTANT.APP_URL + "/signin",
     data
   );
   const res = await response.data;

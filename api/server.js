@@ -1,8 +1,16 @@
 const express = require("express");
+var cors = require('cors')
 const app = express();
+app.use(cors());
+app.options('*', cors());
 const mongoose = require("mongoose");
 const allRouter = require("./router");
 app.use(express.json());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 mongoose
   .connect("mongodb://127.0.0.1:27017/unilevel_mlm", {
     useNewUrlParser: true,

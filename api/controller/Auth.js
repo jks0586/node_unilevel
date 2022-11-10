@@ -32,8 +32,7 @@ exports.signup = async (req, res) => {
 };
 
 //LOGIN METHOD
-
-exports.login = async (req, res) => {
+exports.signin = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
