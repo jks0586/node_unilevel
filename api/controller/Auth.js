@@ -7,6 +7,7 @@ require("dotenv").config();
 console.log(process.env);
 
 //SIGN METHOD
+
 exports.signup = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -32,12 +33,21 @@ exports.signup = async (req, res) => {
 };
 
 //LOGIN METHOD
+<<<<<<< HEAD
+
+=======
+>>>>>>> cd5dbc07049531469b73194ab2e05b75a8ae324f
 exports.signin = async (req, res) => {
   try {
+    console.log(req.body);
     const { email, password } = req.body;
+    if (Object.keys(req.body).length == 0) {
+      return res.json({ status: "error", error: "email is required" });
+    }
+
     const user = await User.findOne({ email });
     if (!user) {
-      return res.json({ status: "error", error: "Invalid username/password" });
+      return res.json({ status: "error", error: "User not found" });
     }
     const passwordcompare = await bcrypt.compare(password, user.password);
     if (passwordcompare) {
@@ -47,8 +57,8 @@ exports.signin = async (req, res) => {
           email: user.email,
         },
 
-        process.env.JWT_SECRET,
-        {}
+        process.env.JWT_SECRET
+        // {}
       );
       return res.json({ user, token: token });
     } else {
