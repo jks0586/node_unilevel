@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const expressjwt = require("express-jwt");
 const bcrypt = require("bcrypt");
 require("cookie-parser");
-require("dotenv").config();
+ require("dotenv").config();
 console.log(process.env);
 
 //SIGN METHOD
@@ -33,10 +33,6 @@ exports.signup = async (req, res) => {
 };
 
 //LOGIN METHOD
-<<<<<<< HEAD
-
-=======
->>>>>>> cd5dbc07049531469b73194ab2e05b75a8ae324f
 exports.signin = async (req, res) => {
   try {
     console.log(req.body);
@@ -61,6 +57,7 @@ exports.signin = async (req, res) => {
         // {}
       );
       return res.json({ user, token: token });
+      
     } else {
       return res.json({ status: "error", error: "Check the Password again" });
     }

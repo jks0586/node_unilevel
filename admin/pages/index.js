@@ -1,11 +1,13 @@
 
 import Adminlayout from "../components/Adminlayout";
-import Form from "../pages/form";
+
+import Layout from "./layout";
+import Profile from "./profile";
 export default function Home() {
   return (
     <>
     <Adminlayout>
-      <Form />
+    <Layout />
     </Adminlayout>
     </>
    

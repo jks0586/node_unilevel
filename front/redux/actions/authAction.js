@@ -12,14 +12,7 @@ export const signin = (data) => async (dispatch) => {
     type: LOADING_START,
   });
 
-<<<<<<< HEAD
   const response = await axios.post(GLOBAL_CONSTANT.APP_URL + "signin", data);
-=======
-  const response = await axios.post(
-    GLOBAL_CONSTANT.APP_URL + "/signin",
-    data
-  );
->>>>>>> cd5dbc07049531469b73194ab2e05b75a8ae324f
   const res = await response.data;
 
   dispatch({

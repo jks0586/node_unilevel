@@ -3,10 +3,6 @@ export const GLOBAL_CONSTANT = {
   APP_URL: "http://localhost:5000/",
   TOKEN: "TOKEN",
   AUTH: "AUTH",
-<<<<<<< HEAD
-=======
- 
->>>>>>> cd5dbc07049531469b73194ab2e05b75a8ae324f
 };
 
 export const LOADING_START = "LOADING_START";

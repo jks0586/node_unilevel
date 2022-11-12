@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <DataProvider>
-        <Header />
+       <Header />
         <Navbar />
         <Component {...pageProps} />
       </DataProvider>
