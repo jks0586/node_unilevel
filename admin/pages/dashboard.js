@@ -1,48 +1,47 @@
-import React from 'react'
-import styles from "../styles/form.module.css"
-import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Table from "../Components/Table";
+import { GLOBAL_CONSTANT } from "../config/GlobalConstant";
+import { getRecipes } from "../redux/actions/recipeAction";
+
 const Dashboard = () => {
+  const [tableData, setTableData] = useState([]);
+  const dispatch = useDispatch();
+  const { recipe, auth } = useSelector((state) => state);
+  const router = useRouter();
+
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, []);
+
+  useEffect(() => {
+    if (recipe && recipe.recipes) {
+      setTableData(recipe.recipes.reverse());
+    }
+    console.log(recipe);
+  }, [recipe]);
+
+  useEffect(() => {
+    if (!auth.token) {
+      router.push("/");
+    }
+  }, [auth]);
+
   return (
     <div>
-      <div className={styles.form}>
-        <div className="form-group">
-          <h1 className={styles.header}>Form</h1>
-          <div className="center">
-            <form>
-              <div class="mb-3">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" />
-              </div>
-              <div class="mb-3">
-                <label for="age">Age</label>
-                <input type="number" class="form-control" />
-              </div>
-              <div class="mb-3">
-                <label for="address">Address</label>
-                <input type="address" class="form-control" />
-              </div>
-              <div class="mb-3">
-                <label for="class">Class</label>
-                <select class="form-control" id="class">
-                  <option value="value">Btech</option>
-                  <option value="value">Mba</option>
-                  <option value="value">Bca</option>
-                  <option value="value">Bsc</option>
-                </select>
-              </div>
-              <br />
-              <button type="submit" class="btn btn-primary">
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      
-      
-    </div>
-    
-  )
-}
+      <title>Dashboard | {GLOBAL_CONSTANT.APP_NAME}</title>
+      <meta
+        name="description"
+        content={`Dashboard | ${GLOBAL_CONSTANT.APP_NAME}`}
+      />
+      <link rel="icon" href="/favicon.ico" />
 
-export default Dashboard
+      <div style={{ marginTop: "0rem", marginBottom: "0rem" }}>
+        <Table data={tableData} rowsPerPage={5} />
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;

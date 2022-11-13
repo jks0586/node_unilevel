@@ -1,7 +1,15 @@
-import '../styles/globals.css'
-import 'bootstrap/dist/css/bootstrap.css'
+import "bootstrap/dist/css/bootstrap.css";
+import NextProgress from "next-progress";
+import DataProvider from "../redux/store";
+import "../styles/globals.css";
+
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <DataProvider>
+      {/* <NextProgress /> */}
+      <Component {...pageProps} />
+    </DataProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
