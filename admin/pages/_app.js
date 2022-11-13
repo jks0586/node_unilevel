@@ -1,5 +1,6 @@
-import "bootstrap/dist/css/bootstrap.css";
+
 import NextProgress from "next-progress";
+import "bootstrap/dist/css/bootstrap.css";
 import DataProvider from "../redux/store";
 import "../styles/globals.css";
 

@@ -71,21 +71,10 @@ const Recipe = () => {
     }
   }, [recipe]);
 
-  useEffect(() => {
-    if (!auth.token) {
-      router.push("/");
-    }
-  }, [auth]);
+  
 
   return (
-    <div>
-      <title>Edit Recipe | {GLOBAL_CONSTANT.APP_NAME}</title>
-      <meta
-        name="description"
-        content={`Edit Recipe | ${GLOBAL_CONSTANT.APP_NAME}`}
-      />
-      <link rel="icon" href="/favicon.ico" />
-
+  
       <div>
         <form className={styles.form} onSubmit={handleSubmit}>
           {auth.token && <h3>Edit Recipe</h3>}
@@ -172,13 +161,12 @@ const Recipe = () => {
           <input
             type="submit"
             value="submit"
-            disabled={
-              !(category && city && address && title && text && mobile && age)
-            }
+           
+          
           />
         </form>
       </div>
-    </div>
+    
   );
 };
 

@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import Table from "../Components/Table";
 import { GLOBAL_CONSTANT } from "../config/GlobalConstant";
 import { getRecipes } from "../redux/actions/recipeAction";
-
+import Adminlayout from "../components/Adminlayout";
+import SideNavbar from "../components/SideNavbar";
 const Dashboard = () => {
   const [tableData, setTableData] = useState([]);
   const dispatch = useDispatch();
   const { recipe, auth } = useSelector((state) => state);
-  const router = useRouter();
+  //const router = useRouter();
 
   useEffect(() => {
     dispatch(getRecipes());
@@ -22,25 +23,23 @@ const Dashboard = () => {
     console.log(recipe);
   }, [recipe]);
 
-  useEffect(() => {
-    if (!auth.token) {
-      router.push("/");
-    }
-  }, [auth]);
+  // useEffect(() => {
+  //   if (!auth.token) {
+  //     router.push("/");
+  //   }
+  // }, [auth]);
 
   return (
+    
+    <Adminlayout>
     <div>
-      <title>Dashboard | {GLOBAL_CONSTANT.APP_NAME}</title>
-      <meta
-        name="description"
-        content={`Dashboard | ${GLOBAL_CONSTANT.APP_NAME}`}
-      />
-      <link rel="icon" href="/favicon.ico" />
-
-      <div style={{ marginTop: "0rem", marginBottom: "0rem" }}>
+        <div style={{ marginTop: "0rem", marginBottom: "0rem" }}>
         <Table data={tableData} rowsPerPage={5} />
       </div>
+      
     </div>
+  </Adminlayout>
+    
   );
 };
 

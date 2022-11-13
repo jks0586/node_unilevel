@@ -8,12 +8,7 @@ import {
 
 export const addRecipe = (data, router) => async (dispatch) => {
   let media = [];
-  dispatch({
-    type: GLOBAL_CONSTANT.ALERT,
-    payload: {
-      loading: true,
-    },
-  });
+  
 
   if (data.img) {
     media = await imageUpload(data.img);
@@ -22,7 +17,7 @@ export const addRecipe = (data, router) => async (dispatch) => {
   data = { ...data, ["lat"]: "00.00" };
   data = { ...data, ["lng"]: "00.00" };
   console.log(data);
-  const response = await postDataApi("product/create", data);
+  const response = await postDataApi("posts/create", data);
 
   if (response && response.status) {
     dispatch({
@@ -41,37 +36,11 @@ export const addRecipe = (data, router) => async (dispatch) => {
     });
   }
 
-  // const response = await postDataApi("product/create", data);
-  // console.log(data);
-  // const response = await axios.post(
-  //   GLOBAL_CONSTANT.APP_URL + "product/create",
-  //   data,
-  //   {
-  //     headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
-  //   }
-  // );
-  // const res = await response.data;
-
-  // if (res && res.status) {
-  //   dispatch({
-  //     type: GLOBAL_CONSTANT.ADD_RECIPE,
-  //     payload: res.data,
-  //   });
-  //   dispatch({
-  //     type: GLOBAL_CONSTANT.ALERT,
-  //     payload: { success: res.message },
-  //   });
-  //   router.back();
-  // } else {
-  //   dispatch({
-  //     type: GLOBAL_CONSTANT.ALERT,
-  //     payload: { error: res.message },
-  //   });
-  // }
+  
 };
 
 export const getRecipes = () => async (dispatch) => {
-  const response = await getDataApi("product/list");
+  const response = await getDataApi("posts");
   //console.log(response);
   if (response && response.status) {
     dispatch({
@@ -88,7 +57,7 @@ export const deleteRecipe = (data) => async (dispatch) => {
     payload: data,
   });
 
-  const response = await deleteDataApi(`product/${data._id}/delete`);
+  const response = await deleteDataApi(`Delete/${data._id}/Posts`);
 
   if (response && response.status) {
     dispatch({
@@ -123,7 +92,7 @@ export const editRecipe = (data, router) => async (dispatch) => {
   data = { ...data, ["lat"]: "00.00" };
   data = { ...data, ["lng"]: "00.00" };
 
-  const response = await putDataApi(`product/${data._id}/update`, data);
+  const response = await putDataApi(`Update/${data._id}/Posts`, data);
 
   if (response && response.status) {
     dispatch({

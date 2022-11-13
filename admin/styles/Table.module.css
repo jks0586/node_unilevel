@@ -1,7 +1,7 @@
 .table {
   border-collapse: collapse;
   border: none;
-  width: 100%;
+  width: 60%;
 }
 
 .tableRowHeader {
@@ -55,4 +55,13 @@
 }
 .addItem > button {
   margin: 1.5rem;
+}
+
+.body{
+  background: #c9f02f; 
+  background: -webkit-linear-gradient(to right, #c5fc7d, #cff083);
+   width:1350px;
+   height: 900px;
+  background: linear-gradient(to right, #e3f3a9, #c3c7bd); 
+
 }

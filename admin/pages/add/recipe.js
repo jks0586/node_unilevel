@@ -3,22 +3,21 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 import { addRecipe } from "../../redux/actions/recipeAction";
-import styles from "../../styles/Recipe.module.css";
+import styles from "../../styles/form.module.css";
+import Adminlayout from "../../components/Adminlayout";
+import Button from "react-bootstrap/Button";
 const Recipe = () => {
   const initalState = {
-    category: "",
-    address: "",
+    age:"",
     city: "",
-    title: "",
-    text: "",
-    age: "",
     mobile: "",
+    firstname:"",
     lat: "00.00",
     lng: "00.00",
     img: [],
   };
   const [userData, setUserData] = useState(initalState);
-  const { category, address, city, title, text, age, mobile, lng, lat, img } =
+  const { category, address, city, title, text, age, mobile, firstname, lng, lat, img } =
     userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -52,112 +51,77 @@ const Recipe = () => {
     setUserData({ ...userData, ["img"]: newArr });
   };
 
-  useEffect(() => {
-    if (!auth.token) {
-      router.push("/");
-    }
-  }, [auth]);
+
   return (
-    <div>
-      <title>Add Recipe | {GLOBAL_CONSTANT.APP_NAME}</title>
-      <meta
-        name="description"
-        content={`Edit Recipe | ${GLOBAL_CONSTANT.APP_NAME}`}
-      />
+    <Adminlayout>
+     
+     <div className={styles.body}>
+     <div className={styles.form}>
+     <h1 className={styles.header}> Add Form</h1>
+     <div className="center">
+     <form className="form-horizontal" onSubmit={handleSubmit}>
+      {auth.token && <h3>Add Recipe</h3>}
 
-      <link rel="icon" href="/favicon.ico" />
+       <div className="form-group">
+       <label htmlFor="name">FirstName</label>
+       <input type="text" name="firstname" className="form-control" placeholder="Please Enter Your Name"  onChange={handleChange} value={firstname} />
+       </div> 
 
-      <div>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          {auth.token && <h3>Add Recipe</h3>}
-
-          <select
-            id="category"
-            name="category"
-            onChange={handleChange}
-            value={category}
-          >
-            <option value="call1">Select Category</option>
-            <option value="call1">call1</option>
-            <option value="call2">call2</option>
-            <option value="call3">call3</option>
-            <option value="call4">call4</option>
+       <div>
+       <label htmlFor="city">City</label>
+       <select className="form-control" id="city" name="city"  onChange={handleChange}  value={city} >
+           <option value="call1">Select City</option>
+            <option value="Aligarh">Aligarh</option>
+            <option value="Kanpur">Kanpur</option>
+            <option value="Lucknow">Lucknow</option>
+            <option value="Delhi">Delhi</option>
           </select>
-          <input
-            type="text"
-            name="address"
-            placeholder="Please Enter Your Address"
-            onChange={handleChange}
-            value={address}
-          />
-          <input
-            type="text"
-            name="city"
-            placeholder="Please Enter Your City"
-            onChange={handleChange}
-            value={city}
-          />
-          <input
-            type="number"
-            name="mobile"
-            placeholder="Please Enter Your Mobile"
-            onChange={handleChange}
-            value={mobile}
-          />
+          </div>
 
-          <input
+          <div>
+          <label htmlFor="city">Number</label>
+          <input type="number" className="form-control" name="mobile" placeholder="Please Enter Your Mobile"  onChange={handleChange} value={mobile} />
+          </div>
+          
+          <div>
+          <label htmlFor="age">Age</label>
+           <input
             type="number"
+            className="form-control"
             name="age"
             placeholder="Please Enter Your Age"
             onChange={handleChange}
             value={age}
           />
+          </div>
 
-          <input
-            type="text"
-            name="title"
-            placeholder="Please Enter Your Title"
-            onChange={handleChange}
-            value={title}
-          />
-
+          <div>
+          <label htmlFor="text">Description</label>
           <textarea
+          type="text"
+          className="form-control"
             id="text"
             name="text"
-            rows="5"
+            rows="7"
             placeholder="Please Enter Your Description"
             onChange={handleChange}
             value={text}
           />
-
-          <input
-            id="img"
-            name="img"
-            type="file"
-            accept="image/*"
-            placeholder="Please Enter Your Description"
-            onChange={handleChange}
-          />
-
-          <div>
-            {img.map((imgage, index) => (
-              <div key={index}>
-                <img src={URL.createObjectURL(imgage)} />
-                <span onClick={() => handleDelete(index)}>&times;</span>
-              </div>
-            ))}
           </div>
+          <br />
+        
+          <Button as="input" type="submit" value="Submit"  />
+      
 
-          <input
-            type="submit"
-            value="submit"
-            disabled={
-              !(category && city && address && title && text && mobile && age)
-            }
-          />
+         
         </form>
       </div>
-    </div>
+      </div>
+      </div>
+  
+    
+   
+      </Adminlayout>
   );
 };
 

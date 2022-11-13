@@ -27,21 +27,22 @@ const Table = ({ data, rowsPerPage }) => {
     });
   };
 
-  const handleAdd = (e) => {
+  const handleAdd = (e) => { 
     e.preventDefault();
     router.push("/add/recipe");
   };
 
-  const handleclick = (id) => {
-    router.push({
-      pathname: "/recipe",
-      query: { id: id },
-    });
-  };
+  // const handleclick = (id) => {
+  //   router.push({
+  //     pathname: "/recipe",
+  //     query: { id: id },
+  //   });
+  // };
 
   return (
     <>
-      <div className={styles.addItem}>
+    <div className={styles.body}>
+     <div className={styles.addItem}>
         <button className={styles.button} onClick={handleAdd}>
           Add
         </button>
@@ -49,13 +50,17 @@ const Table = ({ data, rowsPerPage }) => {
       <table className={styles.table} border="2" align="center">
         <thead className={styles.tableRowHeader}>
           <tr>
-            <th className={styles.tableHeader}>Country</th>
-            <th className={styles.tableHeader}>Capital</th>
-            <th className={styles.tableHeader}>Language</th>
+            <th className={styles.tableHeader}>City</th>
+            <th className={styles.tableHeader}>Adress</th>
+            <th className={styles.tableHeader}>Text</th>
+            <th className={styles.tableHeader}>age</th>
+            <th className={styles.tableHeader}>mobile</th>
+            
+            
           </tr>
         </thead>
         <tbody>
-          {slice.map((el) => (
+          {slice.map((el) => ( 
             <tr className={styles.tableRowItems} key={el._id}>
               <td
                 className={styles.tableCell}
@@ -81,8 +86,10 @@ const Table = ({ data, rowsPerPage }) => {
               </td>
             </tr>
           ))}
+          
         </tbody>
       </table>
+      </div>
     </>
   );
 };

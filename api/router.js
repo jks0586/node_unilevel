@@ -8,11 +8,17 @@ router.get("/", (req, res) => {
   res.send("heloo world");
 });
 
+// auth user
 router.post("/signup", AuthController.signup);
-router.post("/posts/create", PostsController.createPost);
 router.post("/signin", AuthController.signin);
+
+// Posts routes
+router.post("/posts/create", PostsController.createPost);
 router.get('/posts',PostsController.getPost);
 router.put('/posts/:id',PostsController.updatePost);
 router.delete('/posts/:id',PostsController.deletePost);
+
+
+// products 
 
 module.exports = router;
