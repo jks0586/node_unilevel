@@ -29,3 +29,16 @@ app.use("/", allRouter);
 app.listen(5000, () => {
   console.log("Server is listening on port 5000");
 });
+
+
+
+
+//add/product  api 
+//vendor_id 
+//store_id
+//name
+//price
+//discount
+//category _id
+//sub_cat_id
+//images-only 5 image are create

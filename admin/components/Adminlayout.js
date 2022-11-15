@@ -12,7 +12,7 @@ const Adminlayout = (props) => {
       </Head> 
       <div className="">
         <SideNavbar />
-        <div className="main-div">
+        <div className="main-div container">
             {props.children}
         </div>
       </div>

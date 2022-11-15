@@ -49,7 +49,7 @@ const Table = ({ data, rowsPerPage }) => {
       </div>
       <table className={styles.table} border="2" align="center">
         <thead className={styles.tableRowHeader}>
-          <tr>
+          <tr>  
             <th className={styles.tableHeader}>City</th>
             <th className={styles.tableHeader}>Adress</th>
             <th className={styles.tableHeader}>Text</th>
