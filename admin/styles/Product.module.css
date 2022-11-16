@@ -6,22 +6,24 @@
     background: linear-gradient(to right, #ecf5cd, #91e9f1); 
   
   } */
-/* .button {
+.button {
     padding: 0.5rem 0.5rem;
     width: 200px;
+    margin-inline-end: 0cm;
     border-radius: 2rem;
     color: #fff; 
+    margin: 10px;
     background: linear-gradient(35deg, #e66d6d, #efaeae);
     border: 0;
     cursor: pointer;
-  } */
+  }
 
 /* .addItem {
     display: flex;
     justify-content: flex-end;
   }  */
 
-.table {
+/* .table {
   border-collapse: collapse;
   border: none;
   width: 60%;
@@ -34,4 +36,4 @@
   background-color: burlywood;
   transition: all 0.25s ease;
   border-radius: 20px;
-}
+} */

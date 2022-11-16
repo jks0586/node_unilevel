@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getRecipes());
-  }, []);
+  }, []); 
 
   useEffect(() => {
     if (recipe && recipe.recipes) {

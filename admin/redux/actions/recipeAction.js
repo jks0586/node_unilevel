@@ -9,7 +9,9 @@ import {
 export const addRecipe = (data, router) => async (dispatch) => {
   let media = [];
   
-
+  // console.log(data);
+  // console.log(router);
+  // alert('aaaaa');
   if (data.img) {
     media = await imageUpload(data.img);
   }

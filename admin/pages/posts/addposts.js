@@ -1,23 +1,21 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "../../styles/addProduct.module.css";
+import {addPost} from "../../redux/actions/postAction"
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
-import { addRecipe } from "../../redux/actions/recipeAction";
-import styles from "../../styles/form.module.css";
-import Adminlayout from "../../components/Adminlayout";
-import Button from "react-bootstrap/Button";
-const Recipe = () => {
+const Addproduct = () => {
   const initalState = {
     age:"",
     city: "",
     mobile: "",
     firstname:"",
-    lat: "00.00",
-    lng: "00.00",
-    img: [],
+    
+   
+    // img: [],
   };
   const [userData, setUserData] = useState(initalState);
-  const { category, address, city, title, text, age, mobile, firstname, lng, lat, img } =
+  const { category, address, city, title, text, age, mobile, firstname,  } =
     userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -26,43 +24,44 @@ const Recipe = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "img") {
-      setUserData({ ...userData, [name]: [...img, e.target.files[0]] });
-    } else {
+    // if (name === "img") {
+    //   setUserData({ ...userData, [name]: [...img, e.target.files[0]] });
+    // } else
+     {
       setUserData({ ...userData, [name]: value });
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userData);
-    if (img.length === 0) {
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { error: "Please add at least one image" },
-      });
-    } else {
+    // console.log(userData);
+    // if (img.length === 0) {
+    //   dispatch({
+    //     type: GLOBAL_CONSTANT.ALERT,
+    //     payload: { error: "Please add at least one image" },
+    //   });
+   // } else
+    {
+     
+      dispatch(addPost(userData, router));
       alert('gggg');
-      dispatch(addRecipe(userData, router));
+      console.log(userData);
+      router.push("/post");
     }
   };
 
-  const handleDelete = (index) => {
-    const newArr = [...img];
-    newArr.splice(index, 1);
-    setUserData({ ...userData, ["img"]: newArr });
-  };
-
+  // const handleDelete = (index) => {
+  //   const newArr = [...img];
+  //   newArr.splice(index, 1);
+  //   setUserData({ ...userData, ["img"]: newArr });
+  // };
 
   return (
-    <Adminlayout>
+   
      
-     <div className={styles.body}>
-     <div className={styles.form}>
-     <h1 className={styles.header}> Add Form</h1>
-     <div className="center">
+     <div >
      <form className="form-horizontal" onSubmit={handleSubmit}>
-      {auth.token && <h3>Add Recipe</h3>}
+     
 
        <div className="form-group">
        <label htmlFor="name">FirstName</label>
@@ -112,19 +111,17 @@ const Recipe = () => {
           </div>
           <br />
         
-          <Button as="input" type="submit" value="Submit"  />
+          <input type="submit" value="submit" />
       
 
          
         </form>
       </div>
-      </div>
-      </div>
+      
+      );
+};
   
     
    
-      </Adminlayout>
-  );
-};
-
-export default Recipe;
+    
+export default Addproduct;

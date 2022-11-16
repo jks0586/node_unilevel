@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import auth from "./authReducer";
-import recipe from "./recipeReducer";
+import posts from "./postReducer";
 import alert from "./alertReducer";
 
 export default combineReducers({
   auth,
-  recipe,
+  posts,
   alert,
 });

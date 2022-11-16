@@ -1,13 +1,13 @@
 import React from "react";
 import Adminlayout from "../components/Adminlayout";
 import Product from "../components/Product";
+import Navbar from "../components/Navbar"
 
 const DashProduct = () => {
   return (
     <Adminlayout>
-      <div>
-        <Product />
-      </div>
+    <Navbar />
+     <Product />
     </Adminlayout>
   );
 };

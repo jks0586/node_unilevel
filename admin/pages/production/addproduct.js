@@ -1,12 +1,31 @@
 import React from "react";
 import Adminlayout from "../../components/Adminlayout";
+import { addPost } from "../../redux/actions/postAction";
 import styles from "../../styles/addProduct.module.css";
 
 const Addproduct = () => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+     
+  //   console.log(userData);
+
+  //   if (img.length === 0) {
+  //     dispatch({
+  //       type: GLOBAL_CONSTANT.ALERT,
+  //       payload: { error: "Please add at least one image" },
+  //     });
+  //   } else {
+  //     alert('gggg');
+  //     dispatch(addPost(userData, router));
+  //   }
+  // };
+
+
+
   return (
     <Adminlayout>
       <div>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <h3>Add Product</h3>
 
           <input
@@ -29,11 +48,7 @@ const Addproduct = () => {
             <option value="Industrial Product">Industrial Product</option>
           </select>
 
-          <input
-            type="number"
-            name="discount"
-            placeholder="Please Enter Your Discount"
-          />
+         
 
           <textarea
             id="text"

@@ -4,8 +4,9 @@ export const GLOBAL_CONSTANT = {
   TOKEN: "TOKEN",
   AUTH: "AUTH",
   ALERT: "ALERT",
-  posts_create: "posts_create",
-  posts: " posts",
+  POST_CREATE: "POST_CREATE",
+  POSTS: " POSTS",
+  DELETE_POSTS: "DELETE_POSTS",
   BASE_URL: "http://localhost:5000/",
 };
 export const DeleteData = (data, id) => {
@@ -13,7 +14,3 @@ export const DeleteData = (data, id) => {
   return newData;
 };
 
-export const LOADING_START = "LOADING_START";
-export const LOADING_END = "LOADING_END";
-export const REQUEST_SUCCESS = "REQUEST_SUCCESS";
-export const REQUEST_ERROR = "REQUEST_ERROR";

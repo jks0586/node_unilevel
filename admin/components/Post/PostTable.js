@@ -5,7 +5,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 import { useRouter } from "next/router";
-import styles from "../styles/Product.module.css";
+import styles from "../../styles/Product.module.css";
 
 const Product = () => {
   const router = useRouter();
@@ -19,16 +19,15 @@ const Product = () => {
   };
   const handleAdd = (e) => {
     e.preventDefault();
-    router.push("/production/addproduct");
+    router.push("/posts/addposts");
   };
 
   const [columnDefs] = useState([
-    { field: "Name", filter: "agTextColumnFilter" },
-    { field: "Price", filter: "agNumberColumnFilter" },
-    { field: "Category", filter: true },
-    { field: "Discont", filter: "agNumberColumnFilter" },
-    
-
+    { field: "firstName", filter: "agTextColumnFilter" },
+    { field: "age", filter: "agNumberColumnFilter" },
+    { field: "city", filter: true },
+    { field: "mobile", filter: "agNumberColumnFilter" },
+    { field: "text", filter: "agNumberColumnFilter" },
     { field: "Action" },
   ]);
 

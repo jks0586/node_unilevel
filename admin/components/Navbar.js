@@ -6,7 +6,7 @@ const Navbar = () => {
       <nav className={styles.navbar}>
         <input id={styles.navtoggle} type="checkbox" />
         <div className={styles.logo}>
-          FOOD<strong>MOOD</strong>
+          Product<strong>Product</strong>
         </div>
         <ul className={styles.links}>
           <li>
@@ -20,7 +20,7 @@ const Navbar = () => {
             <a href="register">REGISTER</a>
           </li>
         </ul>
-        <label htmlFor={styles.navtoggle} className={styles.iconburger}>
+        <label htmlFor={styles.navtoggle} className={styles.iconproduct}>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
           <div className={styles.line}></div>
