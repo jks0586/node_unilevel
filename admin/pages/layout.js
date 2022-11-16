@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/form.module.css";
+import styles from "../styles/Nabvar.module.css";
 
 const Layout = () => {
   return (

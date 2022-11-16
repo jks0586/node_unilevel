@@ -1,12 +1,12 @@
-.body{
+/* .body{
     background: #c9f02f; 
     background: -webkit-linear-gradient(to right, #5deffa, #e2f8ae);
      width:1350px;
      height: 900px;
     background: linear-gradient(to right, #ecf5cd, #91e9f1); 
   
-  }
-  .button {
+  } */
+/* .button {
     padding: 0.5rem 0.5rem;
     width: 200px;
     border-radius: 2rem;
@@ -14,21 +14,24 @@
     background: linear-gradient(35deg, #e66d6d, #efaeae);
     border: 0;
     cursor: pointer;
-  }
+  } */
 
-  .addItem {
+/* .addItem {
     display: flex;
     justify-content: flex-end;
-  } 
+  }  */
 
-  .table {
-    border-collapse: collapse;
-    border: none;
-    width: 60%;
-  }
+.table {
+  border-collapse: collapse;
+  border: none;
+  width: 60%;
+  margin-left: 100px;
+  height: 4000;
+  width: 600;
+}
 
-  .tableRowHeader {
-    background-color: burlywood;
-    transition: all 0.25s ease;
-    border-radius: 20px;
-  }
+.tableRowHeader {
+  background-color: burlywood;
+  transition: all 0.25s ease;
+  border-radius: 20px;
+}
