@@ -9,6 +9,8 @@ export const GLOBAL_CONSTANT = {
   DELETE_POSTS: "DELETE_POSTS",
   BASE_URL: "http://localhost:5000/",
 };
+
+
 export const DeleteData = (data, id) => {
   const newData = data.filter((d) => d._id !== id);
   return newData;

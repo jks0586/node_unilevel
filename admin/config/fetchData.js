@@ -52,8 +52,9 @@ export const getDataApi = async (url) => {
 };
 
 export const deleteDataApi = async (url) => {
+  alert(url);
   const response = await axios
-    .delete(GLOBAL_CONSTANT.BASE_URL + url, {
+    .delete(GLOBAL_CONSTANT.BASE_URL+'posts/' + url, {
       headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
     })
     .then((response) => {

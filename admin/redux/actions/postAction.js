@@ -46,25 +46,25 @@ export const addPost = (data, router) => async (dispatch) => {
     }
   };
   
-  export const deletePost = (data) => async (dispatch) => {
-    dispatch({
-      type: GLOBAL_CONSTANT.DELETE_POSTS,
-      payload: data,
-    });
+  export const deletePost = (id) => async (dispatch) => {
+    // dispatch({
+    //   type: GLOBAL_CONSTANT.DELETE_POSTS,
+    //   payload: id,
+    // });
+  // console.log(id);
+    const response = await deleteDataApi(id);
   
-    const response = await deleteDataApi(`Delete/${data._id}/Posts`);
-  
-    if (response && response.status) {
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { success: response.message },
-      });
-    } else {
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { error: response.message },
-      });
-    }
+    // if (response && response.status) {
+    //   dispatch({
+    //     type: GLOBAL_CONSTANT.ALERT,
+    //     payload: { success: response.message },
+    //   });
+    // } else {
+    //   dispatch({
+    //     type: GLOBAL_CONSTANT.ALERT,
+    //     payload: { error: response.message },
+    //   });
+    // }
   };
   
   export const editPost = (data, router) => async (dispatch) => {

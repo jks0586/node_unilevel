@@ -1,26 +1,19 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "../../styles/addProduct.module.css";
-import { addPost } from "../../redux/actions/postAction";
-import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
+import { editPost } from "../../redux/actions/postAction";
 
-
-const Addproduct = () => {
+const editpost = () => {
   const initalState = {
     firstName: "",
     mobile: "",
     title: "",
     description: "",
     city: "",
-
-};
-
-
-
+  };
 
   const [userData, setUserData] = useState(initalState);
-  const { city, title, description,  mobile, firstName } = userData;
+  const { city, title, description, mobile, firstName } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -49,24 +42,17 @@ const Addproduct = () => {
     //   });
     // } else
     {
-      dispatch(addPost(userData, router));
+      dispatch(editPost(userData, router));
       alert("Submit");
       console.log(userData);
-     router.push("/post");
+      router.push("/post");
     }
   };
 
-  // const handleDelete = (index) => {
-  //   const newArr = [...img];
-  //   newArr.splice(index, 1);
-  //   setUserData({ ...userData, ["img"]: newArr });
-  // };
-
-  // const handleDelete = (index) => {
-  //   const newArr = [...img];
-  //   newArr.splice(index, 1);
-  //   setUserData({ ...userData, ["img"]: newArr });
-  // };
+  
+//   useEffect(() => {
+//     dispatch(getRecipes());
+//   }, []);
 
   return (
     <div>
@@ -123,8 +109,6 @@ const Addproduct = () => {
           />
         </div>
 
-        
-
         <div>
           <label htmlFor="text">Description</label>
           <textarea
@@ -146,4 +130,4 @@ const Addproduct = () => {
   );
 };
 
-export default Addproduct;
+export default editpost;

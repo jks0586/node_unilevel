@@ -15,6 +15,7 @@ const postReducer = (state = initalState, action) => {
         result: action.payload.length,
       };
 
+
     case GLOBAL_CONSTANT.DELETE_POSTS:
       return {
         ...state,
@@ -24,6 +25,8 @@ const postReducer = (state = initalState, action) => {
     default:
       return state;
   }
+  
+  
 };
 
 export default postReducer;

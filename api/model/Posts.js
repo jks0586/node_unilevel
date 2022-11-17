@@ -8,7 +8,19 @@ const PostSchema=mongoose.Schema({
     description:{
         type:"String",
         required:true
+    },
+    firstName:{
+        type:"String",
+        required:true
+    },
+    city:{
+        type:"String",
+        required:true
+        
     }
+    
+
+
 });
 
 
