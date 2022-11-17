@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/nabvar.module.css";
+
 const Navbar = () => {
   return (
     <>
@@ -10,16 +11,17 @@ const Navbar = () => {
         </div>
         <ul className={styles.links}>
           <li>
-            <a href="layout">Home</a>
+            <a layout="#">Home</a>
           </li>
           <li>
-            <a href="login">LOGIN</a>
+            <a login="#">LOGIN</a>
           </li>
 
           <li>
-            <a href="register">REGISTER</a>
+            <a register="#">REGISTER</a>
           </li>
         </ul>
+
         <label htmlFor={styles.navtoggle} className={styles.iconproduct}>
           <div className={styles.line}></div>
           <div className={styles.line}></div>

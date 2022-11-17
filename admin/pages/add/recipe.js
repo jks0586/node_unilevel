@@ -8,17 +8,28 @@ import Adminlayout from "../../components/Adminlayout";
 import Button from "react-bootstrap/Button";
 const Recipe = () => {
   const initalState = {
-    age:"",
+    age: "",
     city: "",
     mobile: "",
-    firstname:"",
+    firstname: "",
     lat: "00.00",
     lng: "00.00",
     img: [],
   };
   const [userData, setUserData] = useState(initalState);
-  const { category, address, city, title, text, age, mobile, firstname, lng, lat, img } =
-    userData;
+  const {
+    category,
+    address,
+    city,
+    title,
+    text,
+    age,
+    mobile,
+    firstname,
+    lng,
+    lat,
+    img,
+  } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -42,7 +53,7 @@ const Recipe = () => {
         payload: { error: "Please add at least one image" },
       });
     } else {
-      alert('gggg');
+      alert("gggg");
       dispatch(addRecipe(userData, router));
     }
   };
@@ -53,77 +64,89 @@ const Recipe = () => {
     setUserData({ ...userData, ["img"]: newArr });
   };
 
-
   return (
     <Adminlayout>
-     
-     <div className={styles.body}>
-     <div className={styles.form}>
-     <h1 className={styles.header}> Add Form</h1>
-     <div className="center">
-     <form className="form-horizontal" onSubmit={handleSubmit}>
-      {auth.token && <h3>Add Recipe</h3>}
+      <div className={styles.body}>
+        <div className={styles.form}>
+          <h1 className={styles.header}> Add Form</h1>
+          <div className="center">
+            <form className="form-horizontal" onSubmit={handleSubmit}>
+              {auth.token && <h3>Add Recipe</h3>}
 
-       <div className="form-group">
-       <label htmlFor="name">FirstName</label>
-       <input type="text" name="firstname" className="form-control" placeholder="Please Enter Your Name"  onChange={handleChange} value={firstname} />
-       </div> 
+              <div className="form-group">
+                <label htmlFor="name">FirstName</label>
+                <input
+                  type="text"
+                  name="firstname"
+                  className="form-control"
+                  placeholder="Please Enter Your Name"
+                  onChange={handleChange}
+                  value={firstname}
+                />
+              </div>
 
-       <div>
-       <label htmlFor="city">City</label>
-       <select className="form-control" id="city" name="city"  onChange={handleChange}  value={city} >
-           <option value="call1">Select City</option>
-            <option value="Aligarh">Aligarh</option>
-            <option value="Kanpur">Kanpur</option>
-            <option value="Lucknow">Lucknow</option>
-            <option value="Delhi">Delhi</option>
-          </select>
+              <div>
+                <label htmlFor="city">City</label>
+                <select
+                  className="form-control"
+                  id="city"
+                  name="city"
+                  onChange={handleChange}
+                  value={city}
+                >
+                  <option value="call1">Select City</option>
+                  <option value="Aligarh">Aligarh</option>
+                  <option value="Kanpur">Kanpur</option>
+                  <option value="Lucknow">Lucknow</option>
+                  <option value="Delhi">Delhi</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="city">Number</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="mobile"
+                  placeholder="Please Enter Your Mobile"
+                  onChange={handleChange}
+                  value={mobile}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="age">Age</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  name="age"
+                  placeholder="Please Enter Your Age"
+                  onChange={handleChange}
+                  value={age}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="text">Description</label>
+                <textarea
+                  type="text"
+                  className="form-control"
+                  id="text"
+                  name="text"
+                  rows="7"
+                  placeholder="Please Enter Your Description"
+                  onChange={handleChange}
+                  value={text}
+                />
+              </div>
+              <br />
+
+              <Button as="input" type="submit" value="Submit" />
+            </form>
           </div>
-
-          <div>
-          <label htmlFor="city">Number</label>
-          <input type="number" className="form-control" name="mobile" placeholder="Please Enter Your Mobile"  onChange={handleChange} value={mobile} />
-          </div>
-          
-          <div>
-          <label htmlFor="age">Age</label>
-           <input
-            type="number"
-            className="form-control"
-            name="age"
-            placeholder="Please Enter Your Age"
-            onChange={handleChange}
-            value={age}
-          />
-          </div>
-
-          <div>
-          <label htmlFor="text">Description</label>
-          <textarea
-          type="text"
-          className="form-control"
-            id="text"
-            name="text"
-            rows="7"
-            placeholder="Please Enter Your Description"
-            onChange={handleChange}
-            value={text}
-          />
-          </div>
-          <br />
-        
-          <Button as="input" type="submit" value="Submit"  />
-      
-
-         
-        </form>
+        </div>
       </div>
-      </div>
-      </div>
-  
-    
-   
-      </Adminlayout>
+    </Adminlayout>
   );
 };
 

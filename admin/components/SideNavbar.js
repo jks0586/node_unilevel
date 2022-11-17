@@ -18,7 +18,7 @@ import styles from "../styles/form.module.css";
 function SideNavbar() {
   return (
     <>
-      <Disclosure as="nav" >
+      <Disclosure as="nav">
         <Disclosure.Button className="absolute top-4 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-gray-800 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
           <GiHamburgerMenu
             className="block md:hidden h-6 w-6"
@@ -31,7 +31,7 @@ function SideNavbar() {
               <Link href="#">Online Site</Link>
             </h1>
 
-            <div >
+            <div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
@@ -48,7 +48,7 @@ function SideNavbar() {
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineAnalytics className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
-                  <Link href="post">Posts</Link>
+                  <Link href="/post">Posts</Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">

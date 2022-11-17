@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <Adminlayout>
       <Navbar />
-      <Layout />
+      {/* <Layout /> */}
     </Adminlayout>
   );
 }

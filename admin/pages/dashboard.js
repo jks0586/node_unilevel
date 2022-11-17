@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getRecipes());
-  }, []); 
+  }, []);
 
   useEffect(() => {
     if (recipe && recipe.recipes) {
@@ -31,18 +31,14 @@ const Dashboard = () => {
   // }, [auth]);
 
   return (
-    
     <Adminlayout>
-    <div>
+      <div>
         <div style={{ marginTop: "0rem", marginBottom: "0rem" }}>
-        <Table data={tableData} rowsPerPage={5} />
+          <Table data={tableData} rowsPerPage={5} />
+        </div>
+        <Product />
       </div>
-      <Product />
-      
-    </div>
-   
-  </Adminlayout>
-    
+    </Adminlayout>
   );
 };
 
