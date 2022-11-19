@@ -4,7 +4,7 @@ import { GLOBAL_CONSTANT } from "./GlobalConstant";
 export const postDataApi = async (url, data) => {
   // console.log(url);
   // console.log(data);
-  // alert('fddgdf');
+  // alert('fddgdf'); 
   // console.log(url, data, "fetchData");
   const response = await axios
     .post(GLOBAL_CONSTANT.BASE_URL + url, data, {
@@ -37,6 +37,7 @@ export const putDataApi = async (url, data) => {
     });
   return response;
 };
+
 export const getDataApi = async (url) => {
   const response = await axios
     .get(GLOBAL_CONSTANT.BASE_URL + url, {
@@ -50,6 +51,25 @@ export const getDataApi = async (url) => {
     });
   return response;
 };
+
+
+// export const findSinglePost = async (url) => {
+//   const response = await axios
+//     .get(GLOBAL_CONSTANT.BASE_URL + url, {
+//       headers: { Authorization: localStorage.findSinglePost(GLOBAL_CONSTANT.TOKEN) },
+//     })
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+//   return response;
+// };
+
+
+
+
 
 export const deleteDataApi = async (url) => {
   alert(url);
@@ -68,7 +88,7 @@ export const deleteDataApi = async (url) => {
 
 // export const imageUpload = async (images) => {
 //   let imgArr = [];
-//   for (const item of images) {
+//   for (const item of images) { 
 //     const formData = new FormData();
 
 //     if (item.camera) {

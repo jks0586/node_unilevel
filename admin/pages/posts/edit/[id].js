@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editPost, getPost } from "../../redux/actions/postAction";
-
+import { editPost,  getPost,findSingle1Post } from "../../../redux/actions/postAction";
+import { getDataApi } from "../../../config/fetchData";
+import axios from "axios";
 const editpost = () => {
 
   const pageroute=useRouter();
@@ -14,13 +15,14 @@ const editpost = () => {
     description: "",
     city: "",
   };
-  
+
 
   const [userData, setUserData] = useState(initalState);
   const { city, title, description, mobile, firstName } = userData;
-  const { auth } = useSelector((state) => state);
+  const { post, auth } = useSelector((state) => state);
   const dispatch = useDispatch();
-  
+  const router = useRouter()
+
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
@@ -36,30 +38,51 @@ const editpost = () => {
     }
   };
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(userData);
-    // if (img.length === 0) {
-    //   dispatch({
-    //     type: GLOBAL_CONSTANT.ALERT,
-    //     payload: { error: "Please add at least one image" },
-    //   });
-    // } else
+    if (pageroute.query.id!=undefined) {
+        // alert(pageroute.query.id);
+        dispatch(editPost(pageroute.query.id, userData,router));
+        alert("update");
+        router.push("/post");
+    } else
     {
       dispatch(editPost(userData, router));
-      alert("Submit");
-      console.log(userData); 
+      alert("update");
+      // console.log(userData);
       router.push("/post");
+     
+      
     }
-  };
+  }; 
 
- 
-  
   useEffect(() => {
-    
-    console.log(pageroute.query);
-    // dispatch(getPost());
-  }, []);
+    if(pageroute.query.id!=undefined){
+        // setUserData({ ...userData, ['firstName']: 'jjjlkjlljkl' });
+        let _id=pageroute.query.id;
+        const fetchdata=getDataApi('posts/'+_id).then(respose=>{
+            // console.log(respose);
+            setUserData({ ...userData, ['title']:respose.title,['firstName']:respose.firstName,['city']:respose.city,['description']:respose.description,});
+            // setUserData(...userData,respose);
+        });
+        // console.log(fetchdata);
+        // setUserData({ ...userData, fetchdata });
+        // const response = getDataApi("posts/"+_id);
+        // console.log(response);
+        // if (response && response.status) {
+        // return response;
+
+        // } else {
+        // }
+    }
+  }, [pageroute.query.id]);
+
+
+
+
 
   return (
     <div>
@@ -104,17 +127,7 @@ const editpost = () => {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="number">Number</label>
-          <input
-            type="number"
-            className="form-control"
-            name="mobile"
-            placeholder="Please Enter Your Mobile"
-            onChange={handleChange}
-            value={mobile}
-          />
-        </div>
+       
 
         <div>
           <label htmlFor="text">Description</label>

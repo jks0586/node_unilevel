@@ -23,6 +23,7 @@ router.post("/signin", AuthController.signin);
 router.post("/posts/create", PostsController.createPost);
 router.get('/posts',PostsController.getPost);
 router.put('/posts/:id',PostsController.updatePost);
+router.get('/posts/:id',PostsController.findSinglePost);
 router.delete('/posts/:id',PostsController.deletePost);
 
 

@@ -21,6 +21,8 @@ const Product = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
+
+
   const getRowId = (params) => params.data.id;
   //const gridRef = useRef(); //for accessing Grid's API
   const [rowData, setRowData] = useState([
@@ -28,7 +30,7 @@ const Product = () => {
     "description",
     "firstName",
     "city",
-  ]); // Set rowData to Array of Objects, one Object per Row
+  ]);  // Set rowData to Array of Objects, one Object per Row
   //const [tableData, setRowData] = useState(["title", "description"]);
   const defaultColDef = {
     resizable: true,
@@ -57,10 +59,12 @@ const Product = () => {
   };
 
   const handleEdit = (id) => {
-    router.push({
-      pathname: "/posts/editpost",
-  //query: { id: recipe._id },
-    });
+    // router.push({
+    // pathname: "/posts/editpost",
+    // query: { id: id },
+    // });
+    router.push('/posts/edit/'+id);
+    
   };
 
   const onGridReady = useCallback((params) => {

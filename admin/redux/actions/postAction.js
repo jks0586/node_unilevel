@@ -1,4 +1,4 @@
-import { deleteDataApi, getDataApi, postDataApi, putDataApi } from "../../config/fetchData";
+import { deleteDataApi, getDataApi, postDataApi, putDataApi, findSinglePost } from "../../config/fetchData";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
 export const addPost = (data, router) => async (dispatch) => {
@@ -34,6 +34,20 @@ export const addPost = (data, router) => async (dispatch) => {
     }
   };
   
+  export const findSingle1Post = (id) => async (dispatch) => {
+    
+    const response = await getDataApi("posts/"+id);
+    // console.log(response);
+    if (response && response.status) {
+      // return response;
+      dispatch({
+        type: GLOBAL_CONSTANT.POSTS,
+        payload: response.data,
+      });
+    } else {
+    }
+  };
+
   export const getPost = () => async (dispatch) => {
     const response = await getDataApi("posts");
     //console.log(response);
@@ -67,14 +81,15 @@ export const addPost = (data, router) => async (dispatch) => {
     // }
   };
   
-  export const editPost = (data, router) => async (dispatch) => {
+  export const editPost = (id,data, router) => async (dispatch) => {
     let media = [];
-    dispatch({
-      type: GLOBAL_CONSTANT.ALERT,
-      payload: {
-        loading: true,
-      },
-    });
+    console.log(data);
+    // dispatch({
+    //   type: GLOBAL_CONSTANT.ALERT,
+    //   payload: {
+    //     loading: true,
+    //   },
+    // });
   
     // if (data.img) {
     //   let imageData = data.img.filter((file) => file.public_id == null);
@@ -87,18 +102,18 @@ export const addPost = (data, router) => async (dispatch) => {
     // data = { ...data, ["lat"]: "00.00" };
     // data = { ...data, ["lng"]: "00.00" };
   
-    const response = await putDataApi(`Update/${data._id}/Posts`, data);
+    const response = await putDataApi(`posts/${id}`, data);
   
-    if (response && response.status) {
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { success: response.message },
-      });
-    } else {
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { error: response.message },
-      });
-    }
+    // if (response && response.status) {
+    //   dispatch({
+    //     type: GLOBAL_CONSTANT.ALERT,
+    //     payload: { success: response.message },
+    //   });
+    // } else {
+    //   dispatch({
+    //     type: GLOBAL_CONSTANT.ALERT,
+    //     payload: { error: response.message },
+    //   });
+    // }
   };
   
