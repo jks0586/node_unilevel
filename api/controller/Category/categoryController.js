@@ -2,29 +2,49 @@ const Category = require("../../model/Category/CategoryModel");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
+const uploadImg = multer().single("image");
 
-const add_category = async (req, res) => {
-  // console.log(req.body);
+const add_image = async (req, res) => {
+
+  //for image 
+  // var storage = multer.diskStorage({
+  //   destination: function (req, file, cb) {
+  //     cb(null, "uploads");
+  //   },
+  //   filename: function (req, file, cb) {
+  //     cb(null, Date.now() + "-" + file.originalname);
+  //   },
+  //   });
+  //   var upload = multer({ storage: storage });
+   };
+
+   const add_category = async (req, res) => {
+  
   try {
-    if (req.body.length == 0) {
-      // return res.json({ status: "error", error: "Product  is required" });
-    }
+      req.body.image = req.file.path;
 
-    var category = new category({
-      //    vendor_id:req.vendor_id,
+      var category = new Category({
       name: req.body.name,
       quality: req.body.quality,
-    });
+      title: req.body.title,
+      status: req.body.status,
+      description: req.body.description,
+      image: req.body.image,
+      });
 
     const category_data = await category.save();
     res
       .status(200)
-      .send({ success: true, msg: "category Details", data: category_data });
+      .send({ success: true, msg: "Category Details", data: category_data });
   } catch (error) {
     res.status(400).send({ success: false, msg: error.message });
   }
 };
 
+
 module.exports = {
   add_category,
+  uploadImg,
+  //add_image,
+  
 };

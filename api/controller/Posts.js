@@ -17,7 +17,6 @@ exports.createPost = async (req, res) => {
 };
 
 //Getting all posts
-
 exports.getPost = async (req, res) => {
   try {
     const posts = await Posts.find();

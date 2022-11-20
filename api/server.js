@@ -24,6 +24,9 @@ mongoose
     process.exit(-1);
   });
 
+//use image upload 
+app.use('/uploads', express.static('./uploads'));
+
 app.use("/", allRouter);
 
 app.listen(5000, () => {
@@ -33,12 +36,3 @@ app.listen(5000, () => {
 
 
 
-//add/product  api 
-//vendor_id 
-//store_id
-//name
-//price
-//discount
-//category _id
-//sub_cat_id
-//images-only 5 image are create

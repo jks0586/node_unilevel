@@ -7,7 +7,17 @@ const CategoryController = require("./controller/Category/categoryController");
 const User = require("./model/User");
 const multer = require("multer");
 const path = require("path");
-const upload = multer({ dest: "uploads/" });
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+     cb(null, 'uploads');
+  },
+  filename: function (req, file, cb) {
+     cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+const upload = multer({ storage: storage });
+
 const auth = require("./controller/Auth");
 
 router.get("/", (req, res) => {
@@ -27,30 +37,10 @@ router.delete("/posts/:id", PostsController.deletePost);
 
 //Products Use
 router.post("/add-product", ProductController.add_product);
-
+ 
 //Category Use
-router.post("/add-category", CategoryController.add_category);
+ router.post("/add-category", upload.single('image'),CategoryController.add_category);
 
-// const storage = multer.diskStorage({
-//    destination:function(req, file, cb){
-//    cb(null,path.join(__dirname,'../public/ProductImages'), function(err,success){
-//    if(err){
-//    throw err
-//    }
-//    });
-// },
-
-//    filename:function(req,file,cb){
-//     const name = Date.now()+'-'+file.originalname;
-//     cb(null,name,function(error,success){
-//       if(error)
-//       {
-//         throw error
-//       }
-
-//     });
-
-// }
-//});
+//  router.post("/image", upload.single('image'),CategoryController.add_image);
 
 module.exports = router;
