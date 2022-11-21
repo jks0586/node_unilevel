@@ -5,8 +5,7 @@ const path = require("path");
 const uploadImg = multer().single("image");
 
 const add_image = async (req, res) => {
-
-  //for image 
+  //for image
   // var storage = multer.diskStorage({
   //   destination: function (req, file, cb) {
   //     cb(null, "uploads");
@@ -16,21 +15,20 @@ const add_image = async (req, res) => {
   //   },
   //   });
   //   var upload = multer({ storage: storage });
-   };
+};
 
-   const add_category = async (req, res) => {
-  
+const add_category = async (req, res) => {
   try {
-      req.body.image = req.file.path;
+    req.body.image = req.file.path;
 
-      var category = new Category({
+    var category = new Category({
       name: req.body.name,
       quality: req.body.quality,
       title: req.body.title,
       status: req.body.status,
       description: req.body.description,
       image: req.body.image,
-      });
+    });
 
     const category_data = await category.save();
     res
@@ -41,10 +39,18 @@ const add_image = async (req, res) => {
   }
 };
 
-
+//Getting all category
+const get_category = async (req, res) => {
+  try {
+    const category = await Category.find();
+    res.json(category);
+  } catch (error) {
+    res.send("Error", error);
+  }
+};
 module.exports = {
   add_category,
   uploadImg,
+  get_category,
   //add_image,
-  
 };

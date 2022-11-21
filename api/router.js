@@ -10,11 +10,11 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-     cb(null, 'uploads');
+    cb(null, "uploads");
   },
   filename: function (req, file, cb) {
-     cb(null, Date.now() + '-' + file.originalname);
-  }
+    cb(null, Date.now() + "-" + file.originalname);
+  },
 });
 const upload = multer({ storage: storage });
 
@@ -37,10 +37,18 @@ router.delete("/posts/:id", PostsController.deletePost);
 
 //Products Use
 router.post("/add-product", ProductController.add_product);
- 
-//Category Use
- router.post("/add-category", upload.single('image'),CategoryController.add_category);
 
+//Category Use
+router.post(
+  "/add-category",
+  upload.single("image"),
+  CategoryController.add_category
+);
+router.get(
+  "/get-category",
+  upload.single("image"),
+  CategoryController.get_category
+);
 //  router.post("/image", upload.single('image'),CategoryController.add_image);
 
 module.exports = router;

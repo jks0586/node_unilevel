@@ -4,8 +4,8 @@ exports.createPost = async (req, res) => {
   const post = new Posts({
     title: req.body.title,
     description: req.body.description,
-   firstName:req.body.firstName,
-   city:req.body.city,
+    firstName: req.body.firstName,
+    city: req.body.city,
   });
 
   try {
