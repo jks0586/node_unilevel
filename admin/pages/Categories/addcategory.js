@@ -6,30 +6,42 @@ import { addCategory } from "../../redux/actions/categoryAction";
 import styles from "../../styles/addProduct.module.css";
 
 const Addcategory = () => {
-  const initialState = {
+  const initalState = {
     name: "",
+    quality: "",
     title: "",
     status: "",
-    quality: "",
-    image: "",
     description: "",
+    image: "",
   };
-  const [userData, setUserData] = useState(initialState);
-  const { name, title, description, status, quality, image } = userData;
+
+  const [userData, setUserData] = useState(initalState);
+  const { quality, status, title, description, image, name } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
+    console.log(e.target.attributes, className);
     {
       setUserData({ ...userData, [name]: value });
     }
   };
 
+  const handleFileChange = (e) => {
+    e.preventDefault();
+
+    setUserData({ ...userData, image: e.target.files[0] });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    // const formData = new FormData()
+    // formData.append('image', userData['image']);
+    // console.log(userData);
     {
+      // console.log(userData);
       dispatch(addCategory(userData, router));
       alert("Submit");
       console.log(userData);
@@ -40,7 +52,11 @@ const Addcategory = () => {
   return (
     <Adminlayout>
       <div>
-        <form className={styles.form} onSubmit={handleSubmit} enctype="multipart/form-data">
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit}
+          enctype="multipart/form-data"
+        >
           <h3>Add Category</h3>
 
           <input
@@ -86,8 +102,7 @@ const Addcategory = () => {
             name="image"
             type="file"
             placeholder="Please Enter Your image"
-            onChange={handleChange}
-            value={image}
+            onChange={handleFileChange}
           />
 
           <textarea

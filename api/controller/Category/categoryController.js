@@ -2,7 +2,16 @@ const Category = require("../../model/Category/CategoryModel");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const uploadImg = multer().single("image");
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "uploads");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + "-" + file.originalname);
+//   },
+// });
+// const upload = multer({ storage: storage });
 
 const add_image = async (req, res) => {
   //for image
@@ -17,9 +26,10 @@ const add_image = async (req, res) => {
   //   var upload = multer({ storage: storage });
 };
 
-const add_category = async (req, res) => {
+const addCategory = async (req, res, next) => {
+ console.log(req.file.filename);
   try {
-    req.body.image = req.file.path;
+    req.body.image = req.file.filename;
 
     var category = new Category({
       name: req.body.name,
@@ -27,9 +37,9 @@ const add_category = async (req, res) => {
       title: req.body.title,
       status: req.body.status,
       description: req.body.description,
-      image: req.body.image,
+      image: req.file.filename,
     });
-
+ 
     const category_data = await category.save();
     res
       .status(200)
@@ -40,7 +50,7 @@ const add_category = async (req, res) => {
 };
 
 //Getting all category
-const get_category = async (req, res) => {
+const getCategory = async (req, res) => {
   try {
     const category = await Category.find();
     res.json(category);
@@ -48,9 +58,49 @@ const get_category = async (req, res) => {
     res.send("Error", error);
   }
 };
+
+
+//Getting a single Category by id
+const findSingleCategory = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+    res.json(category);
+  } catch (error) {
+    res.send("Error", error);
+  }
+};
+
+
+//Update All category
+const updateCategory = async (req, res) => {
+const filter = { _id: req.params.id };
+const categoryUpdate = await Category.findOneAndUpdate(filter, req.body, {
+new: true,
+});
+res.json(categoryUpdate);
+};
+
+
+//Delete Category
+const deleteCategory = async (req, res) => {
+  try {
+    const categorydelete = await Category.findByIdAndRemove(req.params.id);
+    res.json(categorydelete);
+  } catch (error) {
+    res.send("Error", error);
+  }
+};
+
+
+
+
+
 module.exports = {
-  add_category,
-  uploadImg,
-  get_category,
+  addCategory,
+  // uploadImg,
+  getCategory,
+  findSingleCategory,
+  updateCategory,
+  deleteCategory,
   //add_image,
 };

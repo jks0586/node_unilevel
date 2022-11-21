@@ -35,20 +35,18 @@ router.put("/posts/:id", PostsController.updatePost);
 router.get("/posts/:id", PostsController.findSinglePost);
 router.delete("/posts/:id", PostsController.deletePost);
 
+
 //Products Use
 router.post("/add-product", ProductController.add_product);
 
+
+
 //Category Use
-router.post(
-  "/add-category",
-  upload.single("image"),
-  CategoryController.add_category
-);
-router.get(
-  "/get-category",
-  upload.single("image"),
-  CategoryController.get_category
-);
+router.post("/add/category",upload.single("image"),CategoryController.addCategory);
+router.get("/category",CategoryController.getCategory);
+router.get("/category/:id", CategoryController.findSingleCategory);
+router.put("/category/:id",upload.single("image"),CategoryController.updateCategory);
+router.delete("/category/:id",CategoryController.deleteCategory);
 //  router.post("/image", upload.single('image'),CategoryController.add_image);
 
 module.exports = router;
