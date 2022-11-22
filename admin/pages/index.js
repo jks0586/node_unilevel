@@ -7,7 +7,7 @@ import Profile from "./profile";
 export default function Home() {
   return (
     <Adminlayout>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* <Layout /> */}
     </Adminlayout>
   );
