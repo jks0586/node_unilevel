@@ -32,12 +32,14 @@ const Addproduct = () => {
             type="text"
             name="product name."
             placeholder="Please Enter Your product name."
+            required
           />
 
           <input
             type="number"
             name="Price"
             placeholder="Please Enter Your Product Price"
+            required
           />
 
           <select id="category" name="category">
@@ -55,6 +57,7 @@ const Addproduct = () => {
             name="text"
             rows="5"
             placeholder="Please Enter Your Comments"
+            required
           />
 
           <input
@@ -62,6 +65,7 @@ const Addproduct = () => {
             name="img"
             type="file"
             placeholder="Please Enter Your Description"
+            required
           />
 
           <input type="submit" value="submit" />
