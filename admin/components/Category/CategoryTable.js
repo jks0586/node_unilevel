@@ -17,10 +17,10 @@ const CategoryTable = () => {
 
   const [rowData, setRowData] = useState([
     "title",
-    "description",
+    // "description",
     "name",
     "status",
-    "quality",
+    // "quality",
     "image",
   ]);
   const defaultColDef = {
@@ -53,10 +53,10 @@ const CategoryTable = () => {
 
   const [columnDefs] = useState([
     { field: "name", filter: "agTextColumnFilter" },
-    { field: "quality", filter: "agNumberColumnFilter" },
+    // { field: "quality", filter: "agNumberColumnFilter" },
     { field: "title", filter: true },
     { field: "status", filter: true },
-    { field: "description", filter: true },
+    // { field: "description", filter: true },
     { field: "image", filter: "agNumberColumnFilter" },
     {
       headerName: "Action",
@@ -79,7 +79,7 @@ const CategoryTable = () => {
     <>
       <div
         className="ag-theme-alpine"
-        style={{ height: 500, width: 1000, margin: 250, alignItems: "center" }}
+        style={{ height: 200, width: 1000, margin: 250, alignItems: "center" }}
       >
         <button className={styles.button} onClick={handleAdd}>
           Add-Product

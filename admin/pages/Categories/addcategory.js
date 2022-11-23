@@ -12,24 +12,32 @@ const Addcategory = () => {
     title: "",
     status: "",
     description: "",
-    image: "",
+    image: [],
   };
 
   const [error, setError] = useState(false);
-
   const [userData, setUserData] = useState(initalState);
   const { quality, status, title, description, image, name } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
 
+  // const handleChange = (e) => {
+  //   const { name, value, className, type, placeholder } = e.target;
+  //   console.log(e.target.attributes, className);
+  //   {
+  //     setUserData({ ...userData, [name]: value });
+  //   }
+  // };
+
   const handleChange = (e) => {
-    const { name, value, className, type, placeholder } = e.target;
-    console.log(e.target.attributes, className);
-    {
+    const { name, value } = e.target;
+    if (name === "image") {
+    setUserData({ ...userData, [name]: [...image, e.target.files[0]] });
+    } else {
       setUserData({ ...userData, [name]: value });
     }
-  };
+   };
 
   const handleFileChange = (e) => {
     e.preventDefault();
@@ -63,6 +71,7 @@ const Addcategory = () => {
         "\nquality: ",
         quality
       );
+      
       dispatch(addCategory(userData, router));
       alert("Submit");
       console.log(userData);
@@ -114,8 +123,8 @@ const Addcategory = () => {
             value={status}
           >
             <option value="">Select Status</option>
-            <option value="True">True</option>
-            <option value="False">False</option>
+            <option value="Enable">True</option>
+            <option value="Disable">False</option>
           </select>
           {error && status.length <= 0 ? (
             <label className={styles.validate}>status can't be Empty</label>
@@ -146,11 +155,19 @@ const Addcategory = () => {
             placeholder="Please Enter Your image"
             onChange={handleFileChange}
           />
+          
+          <div>
+          <div>
+          <img src={image.url} />
+          
+          </div>
+          </div>
           {error && image.length <= 0 ? (
             <label className={styles.validate}>image can't be Empty</label>
           ) : (
             ""
           )}
+        
 
           <textarea
             id="text"
@@ -170,9 +187,25 @@ const Addcategory = () => {
 
           <input type="submit" value="submit" />
         </form>
+        
       </div>
     </Adminlayout>
   );
 };
 
 export default Addcategory;
+
+
+// <div>
+// {image.map((imgage, index) => (
+//   <div key={index}>
+//     {imgage.url ? (
+//       <img src={imgage.url} />
+//<img src={"http://localhost:5000/uploads\\1669187386955-image.png"} />
+//     ) : (
+//       <img src={URL.createObjectURL(image)} />
+//     )}
+//     <span onClick={() => handleDelete(index)}>&times;</span>
+//   </div>
+// ))}
+// </div>

@@ -99,8 +99,8 @@ const editpost = () => {
             value={status}
           >
             <option value="">Select Status</option>
-            <option value="True">True</option>
-            <option value="False">False</option>
+            <option value="Enable">True</option>
+            <option value="Disable">False</option>
           </select>
 
           <select

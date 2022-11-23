@@ -8,15 +8,41 @@ const User = require("./model/User");
 const multer = require("multer");
 const path = require("path");
 
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "uploads");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + "-" + file.originalname);
+//   },
+// });
+
+
+
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
+  destination: 'uploads',
+  filename: (req, file, cb) => {
+      return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+  }
+})
+
+
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+// const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
+  fileFilter: fileFilter
+})
 
 const auth = require("./controller/Auth");
 
@@ -43,6 +69,14 @@ router.post("/add-product", ProductController.add_product);
 
 //Category Use
 router.post("/add/category",upload.single("image"),CategoryController.addCategory);
+//  router.post("/add/category",upload.single("image"), (req, res ) => {
+//  CategoryController.addCategory
+//  res.json({
+
+//      image_url: `http://localhost:5000/image/${req.file.filename}`
+
+//   })
+// })
 router.get("/category",CategoryController.getCategory);
 router.get("/category/:id", CategoryController.findSingleCategory);
 router.put("/category/:id",upload.single("image"),CategoryController.updateCategory);

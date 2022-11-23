@@ -24,9 +24,22 @@ mongoose
     process.exit(-1);
   });
 
+
+
 //use image upload 
 app.use('/uploads', express.static('./uploads'));
+app.use('/image', express.static('./uploads'));
 
+
+function errHandler(err, req, res, next) {
+  if (err instanceof multer.MulterError) {
+      res.json({
+          success: 0,
+          message: err.message
+      })
+  }
+}
+app.use(errHandler);
 app.use("/", allRouter);
 
 app.listen(5000, () => {

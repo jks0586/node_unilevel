@@ -2,7 +2,7 @@ const Category = require("../../model/Category/CategoryModel");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-
+require("dotenv").config();
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, "uploads");
@@ -41,6 +41,7 @@ const addCategory = async (req, res, next) => {
     });
  
     const category_data = await category.save();
+    category_data.image=process.env.API_URL+category_data.image;
     res
       .status(200)
       .send({ success: true, msg: "Category Details", data: category_data });
