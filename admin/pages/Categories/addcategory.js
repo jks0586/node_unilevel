@@ -15,6 +15,8 @@ const Addcategory = () => {
     image: "",
   };
 
+  const [error, setError] = useState(false);
+
   const [userData, setUserData] = useState(initalState);
   const { quality, status, title, description, image, name } = userData;
   const { auth } = useSelector((state) => state);
@@ -31,17 +33,36 @@ const Addcategory = () => {
 
   const handleFileChange = (e) => {
     e.preventDefault();
-
     setUserData({ ...userData, image: e.target.files[0] });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const formData = new FormData()
-    // formData.append('image', userData['image']);
-    // console.log(userData);
-    {
-      // console.log(userData);
+    if (
+      name.length == 0 ||
+      quality.length == 0 ||
+      title.length == 0 ||
+      status.length == 0 ||
+      description.length == 0 ||
+      image.length == 0
+    ) {
+      setError(true);
+    }
+    if (name && title && quality && status && description && image) {
+      console.log(
+        "name: ",
+        name,
+        "\ntitle: ",
+        title,
+        "\nstatus: ",
+        status,
+        "\ndescription: ",
+        description,
+        "\nimage: ",
+        image,
+        "\nquality: ",
+        quality
+      );
       dispatch(addCategory(userData, router));
       alert("Submit");
       console.log(userData);
@@ -64,17 +85,28 @@ const Addcategory = () => {
             name="name"
             placeholder="Please Enter Your category name."
             onChange={handleChange}
+            {...(e) => setname(e.target.value)}
             value={name}
           />
+          {error && name.length <= 0 ? (
+            <label className={styles.validate}> Name can't be Empty</label>
+          ) : (
+            ""
+          )}
 
           <input
             type="text"
             name="title"
             placeholder="Please Enter Your  title"
             onChange={handleChange}
+            {...(e) => settitle(e.target.value)}
             value={title}
           />
-
+          {error && title.length <= 0 ? (
+            <label className={styles.validate}> title can't be Empty</label>
+          ) : (
+            ""
+          )}
           <select
             id="status"
             name="status"
@@ -85,6 +117,11 @@ const Addcategory = () => {
             <option value="True">True</option>
             <option value="False">False</option>
           </select>
+          {error && status.length <= 0 ? (
+            <label className={styles.validate}>status can't be Empty</label>
+          ) : (
+            ""
+          )}
 
           <select
             id="quality"
@@ -96,6 +133,11 @@ const Addcategory = () => {
             <option value="Good">Good Quality</option>
             <option value="Not Good">Not Good</option>
           </select>
+          {error && quality.length <= 0 ? (
+            <label className={styles.validate}>quality can't be Empty</label>
+          ) : (
+            ""
+          )}
 
           <input
             id="image"
@@ -104,6 +146,11 @@ const Addcategory = () => {
             placeholder="Please Enter Your image"
             onChange={handleFileChange}
           />
+          {error && image.length <= 0 ? (
+            <label className={styles.validate}>image can't be Empty</label>
+          ) : (
+            ""
+          )}
 
           <textarea
             id="text"
@@ -113,6 +160,13 @@ const Addcategory = () => {
             onChange={handleChange}
             value={description}
           />
+          {error && description.length <= 0 ? (
+            <label className={styles.validate}>
+              description can't be Empty
+            </label>
+          ) : (
+            ""
+          )}
 
           <input type="submit" value="submit" />
         </form>
