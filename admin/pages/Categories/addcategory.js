@@ -21,27 +21,33 @@ const Addcategory = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
+  const [selectedImage, setSelectedImage] = useState();
 
-  // const handleChange = (e) => {
-  //   const { name, value, className, type, placeholder } = e.target;
-  //   console.log(e.target.attributes, className);
-  //   {
-  //     setUserData({ ...userData, [name]: value });
-  //   }
-  // };
+  
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "image") {
-    setUserData({ ...userData, [name]: [...image, e.target.files[0]] });
-    } else {
+    const { name, value, className, type, placeholder } = e.target;
+    console.log(e.target.attributes, className);
+    {
       setUserData({ ...userData, [name]: value });
     }
-   };
+  };
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   if (name === "image") {
+  //   setUserData({ ...userData, [name]: [...image, e.target.files[0]] });
+  //   } else {
+  //     setUserData({ ...userData, [name]: value });
+  //   }
+  //  };
 
   const handleFileChange = (e) => {
     e.preventDefault();
     setUserData({ ...userData, image: e.target.files[0] });
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -73,11 +79,15 @@ const Addcategory = () => {
       );
       
       dispatch(addCategory(userData, router));
+      
       alert("Submit");
       console.log(userData);
       router.push("/category");
     }
   };
+  const removeSelectedImage = () => {
+    setSelectedImage();
+};
 
   return (
     <Adminlayout>
@@ -156,12 +166,21 @@ const Addcategory = () => {
             onChange={handleFileChange}
           />
           
-          <div>
-          <div>
-          <img src={image.url} />
-          
-          </div>
-          </div>
+          {selectedImage && (
+            <div style={styles.preview}>
+              <img
+                src={URL.createObjectURL(selectedImage)}
+                style={styles.image}
+                alt="Thumb"
+              />
+              <button onClick={removeSelectedImage} style={styles.delete}>
+                Remove This Image
+              </button>
+            </div>
+          )}
+        
+        
+     
           {error && image.length <= 0 ? (
             <label className={styles.validate}>image can't be Empty</label>
           ) : (

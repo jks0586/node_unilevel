@@ -19,9 +19,10 @@ const Recipe = () => {
     img: [],
   };
 
+
+
   const [userData, setUserData] = useState(initalState);
-  const { category, address, city, title, text, age, mobile, lng, lat, img } =
-    userData;
+  const { category, address, city, title, text, age, mobile, lng, lat, img } = userData;
   const { recipe, auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();

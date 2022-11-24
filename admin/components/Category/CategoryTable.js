@@ -9,38 +9,30 @@ import { useDispatch } from "react-redux";
 import { deleteCategory } from "../../redux/actions/categoryAction";
 
 const CategoryTable = () => {
-  const [category, setCategory] = useState([]); 
+  const [category, setCategory] = useState([]);
   const router = useRouter();
   const dispatch = useDispatch();
 
   const getRowId = (params) => params.data.id;
 
-  const [rowData, setRowData] = useState([
-    "title",
-    // "description",
-    "name",
-    "status",
-    // "quality",
-    "image",
-  ]);
+  const [rowData, setRowData] = useState(["title", "name", "status", "image"]);
   const defaultColDef = {
-    resizable: true, 
+    resizable: true,
   };
 
   const handleAdd = (e) => {
-    e.preventDefault();  
+    e.preventDefault();
     router.push("/Categories/addcategory");
   };
 
   const handleDelete = (id) => {
-    alert("delete")
+    alert("delete");
     dispatch(deleteCategory(id));
   };
 
   const handleEdit = (id) => {
-  router.push('/Categories/edit/'+id);
+    router.push("/Categories/edit/" + id);
   };
-
 
   const onGridReady = useCallback((params) => {
     axios
@@ -53,11 +45,15 @@ const CategoryTable = () => {
 
   const [columnDefs] = useState([
     { field: "name", filter: "agTextColumnFilter" },
-    // { field: "quality", filter: "agNumberColumnFilter" },
     { field: "title", filter: true },
     { field: "status", filter: true },
-    // { field: "description", filter: true },
-    { field: "image", filter: "agNumberColumnFilter" },
+    {
+      field: "image",
+      filter: "agNumberColumnFilter",
+      cellRenderer: (params) => {
+        return <img src={params.value} width="50px" height="50px" />;
+      },
+    },
     {
       headerName: "Action",
       field: "_id",

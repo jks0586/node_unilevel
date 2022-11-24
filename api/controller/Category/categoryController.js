@@ -53,8 +53,12 @@ const addCategory = async (req, res, next) => {
 //Getting all category
 const getCategory = async (req, res) => {
   try {
-    const category = await Category.find();
-    res.json(category);
+    const categories = await Category.find();
+    categories.map((value,index)=>{
+    return value.image=process.env.API_URL+value.image;
+    })
+ 
+    res.json(categories);
   } catch (error) {
     res.send("Error", error);
   }
@@ -65,6 +69,7 @@ const getCategory = async (req, res) => {
 const findSingleCategory = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
+    category.image=process.env.API_URL+category.image;
     res.json(category);
   } catch (error) {
     res.send("Error", error);
@@ -78,7 +83,8 @@ const filter = { _id: req.params.id };
 const categoryUpdate = await Category.findOneAndUpdate(filter, req.body, {
 new: true,
 });
-res.json(categoryUpdate);
+categoryUpdate.image=process.env.API_URL+categoryUpdate.image;
+ res.json(categoryUpdate);
 };
 
 

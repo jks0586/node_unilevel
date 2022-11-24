@@ -58,7 +58,7 @@
   cursor: pointer;
 }
 
-.form > div > div > img {
+.form > div > div > img { 
   height: 10rem;
   width: 10rem;
   border-radius: 0.5rem;

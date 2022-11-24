@@ -83,4 +83,37 @@ router.put("/category/:id",upload.single("image"),CategoryController.updateCateg
 router.delete("/category/:id",CategoryController.deleteCategory);
 //  router.post("/image", upload.single('image'),CategoryController.add_image);
 
+
+// router.get("/category",CategoryController.getCategory, (req, res, next) => {
+//   Product.find()
+//     .select("name category _id categoryImage")
+//     .exec()
+//     .then(docs => {
+//       const response = {
+//         count: docs.length,
+//         category: docs.map(doc => {
+//           return {
+//             name: doc.name,
+//             quality: doc.quality,
+//             Image: doc.Image,
+//             description:doc.description,
+//             _id: doc._id,
+//             request: {
+//               type: "GET",
+//               url: "http://localhost:5000/category/" + doc._id
+//             }
+//           };
+//         })
+//       };
+      
+//       res.status(200).json(response);
+      
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({
+//         error: err
+//       });
+//     });
+// });
 module.exports = router;
