@@ -1,42 +1,43 @@
-import { useRouter } from "next/router";
 import React, { useCallback, useState } from "react";
+import { render } from "react-dom";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import styles from "../../styles/Product.module.css";
-import axios from "axios";
+import { useRouter } from "next/router";
+import styles from "../styles/Product.module.css";
 import { useDispatch } from "react-redux";
-import { deleteCategory } from "../../redux/actions/categoryAction";
+import { deleteProduct } from "../redux/actions/productAction";
+import axios from "axios";
 
-const CategoryTable = () => {
+const Product = () => {
   const [category, setCategory] = useState([]);
   const router = useRouter();
   const dispatch = useDispatch();
 
   const getRowId = (params) => params.data.id;
-
-  const [rowData, setRowData] = useState(["title", "name", "status", "image"]);
+ 
+  const [rowData, setRowData] = useState(["price", "name", "quality", "quantity", "description","image"]);
   const defaultColDef = {
     resizable: true,
   };
 
   const handleAdd = (e) => {
     e.preventDefault();
-    router.push("/Categories/addcategory");
+    router.push("/product/addproduct");
   };
 
   const handleDelete = (id) => {
     alert("delete");
-    dispatch(deleteCategory(id));
+    dispatch(deleteProduct(id)); 
   };
 
   const handleEdit = (id) => {
-    router.push("/Categories/edit/" + id);
+    router.push("/product/edit/" + id);
   };
 
   const onGridReady = useCallback((params) => {
     axios
-      .get("http://localhost:5000/category")
+      .get("http://localhost:5000/product")
       .then((response) => {
         setRowData(response.data);
       })
@@ -45,8 +46,10 @@ const CategoryTable = () => {
 
   const [columnDefs] = useState([
     { field: "name", filter: "agTextColumnFilter" },
-    { field: "title", filter: true },
-    { field: "status", filter: true },
+    { field: "price", filter: true },
+    { field: "quality", filter: true },
+    { field: "quantity", filter: true },
+    { field: "description", filter: true },
     {
       field: "image",
       filter: "agNumberColumnFilter",
@@ -78,13 +81,11 @@ const CategoryTable = () => {
         style={{ height: 200, width: 1000, margin: 250, alignItems: "center" }}
       >
         <button className={styles.button} onClick={handleAdd}>
-          Add-Category
+          Add-Product
         </button>
 
         <AgGridReact
-          // getRowId={getRowId}
           rowData={rowData}
-          //rowData={tableData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           onGridReady={onGridReady}
@@ -96,4 +97,4 @@ const CategoryTable = () => {
   );
 };
 
-export default CategoryTable;
+export default Product;

@@ -101,3 +101,20 @@ export const deleteDataApi = async (url) => {
 // };
 
 
+export const deleteDataApiProduct = async (url) => {
+  // alert(url);
+  const response = await axios
+    .delete(GLOBAL_CONSTANT.BASE_URL+'product/' + url, {
+      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return response;
+};
+
+
+
