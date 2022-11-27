@@ -23,7 +23,7 @@ const Product = () => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    router.push("/product/addproduct");
+    router.push("/product/addProduct1");
   };
 
   const handleDelete = (id) => {
