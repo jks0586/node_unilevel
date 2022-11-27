@@ -22,10 +22,10 @@ var categorySchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  image:{
-    type: String,
+  image: {
+    type: Array,
     required: true,
-  }
+  },
 });
 
 module.exports = mongoose.model("Category", categorySchema);
