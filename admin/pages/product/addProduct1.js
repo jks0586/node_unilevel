@@ -33,24 +33,21 @@ const addProduct1 = () => {
     }
   };
 
-  
-//  const createProductImageChanges = (e) => {
-//     const files = Array.form(e.target.files);
-//     setImages([]);
-//     setImagesPreview([]);
-//     files.forEach((file) =>{
-//         const render = new FileReader()
-//         render.onload = () => {
-//             if (render.readyState === 2) {
-//                 setImagesPreview([...imagesPreview, render.result])
-//                 setImages([...images, render.result])
-//             }
-//         };
-//         render.readAsDataURL(file)
-//     })
-//  }
-
- 
+  //  const createProductImageChanges = (e) => {
+  //     const files = Array.form(e.target.files);
+  //     setImages([]);
+  //     setImagesPreview([]);
+  //     files.forEach((file) =>{
+  //         const render = new FileReader()
+  //         render.onload = () => {
+  //             if (render.readyState === 2) {
+  //                 setImagesPreview([...imagesPreview, render.result])
+  //                 setImages([...images, render.result])
+  //             }
+  //         };
+  //         render.readAsDataURL(file)
+  //     })
+  //  }
 
   const handleFileChange = (e) => {
     e.preventDefault();
@@ -59,15 +56,15 @@ const addProduct1 = () => {
       const fileType = file[i]["type"];
       const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
       if (validImageTypes.includes(fileType)) {
-     setFile([...files, file[i]]);
-     setUserData({ ...userData, image: e.target.files[0] });
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-      console.log(file);
-       }
+        setFile([...files, file[i]]);
+        setUserData({ ...userData, image: e.target.files[0] });
+        if (e.target.files && e.target.files.length > 0) {
+          setSelectedImage(e.target.files[0]);
+          console.log(file);
+        }
+      }
+    }
   };
-} 
-}
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -99,9 +96,9 @@ const addProduct1 = () => {
 
       dispatch(addProduct(userData, router));
 
-        // alert("Submit");
-        // console.log(userData);
-        // router.push("/dashProduct");
+      alert("Submit");
+      console.log(userData);
+      router.push("/dashProduct");
     }
   };
   const removeImage = (i) => {
@@ -175,7 +172,7 @@ const addProduct1 = () => {
             ""
           )}
 
-          <div >
+          <div>
             <div className="p-3 md:w-1/2 w-[360px] bg-white rounded-md">
               <span className="flex justify-center items-center text-[12px] mb-1 text-red-500"></span>
               <div className="h-32 w-full relative border-2 items-center rounded-md cursor-pointer bg-gray-300 border-gray-400 border-dotted">
