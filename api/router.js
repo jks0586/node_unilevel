@@ -62,33 +62,19 @@ router.get("/posts/:id", PostsController.findSinglePost);
 router.delete("/posts/:id", PostsController.deletePost);
 
 //Products Use
-router.post(
-  "/add/product",
-  upload.single("image"),
-  ProductController.addProduct
-);
+// router.post("/add/product",upload.array('image',9999),ProductController.addProduct);
+router.post("/add/product",upload.single('image'),ProductController.addProduct);
 router.get("/product", ProductController.getProduct);
 router.get("/product/:id", ProductController.findSingleProduct);
-router.put(
-  "/product/:id",
-  upload.single("image"),
-  ProductController.updateProduct
-);
+router.put("/product/:id",upload.single("image"),ProductController.updateProduct);
 router.delete("/product/:id", ProductController.deleteProduct);
 
 //Category Use
-router.post(
-  "/add/category",
-  upload.single("image"),
-  CategoryController.addCategory
-);
+router.post("/add/category",upload.single("image"), CategoryController.addCategory);
 router.get("/category", CategoryController.getCategory);
 router.get("/category/:id", CategoryController.findSingleCategory);
-router.put(
-  "/category/:id",
-  upload.single("image"),
-  CategoryController.updateCategory
-);
+router.put("/category/:id",upload.single("image"),CategoryController.updateCategory);
 router.delete("/category/:id", CategoryController.deleteCategory);
 
 module.exports = router;
+//app.use(upload.array());

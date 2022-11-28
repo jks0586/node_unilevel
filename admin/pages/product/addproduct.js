@@ -78,9 +78,9 @@ const Addproduct = () => {
         setMessage("only images accepted");
       }
     }
-    setUserData({ ...userData, image: e.target.files[0] });
+    
     if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[""]);
+     
     }
   };
 

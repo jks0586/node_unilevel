@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/addProduct.module.css";
 import Adminlayout from "../../components/Adminlayout";
@@ -23,7 +23,7 @@ const addProduct1 = () => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
-  const [selectedImage, setSelectedImage] = useState();
+  const [imgsSrc, setImgsSrc] = useState([]);
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
@@ -33,21 +33,25 @@ const addProduct1 = () => {
     }
   };
 
-  //  const createProductImageChanges = (e) => {
-  //     const files = Array.form(e.target.files);
-  //     setImages([]);
-  //     setImagesPreview([]);
-  //     files.forEach((file) =>{
-  //         const render = new FileReader()
-  //         render.onload = () => {
-  //             if (render.readyState === 2) {
-  //                 setImagesPreview([...imagesPreview, render.result])
-  //                 setImages([...images, render.result])
-  //             }
-  //         };
-  //         render.readAsDataURL(file)
-  //     })
-  //  }
+  //For Single Image
+  // const handleFileChange = (e) => {
+  //   e.preventDefault();
+  //   let file = e.target.files;
+  //   for (let i = 0; i < file.length; i++) {
+  //     const fileType = file[i]["type"];
+  //     const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+  //     if (validImageTypes.includes(fileType)) {
+  //       setFile([...files, file[i]]);
+  //     } else {
+  //       setMessage("only images accepted");
+  //     }
+  //   }
+  //   setUserData({ ...userData, image: e.target.files[0] });
+  //   if (e.target.files && e.target.files.length > 0) {
+  //   }
+  // };
+
+  //For MultiImage
 
   const handleFileChange = (e) => {
     e.preventDefault();
@@ -57,14 +61,14 @@ const addProduct1 = () => {
       const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
       if (validImageTypes.includes(fileType)) {
         setFile([...files, file[i]]);
-        setUserData({ ...userData, image: e.target.files[0] });
-        if (e.target.files && e.target.files.length > 0) {
-          setSelectedImage(e.target.files[0]);
-          console.log(file);
-        }
       }
     }
   };
+
+  useEffect(() => {
+    setUserData({ ...userData, ["image"]: files });
+    console.log(userData);
+  }, [files]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -109,6 +113,7 @@ const addProduct1 = () => {
     <Adminlayout>
       <div>
         <form
+          //  action="/Upload"
           className={styles.form}
           onSubmit={handleSubmit}
           enctype="multipart/form-data"
@@ -180,8 +185,8 @@ const addProduct1 = () => {
                   type="file"
                   onChange={handleFileChange}
                   className="h-full w-full bg-green-200 opacity-0 z-10 absolute"
-                  multiple="multiple"
-                  name="files[]"
+                  name="image"
+                  multiple
                 />
                 <div className="h-full w-full bg-gray-200 absolute z-1 flex justify-center items-center top-0">
                   <div className="flex flex-col">
@@ -237,26 +242,6 @@ const addProduct1 = () => {
         </form>
       </div>
     </Adminlayout>
-    //   <input
-    //     id="image"
-    //     name="image"
-    //     type="file"
-    //     placeholder="Please Enter Your image"
-    //     onChange={handleFileChange}
-    //   />
-
-    //   {selectedImage && (
-    //     <div style={styles.preview}>
-    //       <img
-    //         src={URL.createObjectURL(selectedImage)}
-    //         style={styles.image}
-    //         alt="Thumb"
-    //       />
-    //       <button onClick={removeSelectedImage} style={styles.delete}>
-    //         Remove This Image
-    //       </button>
-    //     </div>
-    //   )}
   );
 };
 
