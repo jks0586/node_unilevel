@@ -1,4 +1,8 @@
-<div className="flex flex-col h-full p-3 w-60 dark:bg-gray-900 dark:text-gray-100 md:hidden">
+import React from 'react'
+
+const back = () => {
+  return (
+    <div className="flex flex-col h-full p-3 w-60 dark:bg-gray-900 dark:text-gray-100 md:hidden">
   <div className="space-y-3">
     <div className="flex items-center justify-between">
       <h2>Dashboard</h2>
@@ -174,4 +178,9 @@
       </span>
     </div>
   </div>
-</div>;
+</div>
+  )
+}
+
+export default back
+

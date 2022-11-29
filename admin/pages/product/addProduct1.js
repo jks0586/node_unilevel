@@ -34,25 +34,6 @@ const addProduct1 = () => {
   };
 
   //For Single Image
-  // const handleFileChange = (e) => {
-  //   e.preventDefault();
-  //   let file = e.target.files;
-  //   for (let i = 0; i < file.length; i++) {
-  //     const fileType = file[i]["type"];
-  //     const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
-  //     if (validImageTypes.includes(fileType)) {
-  //       setFile([...files, file[i]]);
-  //     } else {
-  //       setMessage("only images accepted");
-  //     }
-  //   }
-  //   setUserData({ ...userData, image: e.target.files[0] });
-  //   if (e.target.files && e.target.files.length > 0) {
-  //   }
-  // };
-
-  //For MultiImage
-
   const handleFileChange = (e) => {
     e.preventDefault();
     let file = e.target.files;
@@ -61,14 +42,33 @@ const addProduct1 = () => {
       const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
       if (validImageTypes.includes(fileType)) {
         setFile([...files, file[i]]);
+      } else {
+        setMessage("only images accepted");
       }
+    }
+    setUserData({ ...userData, image: e.target.files[0] });
+    if (e.target.files && e.target.files.length > 0) {
     }
   };
 
-  useEffect(() => {
-    setUserData({ ...userData, ["image"]: files });
-    console.log(userData);
-  }, [files]);
+  //For MultiImage
+
+  // const handleFileChange = (e) => {
+  //   e.preventDefault();
+  //   let file = e.target.files;
+  //   for (let i = 0; i < file.length; i++) {
+  //     const fileType = file[i]["type"];
+  //     const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+  //     if (validImageTypes.includes(fileType)) {
+  //       setFile([...files, file[i]]);
+  //     }
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   setUserData({ ...userData, ["image"]: files });
+  //   console.log(userData);
+  // }, [files]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -113,6 +113,7 @@ const addProduct1 = () => {
     <Adminlayout>
       <div>
         <form
+         action="/multiple-upload"
           //  action="/Upload"
           className={styles.form}
           onSubmit={handleSubmit}
@@ -185,7 +186,7 @@ const addProduct1 = () => {
                   type="file"
                   onChange={handleFileChange}
                   className="h-full w-full bg-green-200 opacity-0 z-10 absolute"
-                  name="image"
+                  name="image[]"
                   multiple
                 />
                 <div className="h-full w-full bg-gray-200 absolute z-1 flex justify-center items-center top-0">

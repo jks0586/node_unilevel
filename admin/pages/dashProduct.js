@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 const DashProduct = () => {
   return (
     <Adminlayout>
-      <Navbar />
+    
       <ProductTable />
     </Adminlayout>
   );

@@ -1,35 +1,22 @@
-import React from "react";
-import styles from "../styles/nabvar.module.css";
+import React from 'react'
 
 const Navbar = () => {
   return (
-    <>
-      <nav className={styles.navbar}>
-        <input id={styles.navtoggle} type="checkbox" />
-        <div className={styles.logo}>
-          Product<strong>Product</strong>
-        </div>
-        <ul className={styles.links}>
-          <li>
-            <a layout="#">Home</a>
-          </li>
-          <li>
-            <a login="#">LOGIN</a>
-          </li>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+  )
+}
 
-          <li>
-            <a register="#">REGISTER</a>
-          </li>
-        </ul>
+export default Navbar
 
-        <label htmlFor={styles.navtoggle} className={styles.iconproduct}>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-        </label>
-      </nav>
-    </>
-  );
-};
-
-export default Navbar;

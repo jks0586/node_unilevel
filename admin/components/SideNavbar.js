@@ -13,18 +13,10 @@ import {
 import { CgProfile } from "react-icons/cg";
 import { FaRegComments } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
-import styles from "../styles/form.module.css";
-
+import { ImHome,ImCart } from "react-icons/im";
+import { BsTable } from "react-icons/bs";
 function SideNavbar() {
-  //   useEffect(() => {
-  //     function handleResize() {
-  //       if(window.innerWidth<=767){}
-  //       console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
-
-  // }
-
-  //     window.addEventListener('resize', handleResize)
-  //   })
+ 
 
   return (
     <>
@@ -42,7 +34,7 @@ function SideNavbar() {
             </h1>
             <div className="my-5 border-b border-gray-100 pb-4">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 text-white p-2 rounded-md group cursor-pointer ">
-                <MdOutlineSpaceDashboard className="text-2xl text-slate-900 text-white " />
+                <ImHome className="text-2xl text-slate-900 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
                   <Link href="/dashboard">Dashboard</Link>
                 </h3>
@@ -50,19 +42,19 @@ function SideNavbar() {
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <CgProfile className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="#">Profile</Link>
+                  <Link href="#">View profile</Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <CgProfile className="text-2xl text-gray-600 text-white " />
+                <MdOutlineIntegrationInstructions className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
                   <Link href="/category">Category</Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <CgProfile className="text-2xl text-gray-600 text-white " />
+                <BsTable className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="#">Profile</Link>
+                  <Link href="#">Table</Link>
                 </h3>
               </div>
 
@@ -73,14 +65,13 @@ function SideNavbar() {
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineAnalytics className="text-2xl text-gray-600 text-white " />
+                <ImCart className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
                   <Link href="/dashProduct">Product</Link>
                 </h3>
               </div>
             </div>
-
-            <div>
+             <div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineSettings className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
@@ -90,13 +81,13 @@ function SideNavbar() {
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineMoreHoriz className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="#">Settings</Link>
+                  <Link href="#">More Details</Link>
                 </h3>
               </div>
 
               <div>
                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                  <MdOutlineLogout className="text-2xl text-gray-600 text-white " />
+                  <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
                   <h3 className="text-base text-gray-800 text-white font-semibold ">
                     Logout
                   </h3>
