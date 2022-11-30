@@ -111,6 +111,7 @@ const addProduct1 = () => {
 
   return (
     <Adminlayout>
+    
       <div>
         <form
          action="/multiple-upload"
@@ -119,12 +120,12 @@ const addProduct1 = () => {
           onSubmit={handleSubmit}
           enctype="multipart/form-data"
         >
-          <h3>Add Category</h3>
+          <h3>Add Product</h3>
 
           <input
             type="text"
             name="name"
-            placeholder="Please Enter Your category name."
+            placeholder="Please Enter Your Product name."
             onChange={handleChange}
             {...(e) => setname(e.target.value)}
             value={name}
@@ -227,7 +228,7 @@ const addProduct1 = () => {
             id="text"
             name="description"
             rows="5"
-            placeholder="Please Enter Your Description"
+            placeholder="Please Enter Your Short Description"
             onChange={handleChange}
             value={description}
           />
@@ -242,7 +243,7 @@ const addProduct1 = () => {
           <input type="submit" value="submit" />
         </form>
       </div>
-    </Adminlayout>
+      </Adminlayout>
   );
 };
 

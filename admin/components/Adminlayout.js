@@ -1,8 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import SideNavbar from "../components/SideNavbar";
+import Navheader from "./Navheader";
+
 const Adminlayout = (props) => {
-  console.log(props);
+  
+  // console.log(props);
   return (
     <>
       <Head>
@@ -10,9 +13,17 @@ const Adminlayout = (props) => {
         <meta name="description" content={props.meta_description} />
         <link rel="icon" href="/pro.ico" />
       </Head>
-      <div className="">
+      <div className="container-fluid grid grid-cols-12 p-0">
+        
+      <div className="col-span-2"> 
         <SideNavbar />
-        <div className="main-div">{props.children}</div>
+      </div>
+      <div className="col-span-10">
+        <div className="main-div grid-cols-9">
+        <Navheader adminprops={props.adminprops}/>
+        {props.children}
+        </div>
+        </div>
       </div>
     </>
   );

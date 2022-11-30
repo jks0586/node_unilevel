@@ -11,13 +11,13 @@ const Addcategory = () => {
     quality: "",
     title: "",
     status: "",
-    description: "",
+    Shortdescription: "",
     image: [],
   };
 
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState(initalState);
-  const { quality, status, title, description, image, name } = userData;
+  const { quality, status, title, Shortdescription, image, name } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -62,7 +62,7 @@ const Addcategory = () => {
     ) {
       setError(true);
     }
-    if (name && title && quality && status && description && image) {
+    if (name && title && quality && status && Shortdescription && image) {
       console.log(
         "name: ",
         name,
@@ -190,9 +190,9 @@ const Addcategory = () => {
 
           <textarea
             id="text"
-            name="description"
+            name="Short Description"
             rows="5"
-            placeholder="Please Enter Your Description"
+            placeholder="Please Enter Your Short Description"
             onChange={handleChange}
             value={description}
           />

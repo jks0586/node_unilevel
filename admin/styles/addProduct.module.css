@@ -1,11 +1,11 @@
 .form {
-  width: 60%;
-  margin-left: 30%;
-  margin-right: 30%;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .form > h3 {
   text-align: center;
-  color: rgb(247, 0, 255);
+  color: rgb(29, 28, 29);
   font-size: 200%;
 }
 .form > input,
@@ -15,14 +15,15 @@
   padding: 1rem 2rem;
   margin: 0.5rem 0rem;
   border-radius: 1rem;
-  border: 5px solid linear-gradient(35deg, #e79494, #313131);
+  border: 2px solid linear-gradient(35deg, #e79494, #313131);
 }
 
 .form > input[type="submit"] {
-  background: linear-gradient(35deg, #fab7f1, #f5c1c1);
-  color: rgb(195, 0, 255);
+  background: linear-gradient(35deg, #f1edf1, #ddd1d1);
+  color: rgb(184, 108, 216);
   font-size: 1rem;
   font-weight: bold;
+  width: 900px;
   text-transform: uppercase;
   cursor: pointer;
 }

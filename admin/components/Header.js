@@ -1,28 +1,21 @@
 import React from "react";
 import styles from "../styles/Header.module.css";
 import { FaUserAlt } from "react-icons/Fa";
+import Link from "next/link";
+import style from "../styles/design.module.css"
 const Header = () => {
   return (
     <>
-      <nav className={styles.navbar}>
-        <input id={styles.navtoggle} type="checkbox" />
-
-        <ul className={styles.links}>
-          <li>
-            <a className={styles.icon}>
-              <FaUserAlt />
-            </a>
-          </li>
-          <li>
-            <a href="contact"></a>
-          </li>
-        </ul>
-        <label htmlFor={styles.navtoggle} className={styles.iconburger}>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-        </label>
-      </nav>
+    <nav>
+    <a className="Link logo" href="#">Company Logo/Image</a>
+    <div class="rightSection">
+    <a className="selected Link" href="h">Home</a>
+    <a className="Link" href="#">Contact Us</a>
+    <a className="Link" href="#">About Us</a>
+    <a className="Link" href="#">More Info</a>
+    <a className="Link" href="#">Register</a>
+    </div>
+    </nav>
     </>
   );
 };
