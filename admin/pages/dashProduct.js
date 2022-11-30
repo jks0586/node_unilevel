@@ -1,14 +1,19 @@
 import React from "react";
 import Adminlayout from "../components/Adminlayout";
 import ProductTable from "../components/ProductTable";
-import Navbar from "../components/Navbar";
+
+import Header from "../components/Header";
 
 const DashProduct = () => {
   return (
-    <Adminlayout>
-    
+    <div>
+      <Header />
       <ProductTable />
-    </Adminlayout>
+      {/* // <Adminlayout>
+    <Navbar />
+      <ProductTable />
+    // </Adminlayout> */}
+    </div>
   );
 };
 
