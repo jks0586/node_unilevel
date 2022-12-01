@@ -49,24 +49,40 @@ const handleAdd = (e) => {
           <div></div>
           <div></div>
         </div>
-        
         <div className={`${navActive ? "active" : ""} nav__menu-list`}>
 
-          {MENU_LIST.map((menu, idx) => (
-            <div
-              onClick={() => {
-                setActiveIdx(idx);
-                setNavActive(false);
-              }}
-              key={menu.text}
-            >
-              <NavItem active={activeIdx === idx} {...menu} />
-            </div>
-          ))}
-        </div>
+        {MENU_LIST.map((menu, idx) => (
+          <div
+            onClick={() => {
+              setActiveIdx(idx);
+              setNavActive(false);
+            }}
+            key={idx+''}
+          >
+            <NavItem active={activeIdx === idx} {...menu} />
+          </div>
+        ))}
+      </div>
+        
+     
       </nav>
     </header>
+    
   );
+  // <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+
+  // {MENU_LIST.map((menu, idx) => (
+  //     <div
+  //      onClick={() => {
+  //        setActiveIdx(idx);
+  //        setNavActive(false);
+  //      }}
+  //      key={menu.text}
+  //    >
+  //     <NavItem active={activeIdx === idx} {...menu} />
+  //    </div>
+  //   ))}
+  // </div>
 };
 
 export default Navheader;

@@ -1,0 +1,25 @@
+
+.form {
+    padding: 9px; 
+    width: 50%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 4;
+    outline: 0; 
+    
+  }
+
+  
+  .form{
+    background: -webkit-gradient(linear, left top, left 25, from(#ad8585), color-stop(4%, #365836), to(#2e1919)); 
+    background: -moz-linear-gradient(top, #1f0c0c, #183118 1px, #c97373 25px); 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+  }
+
+  .header{
+    text-align: center;
+    font-size: 40px;
+    color: rgb(57, 61, 60);
+  }

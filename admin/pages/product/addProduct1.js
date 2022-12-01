@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/addProduct.module.css";
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
-
 import CKeditor from "../../components/CKeditor";
 
 const addProduct1 = () => {
@@ -13,7 +12,7 @@ const addProduct1 = () => {
     quality: "",
     quantity: "",
     price: "",
-    editor: "",
+    description: "",
     image: [],
   };
 
@@ -26,13 +25,14 @@ const addProduct1 = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [imgsSrc, setImgsSrc] = useState([]);
+  
   //for edit data
-  // const [editorLoaded, setEditorLoaded] = useState(false);
-  // const [data, setData] = useState("");
+  const [editorLoaded, setEditorLoaded] = useState(false);
+  const [data, setData] = useState("");
 
-  // useEffect(() => {
-  //   setEditorLoaded(true);
-  // }, []);
+  useEffect(() => {
+    setEditorLoaded(true);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
@@ -111,12 +111,15 @@ const addProduct1 = () => {
 
       alert("Submit");
       console.log(userData);
-      router.push("/dashProduct");
+     router.push("/dashProduct");
     }
   };
   const removeImage = (i) => {
     setFile(files.filter((x) => x.name !== i));
   };
+  // const aprops=[];
+  
+    // <Adminlayout adminprops={aprops}>
 
   return (
     <Adminlayout>
@@ -126,7 +129,7 @@ const addProduct1 = () => {
           //  action="/Upload"
           className={styles.form}
           onSubmit={handleSubmit}
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
         >
           <h3>Add Product</h3>
 
@@ -232,24 +235,20 @@ const addProduct1 = () => {
             ""
           )}
 
-          {/* <div>
+          <div>
             <CKeditor
               name="description"
-              onChange={(data) => {
-                setData(data);
+              onChange={(data)=> {
+                // const data = data;
+                console.log(data);
+                setUserData({ ...userData, 'description': data });
+                // onChange(data);
               }}
               editorLoaded={editorLoaded}
             />
             {JSON.stringify(data)}
-          </div> */}
-          <textarea
-            id="text"
-            name="description"
-            rows="5"
-            placeholder="Please Enter Your Short Description"
-            onChange={handleChange}
-            value={description}
-          />
+          </div>
+          
           {error && description.length <= 0 ? (
             <label className={styles.validate}>
               description can't be Empty
@@ -264,5 +263,13 @@ const addProduct1 = () => {
     </Adminlayout>
   );
 };
+// <textarea
+//             id="text"
+//             name="description"
+//             rows="5"
+//             placeholder="Please Enter Your Short Description"
+//             onChange={handleChange}
+//             value={description}
+//           />
 
 export default addProduct1;
