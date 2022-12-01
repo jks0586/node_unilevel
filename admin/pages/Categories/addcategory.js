@@ -11,19 +11,17 @@ const Addcategory = () => {
     quality: "",
     title: "",
     status: "",
-    Shortdescription: "",
+    description: "",
     image: [],
   };
 
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState(initalState);
-  const { quality, status, title, Shortdescription, image, name } = userData;
+  const { quality, status, title, description, image, name } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState();
-
-  
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
@@ -62,7 +60,7 @@ const Addcategory = () => {
     ) {
       setError(true);
     }
-    if (name && title && quality && status && Shortdescription && image) {
+    if (name && title && quality && status && description && image) {
       console.log(
         "name: ",
         name,
@@ -77,9 +75,9 @@ const Addcategory = () => {
         "\nquality: ",
         quality
       );
-      
+
       dispatch(addCategory(userData, router));
-      
+
       alert("Submit");
       console.log(userData);
       router.push("/category");
@@ -87,7 +85,7 @@ const Addcategory = () => {
   };
   const removeSelectedImage = () => {
     setSelectedImage();
-};
+  };
 
   return (
     <Adminlayout>
@@ -165,7 +163,7 @@ const Addcategory = () => {
             placeholder="Please Enter Your image"
             onChange={handleFileChange}
           />
-          
+
           {selectedImage && (
             <div style={styles.preview}>
               <img
@@ -178,19 +176,16 @@ const Addcategory = () => {
               </button>
             </div>
           )}
-        
-        
-     
+
           {error && image.length <= 0 ? (
             <label className={styles.validate}>image can't be Empty</label>
           ) : (
             ""
           )}
-        
 
           <textarea
             id="text"
-            name="Short Description"
+            name="description"
             rows="5"
             placeholder="Please Enter Your Short Description"
             onChange={handleChange}
@@ -206,14 +201,12 @@ const Addcategory = () => {
 
           <input type="submit" value="submit" />
         </form>
-        
       </div>
     </Adminlayout>
   );
 };
 
 export default Addcategory;
-
 
 // <div>
 // {image.map((imgage, index) => (

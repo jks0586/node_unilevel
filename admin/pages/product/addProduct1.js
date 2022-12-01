@@ -5,13 +5,15 @@ import styles from "../../styles/addProduct.module.css";
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
 
+import CKeditor from "../../components/CKeditor";
+
 const addProduct1 = () => {
   const initalState = {
     name: "",
     quality: "",
     quantity: "",
     price: "",
-    description: "",
+    editor: "",
     image: [],
   };
 
@@ -24,6 +26,13 @@ const addProduct1 = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [imgsSrc, setImgsSrc] = useState([]);
+  //for edit data
+  // const [editorLoaded, setEditorLoaded] = useState(false);
+  // const [data, setData] = useState("");
+
+  // useEffect(() => {
+  //   setEditorLoaded(true);
+  // }, []);
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
@@ -111,10 +120,9 @@ const addProduct1 = () => {
 
   return (
     <Adminlayout>
-    
       <div>
         <form
-         action="/multiple-upload"
+          action="/multiple-upload"
           //  action="/Upload"
           className={styles.form}
           onSubmit={handleSubmit}
@@ -224,6 +232,16 @@ const addProduct1 = () => {
             ""
           )}
 
+          {/* <div>
+            <CKeditor
+              name="description"
+              onChange={(data) => {
+                setData(data);
+              }}
+              editorLoaded={editorLoaded}
+            />
+            {JSON.stringify(data)}
+          </div> */}
           <textarea
             id="text"
             name="description"
@@ -243,7 +261,7 @@ const addProduct1 = () => {
           <input type="submit" value="submit" />
         </form>
       </div>
-      </Adminlayout>
+    </Adminlayout>
   );
 };
 
