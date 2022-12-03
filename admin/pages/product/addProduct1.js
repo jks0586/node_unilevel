@@ -25,7 +25,7 @@ const addProduct1 = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [imgsSrc, setImgsSrc] = useState([]);
-  
+
   //for edit data
   const [editorLoaded, setEditorLoaded] = useState(false);
   const [data, setData] = useState("");
@@ -111,15 +111,15 @@ const addProduct1 = () => {
 
       alert("Submit");
       console.log(userData);
-     router.push("/dashProduct");
+      router.push("/dashProduct");
     }
   };
   const removeImage = (i) => {
     setFile(files.filter((x) => x.name !== i));
   };
   // const aprops=[];
-  
-    // <Adminlayout adminprops={aprops}>
+
+  // <Adminlayout adminprops={aprops}>
 
   return (
     <Adminlayout>
@@ -238,17 +238,17 @@ const addProduct1 = () => {
           <div>
             <CKeditor
               name="description"
-              onChange={(data)=> {
+              onChange={(data) => {
                 // const data = data;
                 console.log(data);
-                setUserData({ ...userData, 'description': data });
+                setUserData({ ...userData, description: data });
                 // onChange(data);
               }}
               editorLoaded={editorLoaded}
             />
             {JSON.stringify(data)}
           </div>
-          
+
           {error && description.length <= 0 ? (
             <label className={styles.validate}>
               description can't be Empty

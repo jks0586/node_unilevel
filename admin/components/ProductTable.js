@@ -1,4 +1,10 @@
-import React, {useState, useRef, useEffect, useMemo, useCallback} from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+  useCallback,
+} from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
@@ -8,18 +14,24 @@ import { useDispatch } from "react-redux";
 import { deleteProduct } from "../redux/actions/productAction";
 import axios from "axios";
 import Adminlayout from "../components/Adminlayout";
-import { MdDelete,MdOutlineEdit } from "react-icons/md";
+import { MdDelete, MdOutlineEdit } from "react-icons/md";
 
 const Product = () => {
-  const containerStyle = useMemo(() => ({ width: '100%', height: '100%' }), []);
-  const gridStyle = useMemo(() => ({ height: '100%', width: '100%' }), []);
+  const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
+  const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
   const [category, setCategory] = useState([]);
   const router = useRouter();
   const dispatch = useDispatch();
 
   const getRowId = (params) => params.data.id;
- 
-  const [rowData, setRowData] = useState(["price", "name",  "quantity", "description","image"]);
+
+  const [rowData, setRowData] = useState([
+    "price",
+    "name",
+    "quantity",
+    "description",
+    "image",
+  ]);
   const defaultColDef = {
     resizable: true,
   };
@@ -31,7 +43,7 @@ const Product = () => {
 
   const handleDelete = (id) => {
     alert("delete");
-    dispatch(deleteProduct(id)); 
+    dispatch(deleteProduct(id));
   };
 
   const handleEdit = (id) => {
@@ -66,33 +78,41 @@ const Product = () => {
         return (
           <>
             {" "}
-            <button onClick={() => handleDelete(params.value)}>
-            <MdDelete/>{" "}
+            <button
+              className={styles.icon}
+              onClick={() => handleDelete(params.value)}
+            >
+              <MdDelete />{" "}
             </button>{" "}
-            | <button onClick={() => handleEdit(params.value)}><MdOutlineEdit/> </button>
+            |{" "}
+            <button
+              className={styles.icon}
+              onClick={() => handleEdit(params.value)}
+            >
+              <MdOutlineEdit />{" "}
+            </button>
           </>
         );
       },
     },
   ]);
   // <Adminlayout adminprops={aprops}>
-  const aprops=[{'url':'test','text':'Add Product','type':'button'}];
+  const aprops = [{ url: "test", text: "Add Product", type: "button" }];
   return (
     <>
-    <Adminlayout adminprops={aprops}>
+      <Adminlayout adminprops={aprops}>
         <div style={containerStyle}>
-        <div className="ag-theme-alpine" style={gridStyle}>
-        <AgGridReact
-          rowData={rowData}
-          columnDefs={columnDefs}
-          defaultColDef={defaultColDef}
-          onGridReady={onGridReady}
-          rowSelection="multiple"
-          animateRows={true}
-        ></AgGridReact>
+          <div className="ag-theme-alpine" style={gridStyle}>
+            <AgGridReact
+              rowData={rowData}
+              columnDefs={columnDefs}
+              defaultColDef={defaultColDef}
+              onGridReady={onGridReady}
+              rowSelection="multiple"
+              animateRows={true}
+            ></AgGridReact>
+          </div>
         </div>
-        </div>
-      
       </Adminlayout>
     </>
   );
