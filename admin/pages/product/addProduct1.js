@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "../../styles/addProduct.module.css";
+import styles from "../../styles/dashboard.module.css"
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
 import CKeditor from "../../components/CKeditor";
@@ -123,7 +123,10 @@ const addProduct1 = () => {
 
   return (
     <Adminlayout>
+    <div className={styles.container}>
+        <h1 className={styles.header}>Add Product</h1>
       <div>
+      
         <form
           action="/multiple-upload"
           //  action="/Upload"
@@ -131,10 +134,14 @@ const addProduct1 = () => {
           onSubmit={handleSubmit}
           encType="multipart/form-data"
         >
-          <h3>Add Product</h3>
-
-          <input
-            type="text"
+        
+            
+            <div>
+            <label htmlFor="Name">Name</label>
+            <input
+            type="name"
+            id="Name"
+            className="form-control"
             name="name"
             placeholder="Please Enter Your Product name."
             onChange={handleChange}
@@ -146,9 +153,14 @@ const addProduct1 = () => {
           ) : (
             ""
           )}
+          </div>
 
+          <div>
+          <label htmlFor="quantity">quantity</label>
           <input
             type="number"
+            id="quantity"
+            className="form-control"
             name="quantity"
             placeholder="Please Enter Your  quantity"
             onChange={handleChange}
@@ -160,9 +172,17 @@ const addProduct1 = () => {
           ) : (
             ""
           )}
+          </div>
+
+          <div>
+          <label htmlFor="price">price</label>
+
           <input
             type="number"
             name="price"
+            id="price"
+            className="form-control"
+
             placeholder="Please Enter Your  price"
             onChange={handleChange}
             {...(e) => setprice(e.target.value)}
@@ -173,13 +193,17 @@ const addProduct1 = () => {
           ) : (
             ""
           )}
+          </div>
 
+
+          <label htmlFor="price">price</label>
           <select
             id="quality"
             name="quality"
+            className="form-control"
             onChange={handleChange}
             value={quality}
-          >
+            >
             <option value="">Select Quality</option>
             <option value="Good">Good Quality</option>
             <option value="Not Good">Not Good</option>
@@ -189,7 +213,7 @@ const addProduct1 = () => {
           ) : (
             ""
           )}
-
+        
           <div>
             <div className="p-3 md:w-1/2 w-[360px] bg-white rounded-md">
               <span className="flex justify-center items-center text-[12px] mb-1 text-red-500"></span>
@@ -234,7 +258,7 @@ const addProduct1 = () => {
           ) : (
             ""
           )}
-
+          <label htmlFor="description">Description</label>
           <div>
             <CKeditor
               name="description"
@@ -257,8 +281,9 @@ const addProduct1 = () => {
             ""
           )}
 
-          <input type="submit" value="submit" />
+          <input type="submit" value="submit"  className="btn btn-info"/>
         </form>
+      </div>
       </div>
     </Adminlayout>
   );

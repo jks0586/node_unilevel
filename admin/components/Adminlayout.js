@@ -17,7 +17,7 @@ const Adminlayout = (props) => {
         <div className="col-span-2">
           <SideNavbar />
         </div>
-        <div className="col-span-8">
+        <div className="col-span-10">
           {/* <div className="main-div grid-cols-9"> */}
           <Design adminprops={props.adminprops} />
           {/* <Navheader adminprops={props.adminprops} /> */}

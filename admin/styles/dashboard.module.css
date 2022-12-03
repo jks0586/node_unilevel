@@ -1,10 +1,11 @@
 
 .form {
     padding: 9px; 
-    width: 50%;
+    width: 80%;
+    /* height: 100px; */
     margin-left: 20%;
     margin-right: 20%;
-    padding: 4;
+    padding: 8;
     outline: 0; 
     
   }
@@ -20,6 +21,20 @@
 
   .header{
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     color: rgb(57, 61, 60);
   }
+
+  .validate {
+    color: red;
+  }
+
+  /* .form > input[type="submit"] {
+    background: linear-gradient(35deg, #e9c5e9, #fae1e1);
+    color: rgb(60, 58, 61);
+    font-size: 1rem;
+    font-weight: bold;
+    width: 70px;
+    text-transform: uppercase;
+    cursor: pointer;
+  } */

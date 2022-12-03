@@ -15,7 +15,7 @@ import { deleteProduct } from "../redux/actions/productAction";
 import axios from "axios";
 import Adminlayout from "../components/Adminlayout";
 import { MdDelete, MdOutlineEdit } from "react-icons/md";
-
+import parse from 'html-react-parser';
 const Product = () => {
   const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
   const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
@@ -33,7 +33,13 @@ const Product = () => {
     "image",
   ]);
   const defaultColDef = {
-    resizable: true,
+        flex: 1,
+        sortable: true,
+        resizable: true,
+        cellClass: 'cell-wrap-text',
+        autoHeight: true,
+       // suppressSizeToFit: false 
+       // responsive: true
   };
 
   // const handleAdd = (e) => {
@@ -63,7 +69,11 @@ const Product = () => {
     { field: "name", filter: "agTextColumnFilter" },
     { field: "price", filter: true },
     { field: "quantity", filter: true },
-    { field: "description", filter: true },
+    { field: "quality", filter: true },
+    { field: "description", filter: true ,cellRenderer: (params) => {
+      return <div dangerouslySetInnerHTML={{ __html: params.value }}></div>;
+    },
+  },
     {
       field: "image",
       filter: "agNumberColumnFilter",
@@ -76,7 +86,7 @@ const Product = () => {
       field: "_id",
       cellRenderer: (params) => {
         return (
-          <>
+        <div>
             {" "}
             <button
               className={styles.icon}
@@ -91,11 +101,12 @@ const Product = () => {
             >
               <MdOutlineEdit />{" "}
             </button>
-          </>
+            </div>
         );
       },
     },
   ]);
+ // className={table table-striped table-bordered nowrap}
   // <Adminlayout adminprops={aprops}>
   const aprops = [{ url: "test", text: "Add Product", type: "button" }];
   return (
