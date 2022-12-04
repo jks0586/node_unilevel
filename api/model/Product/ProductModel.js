@@ -10,7 +10,15 @@ var productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  specialprice: {
+    type: String,
+    required: true,
+  },
   quantity: {
+    type: String,
+    required: true,
+  },
+  stockquantity: {
     type: String,
     required: true,
   },

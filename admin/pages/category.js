@@ -6,10 +6,9 @@ import Navheader from '../components/Navheader'
 const category = () => {
   return (
     
-   <Adminlayout >
-   
+ 
    <CategoryTable/>
-   </Adminlayout>
+
    
   
   )

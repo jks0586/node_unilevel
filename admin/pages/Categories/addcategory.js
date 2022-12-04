@@ -3,13 +3,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Adminlayout from "../../components/Adminlayout";
 import { addCategory } from "../../redux/actions/categoryAction";
-import styles from "../../styles/addProduct.module.css";
+import styles from "../../styles/Dashboard.module.css";
 
 const Addcategory = () => {
   const initalState = {
     name: "",
-    quality: "",
-    title: "",
     status: "",
     description: "",
     image: [],
@@ -17,7 +15,7 @@ const Addcategory = () => {
 
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState(initalState);
-  const { quality, status, title, description, image, name } = userData;
+  const { status, description, image, name } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -52,28 +50,24 @@ const Addcategory = () => {
     e.preventDefault();
     if (
       name.length == 0 ||
-      quality.length == 0 ||
-      title.length == 0 ||
       status.length == 0 ||
       description.length == 0 ||
       image.length == 0
     ) {
       setError(true);
     }
-    if (name && title && quality && status && description && image) {
+    if (name && status && description && image) {
       console.log(
         "name: ",
         name,
-        "\ntitle: ",
-        title,
+        
         "\nstatus: ",
         status,
         "\ndescription: ",
         description,
         "\nimage: ",
         image,
-        "\nquality: ",
-        quality
+        
       );
 
       dispatch(addCategory(userData, router));
@@ -89,17 +83,22 @@ const Addcategory = () => {
 
   return (
     <Adminlayout>
-      <div>
+    <div className={styles.container}>
+    <h1 className={styles.header}>Add Category</h1>
+    <div>
+  
         <form
           className={styles.form}
           onSubmit={handleSubmit}
           enctype="multipart/form-data"
         >
-          <h3>Add Category</h3>
-
+        <div>
+        <label htmlFor="Name">Name</label>
           <input
             type="text"
             name="name"
+            id="Name"
+            className="form-control"
             placeholder="Please Enter Your category name."
             onChange={handleChange}
             {...(e) => setname(e.target.value)}
@@ -110,23 +109,14 @@ const Addcategory = () => {
           ) : (
             ""
           )}
+          </div>
 
-          <input
-            type="text"
-            name="title"
-            placeholder="Please Enter Your  title"
-            onChange={handleChange}
-            {...(e) => settitle(e.target.value)}
-            value={title}
-          />
-          {error && title.length <= 0 ? (
-            <label className={styles.validate}> title can't be Empty</label>
-          ) : (
-            ""
-          )}
+          <div>
+          <label htmlFor="Name">Name</label>
           <select
             id="status"
             name="status"
+            className="form-control"
             onChange={handleChange}
             value={status}
           >
@@ -139,26 +129,15 @@ const Addcategory = () => {
           ) : (
             ""
           )}
+          </div>
 
-          <select
-            id="quality"
-            name="quality"
-            onChange={handleChange}
-            value={quality}
-          >
-            <option value="">Select Quality</option>
-            <option value="Good">Good Quality</option>
-            <option value="Not Good">Not Good</option>
-          </select>
-          {error && quality.length <= 0 ? (
-            <label className={styles.validate}>quality can't be Empty</label>
-          ) : (
-            ""
-          )}
-
+         
+          <div>
+          <label htmlFor="Name">Name</label>
           <input
             id="image"
             name="image"
+            className="form-control"
             type="file"
             placeholder="Please Enter Your image"
             onChange={handleFileChange}
@@ -182,11 +161,14 @@ const Addcategory = () => {
           ) : (
             ""
           )}
-
+          </div>
+          <div>
+          <label htmlFor="Name">Name</label>
           <textarea
             id="text"
             name="description"
             rows="5"
+            className="form-control"
             placeholder="Please Enter Your Short Description"
             onChange={handleChange}
             value={description}
@@ -198,9 +180,11 @@ const Addcategory = () => {
           ) : (
             ""
           )}
+          </div>
 
-          <input type="submit" value="submit" />
+          <input type="submit" value="submit" className="btn btn-info"/>
         </form>
+      </div>
       </div>
     </Adminlayout>
   );

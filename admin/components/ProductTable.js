@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-  useCallback,
-} from "react";
+import React, {useState,useMemo,useCallback} from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
@@ -16,6 +10,7 @@ import axios from "axios";
 import Adminlayout from "../components/Adminlayout";
 import { MdDelete, MdOutlineEdit } from "react-icons/md";
 import parse from 'html-react-parser';
+
 const Product = () => {
   const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
   const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
@@ -30,8 +25,11 @@ const Product = () => {
     "name",
     "quantity",
     "description",
+    "specialprice",
+    "stockquantity",
     "image",
   ]);
+  
   const defaultColDef = {
         flex: 1,
         sortable: true,
@@ -70,6 +68,8 @@ const Product = () => {
     { field: "price", filter: true },
     { field: "quantity", filter: true },
     { field: "quality", filter: true },
+    { field: "stockquantity", filter: true },
+    { field: "specialprice", filter: true },
     { field: "description", filter: true ,cellRenderer: (params) => {
       return <div dangerouslySetInnerHTML={{ __html: params.value }}></div>;
     },
@@ -108,7 +108,7 @@ const Product = () => {
   ]);
  // className={table table-striped table-bordered nowrap}
   // <Adminlayout adminprops={aprops}>
-  const aprops = [{ url: "test", text: "Add Product", type: "button" }];
+  const aprops = [{ url: "product/addProduct1", text: "AddProduct", type: "button" }];
   return (
     <>
       <Adminlayout adminprops={aprops}>

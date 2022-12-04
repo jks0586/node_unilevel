@@ -33,8 +33,6 @@ const addCategory = async (req, res, next) => {
 
     var category = new Category({
       name: req.body.name,
-      quality: req.body.quality,
-      title: req.body.title,
       status: req.body.status,
       description: req.body.description,
       image: req.file.filename,

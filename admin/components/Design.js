@@ -10,7 +10,8 @@ const Navbar = (props, adminprops) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    router.push("/product/addProduct1");
+    // console.log(e.target.value);
+    router.push(e.target.value);
   };
 
   return (
@@ -32,7 +33,7 @@ const Navbar = (props, adminprops) => {
           {props.adminprops !== undefined
             ? props.adminprops.map((item) =>
                 item != undefined && item.type == "button" ? (
-                  <button className={styles.button} onClick={handleAdd}>
+                  <button value={item.url}  className={styles.button} onClick={handleAdd}>
                     {item.text}
                   </button>
                 ) : (

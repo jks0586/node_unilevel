@@ -11,10 +11,11 @@ import {
   MdOutlineLogout,
 } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
-import { FaRegComments } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
 import { ImHome,ImCart } from "react-icons/im";
-import { BsTable } from "react-icons/bs";
+import { BsTable,BsFillPeopleFill } from "react-icons/bs";
+import { AiOutlineAppstore } from "react-icons/ai";
 function SideNavbar() {
  
 
@@ -70,6 +71,18 @@ function SideNavbar() {
                   <Link href="/dashProduct">Product</Link>
                 </h3>
               </div>
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <BsFillPeopleFill className="text-2xl text-gray-600 text-white " />
+                <h3 className="text-base text-gray-800 text-white font-semibold ">
+                  <Link href="Role/roleTable">Role</Link>
+                </h3>
+              </div>
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <FaUserTie className="text-2xl text-gray-600 text-white " />
+              <h3 className="text-base text-gray-800 text-white font-semibold ">
+                <Link href="/User">User</Link>
+              </h3>
+            </div>
             </div>
              <div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
@@ -7,23 +7,33 @@ import styles from "../../styles/Product.module.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { deleteCategory } from "../../redux/actions/categoryAction";
+import { MdDelete, MdOutlineEdit } from "react-icons/md";
+import Adminlayout from "../../components/Adminlayout";
+
 
 const CategoryTable = () => {
+  const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
+  const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
   const [category, setCategory] = useState([]);
   const router = useRouter();
   const dispatch = useDispatch();
 
   const getRowId = (params) => params.data.id;
 
-  const [rowData, setRowData] = useState(["title", "name", "status", "image"]);
+  const [rowData, setRowData] = useState(["description", "name", "status", "image"]);
   const defaultColDef = {
+    flex: 1,
+    sortable: true,
+    resizable: true,
+    cellClass: 'cell-wrap-text',
+    autoHeight: true,
     resizable: true,
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    router.push("/Categories/addcategory");
-  };
+  // const handleAdd = (e) => {
+  //   e.preventDefault();
+  //   router.push("/Categories/addcategory");
+  // };
 
   const handleDelete = (id) => {
     alert("delete");
@@ -45,7 +55,7 @@ const CategoryTable = () => {
 
   const [columnDefs] = useState([
     { field: "name", filter: "agTextColumnFilter" },
-    { field: "title", filter: true },
+    { field: "description", filter: true },
     { field: "status", filter: true },
     {
       field: "image",
@@ -59,32 +69,34 @@ const CategoryTable = () => {
       field: "_id",
       cellRenderer: (params) => {
         return (
-          <>
-            {" "}
-            <button onClick={() => handleDelete(params.value)}>
-              Delete{" "}
-            </button>{" "}
-            | <button onClick={() => handleEdit(params.value)}>Edit </button>
-          </>
+          <div>
+          {" "}
+          <button
+            className={styles.icon}
+            onClick={() => handleDelete(params.value)}
+          >
+            <MdDelete />{" "}
+          </button>{" "}
+          |{" "}
+          <button
+            className={styles.icon}
+            onClick={() => handleEdit(params.value)}
+          >
+            <MdOutlineEdit />{" "}
+          </button>
+          </div>
         );
       },
     },
   ]);
-
+  const aprops = [{ url: "Categories/addcategory", text: "AddCategory", type: "button" }];
   return (
     <>
-      <div
-        className="ag-theme-alpine"
-        style={{ height: 200, width: 1000, margin: 250, alignItems: "center" }}
-      >
-        <button className={styles.button} onClick={handleAdd}>
-          Add-Category
-        </button>
-
+    <Adminlayout adminprops={aprops}>
+    <div style={containerStyle}>
+      <div className="ag-theme-alpine" style={gridStyle}>
         <AgGridReact
-          // getRowId={getRowId}
           rowData={rowData}
-          //rowData={tableData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           onGridReady={onGridReady}
@@ -92,6 +104,8 @@ const CategoryTable = () => {
           animateRows={true}
         ></AgGridReact>
       </div>
+    </div>
+  </Adminlayout>
     </>
   );
 };

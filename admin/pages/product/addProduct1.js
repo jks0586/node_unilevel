@@ -11,7 +11,9 @@ const addProduct1 = () => {
     name: "",
     quality: "",
     quantity: "",
+    stockquantity: "",
     price: "",
+    specialprice: "",
     description: "",
     image: [],
   };
@@ -20,7 +22,7 @@ const addProduct1 = () => {
   const [userData, setUserData] = useState(initalState);
   const [files, setFile] = useState([]);
   const [message, setMessage] = useState();
-  const { quality, quantity, price, image, name, description } = userData;
+  const { quality, quantity, price, image, name, stockquantity, specialprice, description } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -86,19 +88,26 @@ const addProduct1 = () => {
       quality.length == 0 ||
       price.length == 0 ||
       quantity.length == 0 ||
+      stockquantity.length == 0 ||
+      specialprice.length == 0 ||
       description.length == 0 ||
+
       image.length == 0
     ) {
       setError(true);
     }
-    if (name && price && quality && quantity && description && image) {
+    if (name && price && quality && quantity && description && stockquantity && specialprice && image) {
       console.log(
         "name: ",
         name,
         "\nquantity: ",
         quantity,
+        "\nstockquantity: ",
+        stockquantity,
         "\nprice: ",
         price,
+        "\nspecialprice: ",
+        specialprice,
         "\ndescription: ",
         description,
         "\nimage: ",
@@ -175,6 +184,25 @@ const addProduct1 = () => {
           </div>
 
           <div>
+          <label htmlFor="stockquantity">stockquantity</label>
+          <input
+            type="number"
+            id="stockquantity"
+            className="form-control"
+            name="stockquantity"
+            placeholder="Please Enter Your  stockquantity"
+            onChange={handleChange}
+            {...(e) => setstockquantity(e.target.value)}
+            value={stockquantity}
+          />
+          {error && stockquantity.length <= 0 ? (
+            <label className={styles.validate}> title can't be Empty</label>
+          ) : (
+            ""
+          )}
+          </div>
+
+          <div>
           <label htmlFor="price">price</label>
 
           <input
@@ -195,8 +223,30 @@ const addProduct1 = () => {
           )}
           </div>
 
+          <div>
+          <label htmlFor="specialprice">specialprice</label>
 
-          <label htmlFor="price">price</label>
+          <input
+            type="number"
+            name="specialprice"
+            id="specialprice"
+            className="form-control"
+
+            placeholder="Please Enter Your  specialprice"
+            onChange={handleChange}
+            {...(e) => setspecialprice(e.target.value)}
+            value={specialprice}
+          />
+          {error && specialprice.length <= 0 ? (
+            <label className={styles.validate}> title can't be Empty</label>
+          ) : (
+            ""
+          )}
+          </div>
+
+
+
+          <label htmlFor="quality">quality</label>
           <select
             id="quality"
             name="quality"

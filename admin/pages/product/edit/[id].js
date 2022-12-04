@@ -71,7 +71,7 @@ const editpost = () => {
         onSubmit={handleSubmit}
         enctype="multipart/form-data" 
       >
-        <h3>Add Category</h3>
+        <h3>Add Product</h3>
 
         <input
           type="text"

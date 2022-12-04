@@ -11,8 +11,10 @@ const addProduct = async (req, res, next) => {
 
     var product = new Product({
       name: req.body.name,
+      specialprice: req.body.specialprice,
       quality: req.body.quality,
       quantity: req.body.quantity,
+      stockquantity: req.body.stockquantity,
       price: req.body.price,
       description: req.body.description,
       image: req.file.filename,
