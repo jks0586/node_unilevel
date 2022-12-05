@@ -90,7 +90,7 @@ const Addcategory = () => {
         <form
           className={styles.form}
           onSubmit={handleSubmit}
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
         >
         <div>
         <label htmlFor="Name">Name</label>

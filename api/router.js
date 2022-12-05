@@ -4,6 +4,7 @@ const PostsController = require("./controller/Posts");
 const AuthController = require("./controller/Auth");
 const ProductController = require("./controller/Product/productControll");
 const CategoryController = require("./controller/Category/categoryController");
+const RoleController = require("./controller/Role/roleController")
 const User = require("./model/User");
 const multer = require("multer");
 const path = require("path");
@@ -75,6 +76,14 @@ router.get("/category", CategoryController.getCategory);
 router.get("/category/:id", CategoryController.findSingleCategory);
 router.put("/category/:id",upload.single("image"),CategoryController.updateCategory);
 router.delete("/category/:id", CategoryController.deleteCategory);
+
+//Role Use
+router.post("/add/role",upload.single("image"),RoleController.addRole);
+router.get("/role", RoleController.getRole);
+router.get("/role/:id", RoleController.findSingleRole);
+router.put("/role/:id",RoleController.updateRole);
+router.delete("/role/:id", RoleController.deleteRole);
+
 
 module.exports = router;
 //app.use(upload.array());

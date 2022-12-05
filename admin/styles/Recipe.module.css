@@ -1,4 +1,17 @@
-.form {
+.setting{
+  padding: 2%;
+  font-size: 22px;
+}
+.nav{
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+ 
+  
+
+}
+
+/* .form {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -78,4 +91,4 @@
     width: 8rem;
     border-radius: 0.5rem;
   }
-}
+} */

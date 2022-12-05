@@ -74,31 +74,36 @@ function SideNavbar() {
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <BsFillPeopleFill className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="Role/roleTable">Role</Link>
+                  <Link href="/Role/roleTable">Role</Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
               <FaUserTie className="text-2xl text-gray-600 text-white " />
               <h3 className="text-base text-gray-800 text-white font-semibold ">
-                <Link href="/User">User</Link>
+                <Link href="/User/adduser">User</Link>
+              </h3>
+            </div>
+            <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+              <MdOutlineSettings className="text-2xl text-gray-600 text-white " />
+              <h3 className="text-base text-gray-800 text-white font-semibold ">
+                <Link href="/Setting/unilevelsettings">Settings</Link>
               </h3>
             </div>
             </div>
              <div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineSettings className="text-2xl text-gray-600 text-white " />
-                <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="#">Settings</Link>
-                </h3>
-              </div>
-              <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineMoreHoriz className="text-2xl text-gray-600 text-white " />
+                <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
                   <Link href="#">More Details</Link>
                 </h3>
               </div>
-
-              <div>
+              <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
+                <h3 className="text-base text-gray-800 text-white font-semibold ">
+                  <Link href="#">More Details</Link>
+                </h3>
+              </div>
+               <div>
                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
                   <h3 className="text-base text-gray-800 text-white font-semibold ">

@@ -117,4 +117,20 @@ export const deleteDataApiProduct = async (url) => {
 };
 
 
+export const deleteDataApiRole = async (url) => {
+  // alert(url);
+  const response = await axios
+    .delete(GLOBAL_CONSTANT.BASE_URL+'role/' + url, {
+      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return response;
+};
+
+
 
