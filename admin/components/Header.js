@@ -1,52 +1,81 @@
+import Link from "next/link";
 import React, { useContext } from "react";
+import Adminlayout from "./Adminlayout";
+import Settings from "./Settings";
 
-const Header = () => {
+const HeaderSettings = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        Navbar
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            ></a>
+    <div className="w-40 float-left">
+      <div className="overflow-y-auto py-4 px-3 bg-slate-500  rounded dark:bg-gray-800">
+        <ul className="space-y-2">
+          <li>
+            <Link href="/Setting/configuration/general">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+                General
+              </a>
+            </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#"></a>
+
+          <li>
+            <Link href="/Setting/configuration/elegibility">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+              Elegibility
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/mapping">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+              Mapping
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/payout">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+              Payout
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/bonuses">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+              Bonuses
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/general">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+              Commissions
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/general">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+                General
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/general">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+              Dashboard Design
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/general">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+                General
+              </a>
+            </Link>
           </li>
         </ul>
-
-        <form class="form-inline">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
       </div>
-    </nav>
+    </div>
   );
 };
 
-export default Header;
+export default HeaderSettings;

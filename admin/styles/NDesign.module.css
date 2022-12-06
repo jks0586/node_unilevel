@@ -65,8 +65,15 @@
 }
 
 .setting {
-  padding: 2%;
+  padding: 1%;
   font-size: 22px;
+}
+.header{
+  text-align: center;
+  font-size: 25px;
+  color: white;
+ 
+ 
 }
 #navtoggle {
   position: absolute;

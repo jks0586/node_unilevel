@@ -1,37 +1,11 @@
-import { deleteDataApi, getDataApi, postDataApi, putDataApi, findSinglePost } from "../../config/fetchData";
+import { deleteDataApi, getDataApi, postDataApi, putDataApi, findSinglePost, deleteDataApipost, postDataApiPost } from "../../config/fetchData";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
 export const addPost = (data, router) => async (dispatch) => {
-    //let media = [];
-    
-    // console.log(data);
-    // console.log(router);
-    // alert('aaaaa');
-    // if (data.img) {
-    //   media = await imageUpload(data.img);
-    // }
-    // data = { ...data, ["img"]: media };
-    // data = { ...data, ["lat"]: "00.00" };
-    // data = { ...data, ["lng"]: "00.00" };
-    // console.log(data);
-    const response = await postDataApi("posts/create", data);
+   
+    const response = await postDataApiPost("posts/create", data);
   
-    if (response && response.status) {
-      dispatch({
-        type: GLOBAL_CONSTANT.POST_CREATE,
-        payload: response.data,
-      });
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { success: response.message },
-      });
-      router.back();
-    } else {
-      dispatch({
-        type: GLOBAL_CONSTANT.ALERT,
-        payload: { error: response.message },
-      });
-    }
+   
   };
   
   export const findSingle1Post = (id) => async (dispatch) => {
@@ -66,7 +40,7 @@ export const addPost = (data, router) => async (dispatch) => {
     //   payload: id,
     // });
   // console.log(id);
-    const response = await deleteDataApi(id);
+    const response = await deleteDataApipost(id);
   
     // if (response && response.status) {
     //   dispatch({

@@ -50,7 +50,7 @@ const Product = () => {
 
   const handleDelete = (id) => {
     // alert(id)
-    // alert("Are you sure you want to delete")
+    alert("Are you sure you want to delete")
     // {
     //   console.log("are you delete");
     dispatch(deletePost(id));

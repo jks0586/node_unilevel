@@ -4,7 +4,8 @@ const PostsController = require("./controller/Posts");
 const AuthController = require("./controller/Auth");
 const ProductController = require("./controller/Product/productControll");
 const CategoryController = require("./controller/Category/categoryController");
-const RoleController = require("./controller/Role/roleController")
+const RoleController = require("./controller/Role/roleController");
+const SettingController = require("./controller/Setting/SettingController")
 const User = require("./model/User");
 const multer = require("multer");
 const path = require("path");
@@ -83,6 +84,13 @@ router.get("/role", RoleController.getRole);
 router.get("/role/:id", RoleController.findSingleRole);
 router.put("/role/:id",RoleController.updateRole);
 router.delete("/role/:id", RoleController.deleteRole);
+
+// Setting routes
+router.post("/setting/create", SettingController.createSetting);
+router.get("/setting", SettingController.getSetting);
+router.put("/setting/:id", SettingController.updateSetting);
+router.get("/setting/:id", SettingController.findSingleSetting);
+router.delete("/setting/:id", SettingController.deleteSetting);
 
 
 module.exports = router;

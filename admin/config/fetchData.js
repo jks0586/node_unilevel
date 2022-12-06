@@ -19,6 +19,23 @@ export const postDataApi = async (url, data) => {
     });
   
 };
+
+//post add
+
+export const postDataApiPost = async (url, data) => {
+  const response = await axios
+    .post(GLOBAL_CONSTANT.BASE_URL + url, data, {
+      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)},
+    })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((error) => {
+      //console.log(error);
+    });
+  
+};
 export const putDataApi = async (url, data) => {
   delete data._id;
   delete data.deletedAt;
@@ -85,20 +102,20 @@ export const deleteDataApi = async (url) => {
 };
 
 //posts delete
-// export const deleteDataApi = async (url) => {
-//   // alert(url);
-//   const response = await axios
-//     .delete(GLOBAL_CONSTANT.BASE_URL+'posts/' + url, {
-//       headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
-//     })
-//     .then((response) => {
-//       return response.data;
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-//   return response;
-// };
+export const deleteDataApipost = async (url) => {
+  // alert(url);
+  const response = await axios
+    .delete(GLOBAL_CONSTANT.BASE_URL+'posts/' + url, {
+      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+    })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return response;
+};
 
 
 export const deleteDataApiProduct = async (url) => {
