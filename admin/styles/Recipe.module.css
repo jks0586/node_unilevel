@@ -1,15 +1,60 @@
-.setting{
-  padding: 2%;
-  font-size: 22px;
+.loginform {
+  text-align: center;
 }
-.nav{
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
- 
-  
 
+.loginform > input {
+  width: 80%;
+  margin: 10px;
+  border: 2px solid rgb(5, 6, 6);
+  padding: 10px;
+  text-align: center;
 }
+/* 
+.loginform > input[type="submit"] {
+  background-color: rgb(240, 230, 230);
+  border: 5px solid rgb(91, 92, 90);
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: larger;
+  text-align: center;
+} */
+.button {
+  height: 50px;
+
+  color: beige;
+  font-size: larger;
+  font-weight: bolder;
+  border-radius: 2rem;
+  border: 5px solid rgb(91, 92, 90);
+  background-color: rgb(212, 211, 211);
+}
+
+.formbottom {
+  text-align: center;
+  font-weight: bold;
+  text-indent: 6%;
+  margin: 2%;
+}
+.div {
+  width: 80%;
+  height: auto;
+  background-color: rgb(131, 133, 133);
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  text-align: center;
+  padding: 4%;
+}
+
+/* .div1 {
+  width: 90%;
+  height: auto;
+  background-color: rgb(106, 110, 110);
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  text-align: center;
+} */
 
 /* .form {
   width: 80%;
