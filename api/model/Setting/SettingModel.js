@@ -1,27 +1,13 @@
 const mongoose=require("mongoose");
 
 const SettingSchema=mongoose.Schema({
-    levels:{
-        type:"string",
-        required:true
-    },
-    referrals:{
+    name:{
         type:"String",
         required:true
     },
-    withdrawallimit:{
+    value:{
         type:"String",
         required:true
-    }, 
-    shortcodemessage:{
-        type:"String",
-        required:true
-        
-    },
-    planbasedon:{
-        type:"String",
-        required:true
-        
     }
     
 

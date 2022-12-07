@@ -87,11 +87,11 @@ router.delete("/role/:id", RoleController.deleteRole);
 
 // Setting routes
 router.post("/setting/create", SettingController.createSetting);
-router.get("/setting", SettingController.getSetting);
-router.put("/setting/:id", SettingController.updateSetting);
-router.get("/setting/:id", SettingController.findSingleSetting);
-router.delete("/setting/:id", SettingController.deleteSetting);
+//router.get("/setting", SettingController.getSetting);
+// router.put("/setting/:id", SettingController.updateSetting);
+// router.get("/setting/:id", SettingController.findSingleSetting);
+// router.delete("/setting/:id", SettingController.deleteSetting);
 
-
+//router.post("/setting/getsetting", SettingController.getSetting);
 module.exports = router;
 //app.use(upload.array());
