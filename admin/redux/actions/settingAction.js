@@ -7,11 +7,8 @@ import {
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
 export const getSetting = (data, router) => async (dispatch) => {
-
-  const response = await postDataApiSetting("setting/getsetting", data);
-
+  const response = await postDataApiSetting("setting/create");
 };
-
 
 export const addSetting = (data, router) => async (dispatch) => {
   const response = await postDataApiSetting("setting/create", data);

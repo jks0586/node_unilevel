@@ -29,25 +29,25 @@ exports.createSetting = async (req, res) => {
 };
 
 //Getting all Setting
-// exports.getSetting = async (req, res) => {
-//   const setting = await Setting.save({ name: "general_settings" });
-//   res.json(setting);
-//   if (Object.is(setting, undefined)) {
-//     const setting = new Setting({
-//       name: req.body.setting_key,
-//       value: req.body.setting_value,
-//     });
-//   } else {
-//     setting.name = req.body.setting_key;
-//     setting.value = req.body.setting_value;
-//   }
-//   try {
-//     const setting = await Setting.find();
-//     res.json(setting);
-//   } catch (error) {
-//     res.send("Error", error);
-//   }
-// };
+exports.getSetting = async (req, res) => {
+  const setting = await Setting.save({ name: "general_settings" });
+  res.json(setting);
+  // if (Object.is(setting, undefined)) {
+  //   const setting = new Setting({
+  //     name: req.body.setting_key,
+  //     value: req.body.setting_value,
+  //   });
+  // } else {
+  //   setting.name = req.body.setting_key;
+  //   setting.value = req.body.setting_value;
+  // }
+  try {
+    const setting = await Setting.find();
+    res.json(setting);
+  } catch (error) {
+    res.send("Error", error);
+  }
+};
 
 // //Getting a single Setting by id
 
@@ -79,4 +79,3 @@ exports.createSetting = async (req, res) => {
 //     res.send("Error", error);
 //   }
 //  };
-
