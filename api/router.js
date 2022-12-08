@@ -78,7 +78,7 @@ router.get("/category/:id", CategoryController.findSingleCategory);
 router.put("/category/:id",upload.single("image"),CategoryController.updateCategory);
 router.delete("/category/:id", CategoryController.deleteCategory);
 
-//Role Use
+//Role Use 
 router.post("/add/role",upload.single("image"),RoleController.addRole);
 router.get("/role", RoleController.getRole);
 router.get("/role/:id", RoleController.findSingleRole);
@@ -87,7 +87,7 @@ router.delete("/role/:id", RoleController.deleteRole);
 
 // Setting routes
 router.post("/setting/create", SettingController.createSetting);
-//router.get("/setting", SettingController.getSetting);
+router.post("/setting", SettingController.getSetting);
 // router.put("/setting/:id", SettingController.updateSetting);
 // router.get("/setting/:id", SettingController.findSingleSetting);
 // router.delete("/setting/:id", SettingController.deleteSetting);

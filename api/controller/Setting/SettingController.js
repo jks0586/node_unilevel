@@ -1,7 +1,11 @@
 const Setting = require("../../model/Setting/SettingModel");
 
+
+//Save Setting
 exports.createSetting = async (req, res) => {
-  const settings = await Setting.findOne({ name: "general_settings" });
+  //const settings = await Setting.findOne({ name: "general_settings" });
+  const settings = await Setting.findOne({ name: req.body.setting_key });
+  
 
   if (settings) {
     settings.name = req.body.setting_key;
@@ -28,54 +32,14 @@ exports.createSetting = async (req, res) => {
   }
 };
 
-//Getting all Setting
+
+//Get Setting
 exports.getSetting = async (req, res) => {
-  const setting = await Setting.save({ name: "general_settings" });
-  res.json(setting);
-  // if (Object.is(setting, undefined)) {
-  //   const setting = new Setting({
-  //     name: req.body.setting_key,
-  //     value: req.body.setting_value,
-  //   });
-  // } else {
-  //   setting.name = req.body.setting_key;
-  //   setting.value = req.body.setting_value;
-  // }
+  console.log(req.body.setting_key);
   try {
-    const setting = await Setting.find();
+    const setting = await Setting.findOne({ name: req.body.setting_key });
     res.json(setting);
   } catch (error) {
     res.send("Error", error);
   }
 };
-
-// //Getting a single Setting by id
-
-// exports.findSingleSetting = async (req, res) => {
-//   try {
-//     const setting = await Setting.findById(req.params.id);
-//     res.json(setting);
-//   } catch (error) {
-//     res.send("Error", error);
-//   }
-// };
-
-// //Update All Setting
-// exports.updateSetting = async (req, res) => {
-//   // console.log(req.param.id);
-//   const filter = { _id: req.params.id };
-//   const settingUpdate = await Setting.findOneAndUpdate(filter, req.body, {
-//     new: true,
-//   });
-//   res.json(settingUpdate);
-// };
-
-// //Delete Setting
-// exports.deleteSetting = async (req, res) => {
-//   try {
-//     const settingdelete = await Setting.findByIdAndRemove(req.params.id);
-//     res.json(settingdelete);
-//   } catch (error) {
-//     res.send("Error", error);
-//   }
-//  };

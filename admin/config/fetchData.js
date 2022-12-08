@@ -35,17 +35,19 @@ export const postDataApiPost = async (url, data) => {
 export const postDataApiSetting = async (url, data) => {
   // alert(url);
   // alert(data);
+  // console.log(data);
   const response = await axios
     .post(GLOBAL_CONSTANT.BASE_URL + url, data, {
       headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
     })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return response.data;
     })
     .catch((error) => {
       //console.log(error);
     });
+  return response;
 };
 
 export const putDataApi = async (url, data) => {

@@ -27,7 +27,6 @@ exports.getPost = async (req, res) => {
 };
 
 //Getting a single posts by id
-
 exports.findSinglePost = async (req, res) => {
   try {
     const posts = await Posts.findById(req.params.id);
@@ -39,7 +38,6 @@ exports.findSinglePost = async (req, res) => {
 
 //Update All posts
 exports.updatePost = async (req, res) => {
-  // console.log(req.param.id);
   const filter = { _id: req.params.id };
   const postsUpdate = await Posts.findOneAndUpdate(filter, req.body, {
     new: true,

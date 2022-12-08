@@ -7,6 +7,7 @@ import Settings from "../../../components/Settings";
 import { getDataApi, postDataApiSetting } from "../../../config/fetchData";
 import { addSetting, getSetting } from "../../../redux/actions/settingAction";
 import styles from "../../../styles/NDesign.module.css";
+
 const General = () => {
   const initalState = {
     levels: "",
@@ -17,8 +18,13 @@ const General = () => {
   };
 
   const [userData, setUserData] = useState(initalState);
-  const { levels, referrals, withdrawallimit, shortcodemessage, planbasedon } =
-    userData;
+  const {
+    levels,
+    referrals,
+    withdrawallimit,
+    shortcodemessage,
+    planbasedon,
+  } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -51,7 +57,25 @@ const General = () => {
     const postdata = { setting_key: "general_settings" };
     // {
 
-    dispatch(getSetting(postdata, router));
+    //  dispatch(getSetting(postdata, router)).then(respose=>{
+    //   console.log(respose);
+    //  });
+
+    const response = postDataApiSetting("setting", postdata).then(
+      (response) => {
+        console.log(response);
+        const resvalue = JSON.parse(response.value);
+        initalState.levels = resvalue.levels;
+        initalState.planbasedon = resvalue.planbasedon;
+        initalState.referrals = resvalue.referrals;
+        initalState.shortcodemessage = resvalue.shortcodemessage;
+        initalState.withdrawallimit = resvalue.withdrawallimit;
+        setUserData({ ...userData, initalState });
+
+        // console.log(resvalue);
+      }
+    );
+
     // }
     //  console.log(fetchdata);
     //  setUserData({
@@ -176,7 +200,7 @@ const General = () => {
                   />
                 </div>
               </div>
-
+             
               <div className="md:flex md:items-center">
                 <div className="md:w-1/3"></div>
                 <div className="md:w-8/3">
@@ -191,6 +215,7 @@ const General = () => {
           </div>
         </div>
       </div>
+      
     </Adminlayout>
     // <button
     //   className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"

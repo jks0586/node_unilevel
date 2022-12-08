@@ -74,7 +74,7 @@ const Addcategory = () => {
 
       alert("Submit");
       console.log(userData);
-      router.push("/category");
+      router.push("/Categories/categorytable");
     }
   };
   const removeSelectedImage = () => {

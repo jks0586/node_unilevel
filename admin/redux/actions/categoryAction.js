@@ -13,31 +13,30 @@ export const addCategory = (data, router) => async (dispatch) => {
 
 export const findSingleCategory = (id) => async (dispatch) => {
   const response = await getDataApi("category/" + id);
-  // console.log(response);
-  if (response && response.status) {
-    // return response;
-    dispatch({
-      type: GLOBAL_CONSTANT.CATEGORY,
-      payload: response.data,
-    });
-  } else {
-  }
+  // // console.log(response);
+  // if (response && response.status) {
+  //   // return response;
+  //   dispatch({
+  //     type: GLOBAL_CONSTANT.CATEGORY,
+  //     payload: response.data,
+  //   });
+  // } else {
+  // }
 };
 
 export const getCategory = () => async (dispatch) => {
   const response = await getDataApi("category");
   //console.log(response);
-  if (response && response.status) {
-    dispatch({
-      type: GLOBAL_CONSTANT.CATEGORY,
-      payload: response.data,
-    });
-  } else {
-  }
+  // if (response && response.status) {
+  //   dispatch({
+  //     type: GLOBAL_CONSTANT.CATEGORY,
+  //     payload: response.data,
+  //   });
+  // } else {
+  // }
 };
 
 export const deleteCategory = (id) => async (dispatch) => {
-  // console.log(id);
   const response = await deleteDataApi(id);
 };
 

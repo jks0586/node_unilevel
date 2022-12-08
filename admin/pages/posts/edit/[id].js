@@ -47,7 +47,7 @@ const editpost = () => {
         // alert(pageroute.query.id);
         dispatch(editPost(pageroute.query.id, userData,router));
         alert("update");
-        router.push("/post");
+        router.push("/posts/posttable");
     } else
     {
       dispatch(editPost(userData, router));

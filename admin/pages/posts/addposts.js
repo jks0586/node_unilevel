@@ -1,10 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "../../styles/addProduct.module.css";
 import { addPost } from "../../redux/actions/postAction";
-import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
-
 
 const Addproduct = () => {
   const initalState = {
@@ -16,10 +13,7 @@ const Addproduct = () => {
 
 };
 
-
-
-
-  const [userData, setUserData] = useState(initalState);
+ const [userData, setUserData] = useState(initalState);
   const { city, title, description,  mobile, firstName } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -52,7 +46,7 @@ const Addproduct = () => {
       dispatch(addPost(userData, router));
       alert("Submit");
       console.log(userData);
-     router.push("/post");
+     router.push("/posts/posttable");
     }
   };
 

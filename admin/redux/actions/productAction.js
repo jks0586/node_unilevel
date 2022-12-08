@@ -1,4 +1,4 @@
-import { deleteDataApi, deleteDataApi1, deleteDataApiProduct, getDataApi, postDataApi, putDataApi } from "../../config/fetchData";
+import {deleteDataApiProduct, getDataApi, postDataApi, putDataApi } from "../../config/fetchData";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
 export const addProduct = (data, router) => async (dispatch) => {
@@ -7,9 +7,7 @@ export const addProduct = (data, router) => async (dispatch) => {
   
   export const findSingleProduct = (id) => async (dispatch) => {
     const response = await getDataApi("product/" + id);
-    // console.log(response);
     if (response && response.status) {
-      // return response;
       dispatch({
         type: GLOBAL_CONSTANT.PRODUCT,
         payload: response.data,
@@ -20,7 +18,6 @@ export const addProduct = (data, router) => async (dispatch) => {
   
   export const getProduct = () => async (dispatch) => {
     const response = await getDataApi("product");
-    //console.log(response);
     if (response && response.status) {
       dispatch({
         type: GLOBAL_CONSTANT.PRODUCT,
@@ -31,7 +28,6 @@ export const addProduct = (data, router) => async (dispatch) => {
   };
   
   export const deleteProduct = (id) => async (dispatch) => {
-    // console.log(id);
     const response = await deleteDataApiProduct(id);
   };
   

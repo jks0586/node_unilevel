@@ -1,37 +1,27 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-  useCallback,
-} from "react";
-import { render } from "react-dom";
+import React, { useState, useCallback } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-
 import { useRouter } from "next/router";
 import styles from "../../styles/Product.module.css";
 import axios from "axios";
-import { deletePost, getPost } from "../../redux/actions/postAction";
+import { deletePost } from "../../redux/actions/postAction";
 import { useDispatch } from "react-redux";
 
-const Product = () => {
+const Posttable = () => {
   const [posts, setPosts] = useState([]);
   const router = useRouter();
   const dispatch = useDispatch();
 
-
-
   const getRowId = (params) => params.data.id;
-  //const gridRef = useRef(); //for accessing Grid's API
+
   const [rowData, setRowData] = useState([
     "title",
     "description",
     "firstName",
     "city",
-  ]);  // Set rowData to Array of Objects, one Object per Row
-  //const [tableData, setRowData] = useState(["title", "description"]);
+  ]);
+
   const defaultColDef = {
     resizable: true,
   };
@@ -49,39 +39,21 @@ const Product = () => {
   };
 
   const handleDelete = (id) => {
-    // alert(id)
-    alert("Are you sure you want to delete")
-    // {
-    //   console.log("are you delete");
+    alert("Are you sure you want to delete");
     dispatch(deletePost(id));
-    //   dispatch(getPost(posts));
-    // }
   };
 
   const handleEdit = (id) => {
-    // router.push({
-    // pathname: "/posts/editpost",
-    // query: { id: id },
-    // });
-    router.push('/posts/edit/'+id);
-    
+    router.push("/posts/edit/" + id);
   };
 
   const onGridReady = useCallback((params) => {
     axios
       .get("http://localhost:5000/posts")
       .then((response) => {
-        //console.log(response.data);
-        // console.log(response.data.data);
         setRowData(response.data);
-        //   displayOutput(response)
       })
       .catch((err) => console.log(err));
-
-    // gridRef.current.api.sizeColumnsToFit({
-    //     defaultMinWidth: 100,
-    //     columnLimits: [{ key: 'country', minWidth: 900 }],
-    //     });
   }, []);
 
   const [columnDefs] = useState([
@@ -98,15 +70,12 @@ const Product = () => {
             {" "}
             <button onClick={() => handleDelete(params.value)}>
               Delete{" "}
-            </button>
-            {" "}
+            </button>{" "}
             | <button onClick={() => handleEdit(params.value)}>Edit </button>
           </>
         );
       },
     },
-
-    // { field: "mobile", filter: "agNumberColumnFilter" },
   ]);
 
   return (
@@ -120,9 +89,7 @@ const Product = () => {
         </button>
 
         <AgGridReact
-          // getRowId={getRowId}
           rowData={rowData}
-          //rowData={tableData}
           columnDefs={columnDefs}
           defaultColDef={defaultColDef}
           onGridReady={onGridReady}
@@ -134,4 +101,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Posttable;

@@ -6,12 +6,11 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import styles from "../../styles/Product.module.css";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { deleteCategory } from "../../redux/actions/categoryAction";
 import { MdDelete, MdOutlineEdit } from "react-icons/md";
 import Adminlayout from "../../components/Adminlayout";
+import { deleteCategory } from "../../redux/actions/categoryAction";
 
-
-const CategoryTable = () => {
+const categorytable = () => {
   const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
   const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
   const [category, setCategory] = useState([]);
@@ -20,12 +19,17 @@ const CategoryTable = () => {
 
   const getRowId = (params) => params.data.id;
 
-  const [rowData, setRowData] = useState(["description", "name", "status", "image"]);
+  const [rowData, setRowData] = useState([
+    "description",
+    "name",
+    "status",
+    "image",
+  ]);
   const defaultColDef = {
     flex: 1,
     sortable: true,
     resizable: true,
-    cellClass: 'cell-wrap-text',
+    cellClass: "cell-wrap-text",
     autoHeight: true,
     resizable: true,
   };
@@ -70,44 +74,44 @@ const CategoryTable = () => {
       cellRenderer: (params) => {
         return (
           <div>
-          {" "}
-          <button
-            className={styles.icon}
-            onClick={() => handleDelete(params.value)}
-          >
-            <MdDelete />{" "}
-          </button>{" "}
-          |{" "}
-          <button
-            className={styles.icon}
-            onClick={() => handleEdit(params.value)}
-          >
-            <MdOutlineEdit />{" "}
-          </button>
+            {" "}
+            <button
+              className={styles.icon}
+              onClick={() => handleDelete(params.value)}
+            >
+              <MdDelete />{" "}
+            </button>{" "}
+            |{" "}
+            <button
+              className={styles.icon}
+              onClick={() => handleEdit(params.value)}
+            >
+              <MdOutlineEdit />{" "}
+            </button>
           </div>
         );
       },
     },
   ]);
-  const aprops = [{ url: "Categories/addcategory", text: "AddCategory", type: "button" }];
+  const aprops = [{ url: "addcategory", text: "AddCategory", type: "button" }];
   return (
     <>
-    <Adminlayout adminprops={aprops}>
-    <div style={containerStyle}>
-      <div className="ag-theme-alpine" style={gridStyle}>
-        <AgGridReact
-          rowData={rowData}
-          columnDefs={columnDefs}
-          defaultColDef={defaultColDef}
-          onGridReady={onGridReady}
-          rowSelection="multiple"
-          animateRows={true}
-        ></AgGridReact>
-      </div>
-    </div>
-  </Adminlayout>
+      <Adminlayout adminprops={aprops}>
+        <div style={containerStyle}>
+          <div className="ag-theme-alpine" style={gridStyle}>
+            <AgGridReact
+              rowData={rowData}
+              columnDefs={columnDefs}
+              defaultColDef={defaultColDef}
+              onGridReady={onGridReady}
+              rowSelection="multiple"
+              animateRows={true}
+            ></AgGridReact>
+          </div>
+        </div>
+      </Adminlayout>
     </>
   );
 };
 
-export default CategoryTable;
+export default categorytable;

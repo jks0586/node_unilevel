@@ -5,7 +5,6 @@ import Navheader from "./Navheader";
 import Design from "../components/Design";
 
 const Adminlayout = (props) => {
-  // console.log(props);
   return (
     <>
       <Head>
