@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const PostsController = require("./controller/Posts");
 const AuthController = require("./controller/Auth");
+const AdminController = require("./controller/AdminController");
 const ProductController = require("./controller/Product/productControll");
 const CategoryController = require("./controller/Category/categoryController");
 const RoleController = require("./controller/Role/roleController");
 const SettingController = require("./controller/Setting/SettingController")
 const User = require("./model/User");
+const Admin = require("./model/Admin")
 const multer = require("multer");
 const path = require("path");
 
@@ -56,6 +58,11 @@ router.get("/", (req, res) => {
 router.post("/signup", AuthController.signup);
 router.post("/signin", AuthController.signin);
 
+// admin
+router.post("/register", AdminController.register);
+router.post("/login", AdminController.login);
+
+
 // Posts routes
 router.post("/posts/create", PostsController.createPost);
 router.get("/posts", PostsController.getPost);
@@ -88,10 +95,6 @@ router.delete("/role/:id", RoleController.deleteRole);
 // Setting routes
 router.post("/setting/create", SettingController.createSetting);
 router.post("/setting", SettingController.getSetting);
-// router.put("/setting/:id", SettingController.updateSetting);
-// router.get("/setting/:id", SettingController.findSingleSetting);
-// router.delete("/setting/:id", SettingController.deleteSetting);
 
-//router.post("/setting/getsetting", SettingController.getSetting);
 module.exports = router;
 //app.use(upload.array());

@@ -18,8 +18,13 @@ const General = () => {
   };
 
   const [userData, setUserData] = useState(initalState);
-  const { levels, referrals, withdrawallimit, shortcodemessage, planbasedon } =
-    userData;
+  const {
+    levels,
+    referrals,
+    withdrawallimit,
+    shortcodemessage,
+    planbasedon,
+  } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -90,6 +95,14 @@ const General = () => {
         <div className="w-full flex">
           <HeaderSettings />
           <div className="w-100">
+            <div className="flex items-center justify-between flex-wrap bg-gray-500 p-4">
+              <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                <div class="text-sm lg:flex-grow">
+                  <h1 className={styles.header}>General Settings</h1>
+                </div>
+              </div>
+            </div>
+            <br />
             <form
               className="table-layout: auto w-full max-w-lg"
               onSubmit={handleSubmit}
@@ -207,6 +220,10 @@ const General = () => {
                 </div>
               </div>
             </form>
+            <br />
+            <div className="flex items-center justify-between flex-wrap bg-gray-500 p-3 ">
+            
+            </div>
           </div>
         </div>
       </div>

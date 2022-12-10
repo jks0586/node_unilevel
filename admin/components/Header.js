@@ -24,51 +24,51 @@ const HeaderSettings = () => {
             </Link>
           </li>
           <li>
-            <Link href="/Setting/configuration/mapping">
-              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                Mapping
-              </a>
-            </Link>
-          </li>
-          <li>
             <Link href="/Setting/configuration/payout">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                Payout
+              Payout
               </a>
             </Link>
           </li>
           <li>
             <Link href="/Setting/configuration/bonuses">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                Bonuses
+              Bonuses
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/Setting/configuration/general">
+            <Link href="/Setting/configuration/commissions">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                Commissions
+              Commissions
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/Setting/configuration/general">
+            <Link href="/Setting/configuration/dashboarddesgn">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                General
+              Dashboard Design
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/Setting/configuration/general">
+            <Link href="/Setting/configuration/help">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                Dashboard Design
+              Help
               </a>
             </Link>
           </li>
           <li>
-            <Link href="/Setting/configuration/general">
+            <Link href="/Setting/configuration/licence">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-                General
+              Licence
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/Setting/configuration/productinformation">
+              <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
+                Product Information
               </a>
             </Link>
           </li>
