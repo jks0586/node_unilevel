@@ -18,13 +18,8 @@ const General = () => {
   };
 
   const [userData, setUserData] = useState(initalState);
-  const {
-    levels,
-    referrals,
-    withdrawallimit,
-    shortcodemessage,
-    planbasedon,
-  } = userData;
+  const { levels, referrals, withdrawallimit, shortcodemessage, planbasedon } =
+    userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -200,7 +195,7 @@ const General = () => {
                   />
                 </div>
               </div>
-             
+
               <div className="md:flex md:items-center">
                 <div className="md:w-1/3"></div>
                 <div className="md:w-8/3">
@@ -215,7 +210,6 @@ const General = () => {
           </div>
         </div>
       </div>
-      
     </Adminlayout>
     // <button
     //   className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"

@@ -19,35 +19,35 @@ const HeaderSettings = () => {
           <li>
             <Link href="/Setting/configuration/elegibility">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-              Elegibility
+                Elegibility
               </a>
             </Link>
           </li>
           <li>
             <Link href="/Setting/configuration/mapping">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-              Mapping
+                Mapping
               </a>
             </Link>
           </li>
           <li>
             <Link href="/Setting/configuration/payout">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-              Payout
+                Payout
               </a>
             </Link>
           </li>
           <li>
             <Link href="/Setting/configuration/bonuses">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-              Bonuses
+                Bonuses
               </a>
             </Link>
           </li>
           <li>
             <Link href="/Setting/configuration/general">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-              Commissions
+                Commissions
               </a>
             </Link>
           </li>
@@ -61,7 +61,7 @@ const HeaderSettings = () => {
           <li>
             <Link href="/Setting/configuration/general">
               <a className="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-50">
-              Dashboard Design
+                Dashboard Design
               </a>
             </Link>
           </li>

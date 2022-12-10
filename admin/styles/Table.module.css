@@ -16,7 +16,7 @@
   font-weight: 500;
   text-align: left;
   font-size: 14px;
-  color: #fa60e0; 
+  color: #fa60e0;
 }
 
 .tableHeader:first-child {
@@ -57,11 +57,41 @@
   margin: 1.5rem;
 }
 
-.body{
-  background: #c9f02f; 
+.body {
+  background: #c9f02f;
   background: -webkit-linear-gradient(to right, #c5fc7d, #cff083);
-   width:1350px;
-   height: 900px;
-  background: linear-gradient(to right, #e3f3a9, #c3c7bd); 
+  width: 1350px;
+  height: 900px;
+  background: linear-gradient(to right, #e3f3a9, #c3c7bd);
+}
+.div {
+  width: 100%;
+  height: 100;
+  background-color: aqua;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  text-align: center;
+}
+.div > a {
+  margin-left: 5%;
+}
 
+.div1 {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(111, 255, 0);
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  text-align: center;
+}
+.div1 > a {
+  margin-left: 5%;
+}
+
+.para {
+  color: blue;
+  width: 10;
+  text-align: center;
 }

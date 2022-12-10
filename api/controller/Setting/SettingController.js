@@ -1,11 +1,9 @@
 const Setting = require("../../model/Setting/SettingModel");
 
-
 //Save Setting
 exports.createSetting = async (req, res) => {
   //const settings = await Setting.findOne({ name: "general_settings" });
   const settings = await Setting.findOne({ name: req.body.setting_key });
-  
 
   if (settings) {
     settings.name = req.body.setting_key;
@@ -31,7 +29,6 @@ exports.createSetting = async (req, res) => {
     }
   }
 };
-
 
 //Get Setting
 exports.getSetting = async (req, res) => {
