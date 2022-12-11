@@ -13,12 +13,10 @@ import {
 import { CgProfile } from "react-icons/cg";
 import { FaUserTie } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
-import { ImHome,ImCart } from "react-icons/im";
-import { BsTable,BsFillPeopleFill } from "react-icons/bs";
-import { AiOutlineAppstore } from "react-icons/ai";
+import { ImHome, ImCart } from "react-icons/im";
+import { BsTable, BsFillPeopleFill } from "react-icons/bs";
+import { AiOutlineLogin } from "react-icons/ai";
 function SideNavbar() {
- 
-
   return (
     <>
       <Disclosure as="div" className="">
@@ -53,7 +51,7 @@ function SideNavbar() {
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <BsTable className="text-2xl text-gray-600 text-white " />
+                <AiOutlineLogin className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
                   <Link href="/login">Login</Link>
                 </h3>
@@ -78,24 +76,25 @@ function SideNavbar() {
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-              <FaUserTie className="text-2xl text-gray-600 text-white " />
-              <h3 className="text-base text-gray-800 text-white font-semibold ">
-                <Link href="/User/adduser">User</Link>
-              </h3>
-            </div>
-            <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-              <MdOutlineSettings className="text-2xl text-gray-600 text-white " />
-              <h3 className="text-base text-gray-800 text-white font-semibold ">
-                <Link href="/Setting/configuration/general">Settings</Link>
-              </h3>
-            </div>
-            </div>
-             <div>
-              <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
+                <FaUserTie className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="#">More Details</Link>
+                  <Link href="/User/adduser">User</Link>
                 </h3>
+              </div>
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <MdOutlineSettings className="text-2xl text-gray-600 text-white " />
+                <h3 className="text-base text-gray-800 text-white font-semibold ">
+                  <Link href="/Setting/configuration/general">Settings</Link>
+                </h3>
+              </div>
+
+              <div>
+                <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
+                  <h3 className="text-base text-gray-800 text-white font-semibold ">
+                    <Link href="/layout">Register</Link>
+                  </h3>
+                </div>
               </div>
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
@@ -103,7 +102,7 @@ function SideNavbar() {
                   <Link href="#">More Details</Link>
                 </h3>
               </div>
-               <div>
+              <div>
                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                   <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
                   <h3 className="text-base text-gray-800 text-white font-semibold ">

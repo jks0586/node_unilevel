@@ -48,7 +48,7 @@ const Licence = () => {
         console.log(response);
         const resvalue = JSON.parse(response.value);
 
-        // initalState.planbasedon = resvalue.planbasedon;
+        initalState.licenceKey = resvalue.licenceKey;
 
         setUserData({ ...userData, initalState });
       }
@@ -104,7 +104,6 @@ const Licence = () => {
               <div className="md:flex md:items-center">
                 <div className="md:w-1/3"></div>
                 <div>
-                
                   <input
                     type="submit"
                     className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"

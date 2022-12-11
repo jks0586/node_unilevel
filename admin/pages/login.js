@@ -1,60 +1,85 @@
-import React from "react";
-import Adminlayout from "../components/Adminlayout";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GLOBAL_CONSTANT } from "../config/GlobalConstant";
+import { login } from "../redux/actions/authAction";
+import styles from "../styles/Login.module.css";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const initialState = { email: "", password: "" };
+  const [userData, setUserData] = useState(initialState);
+  const { email, password } = userData;
+  const router = useRouter();
+  const { auth, alert } = useSelector((state) => state);
+
+  useEffect(() => {
+    if (auth.token) {
+      router.push("/dashProduct");
+    }
+  }, [auth]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(userData, router));
+    router.push("/dashProduct");
+  };
+
   return (
-    <Adminlayout>
-      <div className="container">
-        <h1 className="text-center">Login</h1>
-        <div className="w-50 p-lg-50">
-          <form className="bg-gray-200 shadow-md rounded px-10 pt-8 pb-20 p-50 mb-4">
-            <div className="mb-4">
-              <label
-                className="block text-white text-sm font-bold mb-2"
-                htmlFor="username"
-              >
-                Username
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
-                type="text"
-                placeholder="Username"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="password"
-              >
-                Password
-              </label>
-              <input
-                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="password"
-                type="password"
-                placeholder="password"
-              />
-            </div>
-            <div className="flex items-center justify-between">
-              <button
-                className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
-              >
-                Login
-              </button>
-            </div>
-          </form>
-        </div>
+    <div>
+      <div>
+        <form
+          className={styles.form}
+          style={{ marginBottom: "14.1rem" }}
+          onSubmit={handleSubmit}
+        >
+          <h3>Login</h3>
+          <input
+            type="email"
+            name="email"
+            placeholder="Please Enter Your Email"
+            onChange={handleChange}
+            value={email}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Please Enter Your Password"
+            onChange={handleChange}
+            value={password}
+          />
+          <input type="submit" value="submit" disabled={!(email && password)} />
+        </form>
       </div>
-    </Adminlayout>
-    //   <a
-    //   class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-    //   href="#"
-    // >
-    //   Forgot Password?
-    // </a>
+    </div>
   );
 };
+
+//     <div>
+//       <h1 className={style.header}>Login</h1>
+//       <form className={style.form} onSubmit={handleSubmit}>
+//         <input
+//           type="email"
+//           name="email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//         />
+
+//         <input
+//           type="password"
+//           name="password"
+//           value={password}
+//           onChange={(e) => setPassword(e.target.value)}
+//         />
+//         <input type="submit" name="submit" value="Login" />
+//       </form>
+//     </div>
+//   );
+// };
 
 export default Login;

@@ -41,12 +41,10 @@ const Elegibility = () => {
     const postdata = { setting_key: "elegibility_settings" };
     const response = postDataApiSetting("setting", postdata).then(
       (response) => {
-        
         const resvalue = JSON.parse(response.value);
-       // console.log(resvalue.personalReferrals);
+        // console.log(resvalue.personalReferrals);
         initalState.personalReferrals = resvalue.personalReferrals;
-        setUserData({...userData, initalState });
-        
+        setUserData({ ...userData, initalState });
       }
     );
   }, []);
