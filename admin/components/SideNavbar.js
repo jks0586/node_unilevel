@@ -16,6 +16,7 @@ import { BiMessageSquareDots } from "react-icons/bi";
 import { ImHome, ImCart } from "react-icons/im";
 import { BsTable, BsFillPeopleFill } from "react-icons/bs";
 import { AiOutlineLogin } from "react-icons/ai";
+import { GiArchiveRegister } from "react-icons/gi";
 function SideNavbar() {
   return (
     <>
@@ -38,6 +39,20 @@ function SideNavbar() {
                   <Link href="/dashboard">Dashboard</Link>
                 </h3>
               </div>
+              <div>
+                <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                  <GiArchiveRegister className="text-2xl text-gray-600 text-white " />
+                  <h3 className="text-base text-gray-800 text-white font-semibold ">
+                    <Link href="/layout">Register</Link>
+                  </h3>
+                </div>
+              </div>
+              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <AiOutlineLogin className="text-2xl text-gray-600 text-white " />
+                <h3 className="text-base text-gray-800 text-white font-semibold ">
+                  <Link href="/login">Login</Link>
+                </h3>
+              </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <CgProfile className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
@@ -50,12 +65,7 @@ function SideNavbar() {
                   <Link href="/Categories/categorytable">Category</Link>
                 </h3>
               </div>
-              <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <AiOutlineLogin className="text-2xl text-gray-600 text-white " />
-                <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="/login">Login</Link>
-                </h3>
-              </div>
+              
 
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <MdOutlineAnalytics className="text-2xl text-gray-600 text-white " />
@@ -88,14 +98,7 @@ function SideNavbar() {
                 </h3>
               </div>
 
-              <div>
-                <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                  <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
-                  <h3 className="text-base text-gray-800 text-white font-semibold ">
-                    <Link href="/layout">Register</Link>
-                  </h3>
-                </div>
-              </div>
+              
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <BiMessageSquareDots className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">

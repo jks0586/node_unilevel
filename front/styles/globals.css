@@ -18,10 +18,10 @@ header{
 }
 nav{
   display: flex;
-  padding: 16px;
+  padding: 10px;
   justify-content: space-between;
   align-items: center;
-  background-color: #caf6ee;
+  background-color: #cfd6cf;
 }
 .nav__menu-bar{
   display: flex;
@@ -32,7 +32,7 @@ nav{
 .nav__menu-bar div{
   width: 40px;
   height: 4px;
-  background-color: rgb(238, 117, 117);
+  background-color: rgb(49, 48, 48);
   border-radius: 2px;
 }
 .nav__menu-list{
@@ -46,7 +46,7 @@ nav{
   padding: 24px 16px;
   transition: all 0.2s;
   min-height: calc(100vh - 60px);
-  background-color: #bbfad1;
+  background-color: #c0c2c2;
 }
 .nav__menu-list.active{
   right: 0;

@@ -6,31 +6,21 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../redux/actions/authAction";
 import { useRouter } from "next/router";
-const ref = React.createRef();
 
-const Login = () => {
+
+const Login = () => { 
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { auth } = useSelector((state) => state);
   const router = useRouter();
 
-  // const {register, handleSubmit} = useForm();
-
-  // const onSubmit = (d) => alert(JSON.stringify(d));
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
-  // const myfun = (d) => {};
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = { email: email, password: password };
     dispatch(signin(data));
-    router.push("/contact");
+   // router.push("/contact");
   };
 
   // useEffect(() => {

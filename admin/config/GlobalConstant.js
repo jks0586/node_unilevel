@@ -21,10 +21,7 @@ export const GLOBAL_CONSTANT = {
   DELETE_SETTING: "DELETE_SETTING",
   BASE_URL: "http://localhost:5000/",
 };
-export const LOADING_START = "LOADING_START";
-export const LOADING_END = "LOADING_END";
-export const REQUEST_SUCCESS = "REQUEST_SUCCESS";
-export const REQUEST_ERROR = "REQUEST_ERROR";
+
 
 export const DeleteData = (data, id) => {
   const newData = data.filter((d) => d._id !== id);
