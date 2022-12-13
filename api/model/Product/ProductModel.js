@@ -2,18 +2,24 @@ var mongoose = require("mongoose");
 
 //create  Schema
 var productSchema = mongoose.Schema({
+
+  // category: { 
+  //   type: mongoose.Schema.Types.ObjectId, 
+  //   ref: 'Category' 
+  // },
+    
   name: {
     type: String,
     required: true,
   },
   price: {
-    type: String,
+    type: String, 
     required: true,
   },
   specialprice: {
     type: String,
     required: true,
-  },
+  }, 
   quantity: {
     type: String,
     required: true,

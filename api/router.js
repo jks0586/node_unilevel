@@ -96,5 +96,8 @@ router.delete("/role/:id", RoleController.deleteRole);
 router.post("/setting/create", SettingController.createSetting);
 router.post("/setting", SettingController.getSetting);
 
+//Reletion category and product for frontEnd 
+
+
 module.exports = router;
 //app.use(upload.array());

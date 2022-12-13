@@ -7,7 +7,12 @@ const Category = () => {
     <div className="p-2">
       <div className="grid grid-cols-7 gap-4">
         <div>
-          <Link href={"/category"}>
+          <Link
+            href={{
+              pathname: "/categories/[category]",
+              query: { category: "category1" },
+            }}
+          >
             <a>
               <img
                 src="/images/pigion.webp"
@@ -20,7 +25,12 @@ const Category = () => {
           Category
         </div>
         <div>
-          <Link href={"/category"}>
+          <Link
+            href={{
+              pathname: "/categories/[category]",
+              query: { category: "category2" },
+            }}
+          >
             <a>
               <img
                 src="/images/images.jpg"
@@ -33,7 +43,12 @@ const Category = () => {
           Category
         </div>
         <div>
-          <Link href={"/category"}>
+          <Link
+            href={{
+              pathname: "/categories/[category]",
+              query: { category: "category3" },
+            }}
+          >
             <a>
               <img
                 src="/images/image.png"
@@ -46,7 +61,12 @@ const Category = () => {
           Title
         </div>
         <div>
-          <Link href={"/category"}>
+          <Link
+            href={{
+              pathname: "/categories/[category]",
+              query: { category: "category4" },
+            }}
+          >
             <a>
               <img
                 src="/images/images.jpg"
@@ -59,7 +79,12 @@ const Category = () => {
           Image
         </div>
         <div>
-          <Link href={"/category"}>
+          <Link
+            href={{
+              pathname: "/categories/[category]",
+              query: { category: "category5" },
+            }}
+          >
             <a>
               <img
                 src="/images/pexel.jpeg"
@@ -72,7 +97,12 @@ const Category = () => {
           Navbar
         </div>
         <div>
-          <Link href={"/category"}>
+          <Link
+            href={{
+              pathname: "/categories/[category]",
+              query: { category: "category6" },
+            }}
+          >
             <a>
               <img
                 src="/images/pexels.jpeg"

@@ -2,6 +2,9 @@ var mongoose = require("mongoose");
 
 //create  Schema
 var categorySchema = mongoose.Schema({
+  // products: [
+  //   { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }
+  // ],
   name: {
     type: String,
     required: true,
