@@ -11,6 +11,7 @@ const User = require("./model/User");
 const Admin = require("./model/Admin")
 const multer = require("multer");
 const path = require("path");
+const authenticateToken= require('./controller/middleware/authenticate')
 
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
@@ -50,6 +51,7 @@ const upload = multer({
 });
 
 const auth = require("./controller/Auth");
+const { request } = require("http");
 router.get("/", (req, res) => {
   res.send("heloo world");
 });
@@ -72,6 +74,8 @@ router.delete("/posts/:id", PostsController.deletePost);
 
 //Products Use
 // router.post("/add/product",upload.array('image',9999),ProductController.addProduct);
+//router.post("/posts/create", authenticateToken,PostsController.createPost);
+router.post("/add/product",upload.single('image'),authenticateToken,ProductController.addProduct);
 router.post("/add/product",upload.single('image'),ProductController.addProduct);
 router.get("/product", ProductController.getProduct);
 router.get("/product/:id", ProductController.findSingleProduct);

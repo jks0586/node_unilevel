@@ -22,6 +22,7 @@ var categorySchema = mongoose.Schema({
     type: Array,
     required: true,
   },
+  // token:{type:String},
 });
 
 module.exports = mongoose.model("Category", categorySchema);

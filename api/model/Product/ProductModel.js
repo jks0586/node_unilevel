@@ -3,10 +3,14 @@ var mongoose = require("mongoose");
 //create  Schema
 var productSchema = mongoose.Schema({
 
-  // category: { 
-  //   type: mongoose.Schema.Types.ObjectId, 
-  //   ref: 'Category' 
-  // },
+//     category: [{
+//   type: mongoose.Schema.Types.ObjectId,
+//   ref: "category" 
+//  }],
+  category: [{ 
+    type: String, 
+   // ref: 'Category' 
+  }],
     
   name: {
     type: String,
@@ -40,6 +44,9 @@ var productSchema = mongoose.Schema({
     type: Array,
     required: true,
   },
+  // token:{type:String},
+  // }, {
+  // timestamps: true
 });
 
 module.exports = mongoose.model("Product", productSchema);

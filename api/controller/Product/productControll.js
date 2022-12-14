@@ -18,6 +18,7 @@ const addProduct = async (req, res, next) => {
       price: req.body.price,
       description: req.body.description,
       image: req.file.filename,
+      category: req.body.category,
     });
 
     const product_data = await product.save();
@@ -33,7 +34,8 @@ const addProduct = async (req, res, next) => {
 //Getting all product
 const getProduct = async (req, res) => {
   try {
-    const Products = await Product.find();
+     // const Products = await Product.find({ '_id': Product.categories }, { $push: { products: Product._id } });
+    const Products = await Product.find().populate("category");
     Products.map((value, index) => {
       return (value.image = process.env.API_URL + value.image);
     });
@@ -47,7 +49,7 @@ const getProduct = async (req, res) => {
 //Getting a single product by id
 const findSingleProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await Product.findById(req.params.id).populate("categories");
     product.image = process.env.API_URL + product.image;
     res.json(product);
   } catch (error) {

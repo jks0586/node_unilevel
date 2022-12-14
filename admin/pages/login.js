@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
    
-    <Adminlayout>
+   
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900">
         <a
           href="#"
@@ -122,7 +122,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </Adminlayout>
+    
   );
 };
 
