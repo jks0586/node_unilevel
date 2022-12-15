@@ -5,7 +5,7 @@ import styles from "../../styles/dashboard.module.css"
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
 import CKeditor from "../../components/CKeditor";
-
+import Select2 from "react-select2-wrapper";
 const addProduct1 = () => {
   const initalState = {
     name: "",
@@ -15,6 +15,8 @@ const addProduct1 = () => {
     price: "",
     specialprice: "",
     description: "",
+    
+    
     image: [],
   };
 
@@ -118,9 +120,9 @@ const addProduct1 = () => {
 
       dispatch(addProduct(userData, router));
 
-      alert("Submit");
-      console.log(userData);
-      router.push("/dashProduct");
+      // alert("Submit");
+      // console.log(userData);
+      // router.push("/dashProduct");
     }
   };
   const removeImage = (i) => {
@@ -201,6 +203,20 @@ const addProduct1 = () => {
             ""
           )}
           </div>
+
+          <label htmlFor="category">Category</label>
+          <Select2
+          className="form-control"
+          id="category_id"
+          name="category_id"
+          defaultValue="1"
+          value={category}
+          options={category}
+          // .filter(option => option.value === data.category_id)
+           isSearchable={true}
+          required={true}
+          placeholder='Select Category'
+        />
 
           <div>
           <label htmlFor="price">price</label>

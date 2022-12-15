@@ -69,12 +69,17 @@ export const putDataApi = async (url, data) => {
   return response;
 };
 
+
 export const getDataApi = async (url) => {
+  
   const response = await axios
     .get(GLOBAL_CONSTANT.BASE_URL + url, {
-      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+      headers: {
+        Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)
+      },
     })
     .then((response) => {
+      console.log(response);
       return response.data;
     })
     .catch((error) => {
@@ -102,7 +107,9 @@ export const deleteDataApi = async (url) => {
   // alert(url);
   const response = await axios
     .delete(GLOBAL_CONSTANT.BASE_URL + "category/" + url, {
-      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+      headers: {
+        Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)
+      },
     })
     .then((response) => {
       return response.data;
@@ -118,7 +125,9 @@ export const deleteDataApipost = async (url) => {
   // alert(url);
   const response = await axios
     .delete(GLOBAL_CONSTANT.BASE_URL + "posts/" + url, {
-      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+      headers: {
+        Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)
+      },
     })
     .then((response) => {
       return response.data;
@@ -133,7 +142,9 @@ export const deleteDataApiProduct = async (url) => {
   // alert(url);
   const response = await axios
     .delete(GLOBAL_CONSTANT.BASE_URL + "product/" + url, {
-      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+      headers: {
+        Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)
+      },
     })
     .then((response) => {
       return response.data;
@@ -148,7 +159,9 @@ export const deleteDataApiRole = async (url) => {
   // alert(url);
   const response = await axios
     .delete(GLOBAL_CONSTANT.BASE_URL + "role/" + url, {
-      headers: { Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN) },
+      headers: {
+        Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)
+      },
     })
     .then((response) => {
       return response.data;

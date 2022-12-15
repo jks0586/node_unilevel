@@ -11,7 +11,7 @@ const User = require("./model/User");
 const Admin = require("./model/Admin")
 const multer = require("multer");
 const path = require("path");
-const authenticateToken= require('./controller/middleware/authenticate')
+const authenticate= require('./controller/middleware/authenticate')
 
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
@@ -75,12 +75,12 @@ router.delete("/posts/:id", PostsController.deletePost);
 //Products Use
 // router.post("/add/product",upload.array('image',9999),ProductController.addProduct);
 //router.post("/posts/create", authenticateToken,PostsController.createPost);
-router.post("/add/product",upload.single('image'),authenticateToken,ProductController.addProduct);
-router.post("/add/product",upload.single('image'),ProductController.addProduct);
-router.get("/product", ProductController.getProduct);
-router.get("/product/:id", ProductController.findSingleProduct);
-router.put("/product/:id",upload.single("image"),ProductController.updateProduct);
-router.delete("/product/:id", ProductController.deleteProduct);
+//router.post("/add/product",upload.single('image'),authenticate,ProductController.addProduct);
+router.post("/add/product",upload.single('image'),authenticate,ProductController.addProduct);
+router.get("/product",authenticate, ProductController.getProduct);
+router.get("/product/:id",authenticate, ProductController.findSingleProduct);
+router.put("/product/:id",upload.single("image"),authenticate,ProductController.updateProduct);
+router.delete("/product/:id",authenticate, ProductController.deleteProduct);
 
 //Category Use
 router.post("/add/category",upload.single("image"), CategoryController.addCategory);

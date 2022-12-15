@@ -1,4 +1,4 @@
-import React, {useState,useMemo,useCallback} from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
@@ -9,7 +9,8 @@ import { deleteProduct } from "../redux/actions/productAction";
 import axios from "axios";
 import Adminlayout from "../components/Adminlayout";
 import { MdDelete, MdOutlineEdit } from "react-icons/md";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
+import { GLOBAL_CONSTANT } from "../config/GlobalConstant";
 
 const Product = () => {
   const containerStyle = useMemo(() => ({ width: "100%", height: "100%" }), []);
@@ -29,15 +30,15 @@ const Product = () => {
     "stockquantity",
     "image",
   ]);
-  
+
   const defaultColDef = {
-        flex: 1,
-        sortable: true,
-        resizable: true,
-        cellClass: 'cell-wrap-text',
-        autoHeight: true,
-       // suppressSizeToFit: false 
-       // responsive: true
+    flex: 1,
+    sortable: true,
+    resizable: true,
+    cellClass: "cell-wrap-text",
+    autoHeight: true,
+    // suppressSizeToFit: false
+    // responsive: true
   };
 
   // const handleAdd = (e) => {
@@ -55,8 +56,11 @@ const Product = () => {
   };
 
   const onGridReady = useCallback((params) => {
+    
     axios
-      .get("http://localhost:5000/product")
+      .get("http://localhost:5000/product",{headers: {
+        Authorization: localStorage.getItem(GLOBAL_CONSTANT.TOKEN)
+      }})
       .then((response) => {
         setRowData(response.data);
       })
@@ -70,10 +74,13 @@ const Product = () => {
     { field: "quality", filter: true },
     { field: "stockquantity", filter: true },
     { field: "specialprice", filter: true },
-    { field: "description", filter: true ,cellRenderer: (params) => {
-      return <div dangerouslySetInnerHTML={{ __html: params.value }}></div>;
+    {
+      field: "description",
+      filter: true,
+      cellRenderer: (params) => {
+        return <div dangerouslySetInnerHTML={{ __html: params.value }}></div>;
+      },
     },
-  },
     {
       field: "image",
       filter: "agNumberColumnFilter",
@@ -86,7 +93,7 @@ const Product = () => {
       field: "_id",
       cellRenderer: (params) => {
         return (
-        <div>
+          <div>
             {" "}
             <button
               className={styles.icon}
@@ -101,14 +108,16 @@ const Product = () => {
             >
               <MdOutlineEdit />{" "}
             </button>
-            </div>
+          </div>
         );
       },
     },
   ]);
- // className={table table-striped table-bordered nowrap}
+  // className={table table-striped table-bordered nowrap}
   // <Adminlayout adminprops={aprops}>
-  const aprops = [{ url: "product/addProduct1", text: "AddProduct", type: "button" }];
+  const aprops = [
+    { url: "product/addProduct1", text: "AddProduct", type: "button" },
+  ];
   return (
     <>
       <Adminlayout adminprops={aprops}>
