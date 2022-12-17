@@ -28,6 +28,7 @@ const Product = () => {
     "description",
     "specialprice",
     "stockquantity",
+    "category",
     "image",
   ]);
 
@@ -70,6 +71,7 @@ const Product = () => {
   const [columnDefs] = useState([
     { field: "name", filter: "agTextColumnFilter" },
     { field: "price", filter: true },
+    { field: "category", filter: true },
     { field: "quantity", filter: true },
     { field: "quality", filter: true },
     { field: "stockquantity", filter: true },
