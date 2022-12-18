@@ -1,131 +1,55 @@
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React,{useRef,useEffect,useState} from "react";
+
 
 const Category = () => {
+  const [category, setCategory] = useState([]);
+  const dataFetchCategory = useRef(false);
+
+  useEffect(() => {
+    if (dataFetchCategory.current) return;
+    dataFetchCategory.current = true;
+    const getCategory = async () => {
+      // console.log(process.env.API_URL);
+      const res = await axios.get("http://localhost:5000/category");
+      
+     res.data.map((value,index)=>{
+       setCategory(category => [...category, value]);
+     });
+     };
+     getCategory();
+  }, []);
+  
   return (
     <div className="p-2">
       <div className="grid grid-cols-7 gap-4">
-        <div>
-          <Link
-            href={{
-              pathname: "/categories/[category]",
-              query: { category: "category1" },
-            }}
-          >
-            <a>
-              <img
-                src="/images/pigion.webp"
-                className="rounded"
-                width={100}
-                height={100}
-              />
-            </a>
-          </Link>
-          Category
-        </div>
-        <div>
-          <Link
-            href={{
-              pathname: "/categories/[category]",
-              query: { category: "category2" },
-            }}
-          >
-            <a>
-              <img
-                src="/images/images.jpg"
-                className="rounded"
-                width={100}
-                height={100}
-              />
-            </a>
-          </Link>
-          Category
-        </div>
-        <div>
-          <Link
-            href={{
-              pathname: "/categories/[category]",
-              query: { category: "category3" },
-            }}
-          >
-            <a>
-              <img
-                src="/images/image.png"
-                className="rounded"
-                width={120}
-                height={100}
-              />
-            </a>
-          </Link>
-          Title
-        </div>
-        <div>
-          <Link
-            href={{
-              pathname: "/categories/[category]",
-              query: { category: "category4" },
-            }}
-          >
-            <a>
-              <img
-                src="/images/images.jpg"
-                className="rounded"
-                width={100}
-                height={100}
-              />
-            </a>
-          </Link>
-          Image
-        </div>
-        <div>
-          <Link
-            href={{
-              pathname: "/categories/[category]",
-              query: { category: "category5" },
-            }}
-          >
-            <a>
-              <img
-                src="/images/pexel.jpeg"
-                className="rounded"
-                width={100}
-                height={50}
-              />
-            </a>
-          </Link>
-          Navbar
-        </div>
-        <div>
-          <Link
-            href={{
-              pathname: "/categories/[category]",
-              query: { category: "category6" },
-            }}
-          >
-            <a>
-              <img
-                src="/images/pexels.jpeg"
-                className="rounded"
-                width={100}
-                height={50}
-              />
-            </a>
-          </Link>
-          vxfcgcfcf
-        </div>
-        <div>
-          <a>
-            <img
-              src="/images/pexels.jpeg"
-              className="rounded"
-              width={100}
-              height={100}
-            />
-          </a>
-
-          <Link href={"/login"}>dfsf</Link>
-        </div>
+       {
+        category.map((value,index)=>{
+          return (
+            <div>
+            <Link
+              href={{
+                pathname: "/categories/[category]",
+                query: { category: value.name },
+              }}
+            >
+              <a>
+                <img
+                  src={value.image}
+                  className="rounded"
+                  width={100}
+                  height={100}
+                />
+              </a>
+            </Link>
+            {value.name}
+            </div>
+          )
+        })
+       }
+        
       </div>
     </div>
   );
