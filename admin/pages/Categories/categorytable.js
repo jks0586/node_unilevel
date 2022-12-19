@@ -21,6 +21,7 @@ const categorytable = () => {
 
   const [rowData, setRowData] = useState([
     "description",
+    "slug",
     "name",
     "status",
     "image",
@@ -61,6 +62,7 @@ const categorytable = () => {
     { field: "name", filter: "agTextColumnFilter" },
     { field: "description", filter: true },
     { field: "status", filter: true },
+    { field: "slug", filter: true },
     {
       field: "image",
       filter: "agNumberColumnFilter",

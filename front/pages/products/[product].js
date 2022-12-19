@@ -28,12 +28,13 @@ const Product = () => {
       <div className="item">
         <a>
           <Image
-            src={"/images/pexel.jpeg"}
+            src={value.image}
             className="rounded"
             width={350}
             height={350}
           />
         </a>
+        {value.name}
       </div>
       
       </div>

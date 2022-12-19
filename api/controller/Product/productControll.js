@@ -1,4 +1,5 @@
 const Product = require("../../model/Product/ProductModel");
+const Category = require("../../model/Category/CategoryModel");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
@@ -31,11 +32,29 @@ const addProduct = async (req, res, next) => {
   }
 };
 
+const getProducts= async (req, res) => {
+  console.log(req.params.slug);
+  try {
+    const category = await Category.findOne({ slug: req.params.slug });
+    
+    // const Products = await Product.find({ '_id': Product.categories }, { $push: { products: Product._id } });
+    // const Products = await Product.find().populate("category");
+    const Products = await Product.find({ category: category._id });
+    Products.map((value, index) => {
+      return (value.image = process.env.API_URL + value.image);
+    });
+
+    res.json(Products);
+  } catch (error) {
+    res.send("Error", error);
+  }
+};
 //Getting all product
 const getProduct = async (req, res) => {
   try {
+    // console.log(req.body);
      // const Products = await Product.find({ '_id': Product.categories }, { $push: { products: Product._id } });
-    const Products = await Product.find().populate("category");
+    const Products = await Product.find({});
     Products.map((value, index) => {
       return (value.image = process.env.API_URL + value.image);
     });
@@ -53,7 +72,7 @@ const findSingleProduct = async (req, res) => {
     product.image = process.env.API_URL + product.image;
     res.json(product);
   } catch (error) {
-    res.send("Error", error);
+    res.send(["Error", error]);
   }
 };
 
@@ -83,4 +102,5 @@ module.exports = {
   updateProduct,
   findSingleProduct,
   deleteProduct,
+  getProducts,
 };

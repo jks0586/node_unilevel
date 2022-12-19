@@ -2,7 +2,7 @@ const Category = require("../../model/Category/CategoryModel");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-require("dotenv").config();
+require("dotenv").config(); 
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, "uploads");
@@ -33,6 +33,7 @@ const addCategory = async (req, res, next) => {
 
     var category = new Category({
       name: req.body.name,
+      slug: req.body.slug,
       status: req.body.status,
       description: req.body.description,
       image: req.file.filename,
@@ -47,6 +48,23 @@ const addCategory = async (req, res, next) => {
     res.status(400).send({ success: false, msg: error.message });
   }
 };
+
+//for Slug
+
+// const getStaticProps = function (context) {
+//   return {
+//     props: { message: " part 2" },
+//   };
+// }
+
+// const  getStaticPaths = function () {
+//   const categories = ["category/a", "category/b"];
+//   const paths = categories.map((category) => ({
+//     params: { slug: category },
+//   }));
+
+//   return { paths, fallback: false };
+// }
 
 //Getting all category
 const getCategory = async (req, res) => {

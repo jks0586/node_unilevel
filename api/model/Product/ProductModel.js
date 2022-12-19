@@ -7,10 +7,10 @@ var productSchema = mongoose.Schema({
 //   type: mongoose.Schema.Types.ObjectId,
 //   ref: "category" 
 //  }],
-  category: [{ 
+  category: { 
     type: String, 
    // ref: 'Category' 
-  }],
+  },
     
   name: {
     type: String,

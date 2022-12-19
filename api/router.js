@@ -87,6 +87,7 @@ router.get("/product", ProductController.getProduct);
 router.get("/product/:id", ProductController.findSingleProduct);
 router.put("/product/:id",upload.single("image"),ProductController.updateProduct);
 router.delete("/product/:id", ProductController.deleteProduct);
+router.get("/products/:slug", ProductController.getProducts);
 
 
 //Category Use

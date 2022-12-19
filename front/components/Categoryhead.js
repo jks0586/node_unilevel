@@ -31,8 +31,8 @@ const Category = () => {
             <div>
             <Link
               href={{
-                pathname: "/categories/[category]",
-                query: { category: value.name },
+                pathname: "/categories/[slug]",
+                query: { slug: value.slug },
               }}
             >
               <a>

@@ -8,6 +8,7 @@ import styles from "../../styles/Dashboard.module.css";
 const Addcategory = () => {
   const initalState = {
     name: "",
+    slug:"",
     status: "",
     description: "",
     image: [],
@@ -15,11 +16,33 @@ const Addcategory = () => {
 
   const [error, setError] = useState(false);
   const [userData, setUserData] = useState(initalState);
-  const { status, description, image, name } = userData;
+  const { status, slug, description, image, name } = userData;
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState();
+  
+  // validation: (Rule) => Rule.required().custom((slug) => {
+  //   if (typeof slug === "undefined") return true
+  //   const regex = /(^[a-z0-9-]+$)/ // Regex pattern goes here
+  //   if (regex.test(slug.current)) {
+  //     return true
+  //   } else {
+  //     return "Invalid slug: Only numbers, lowercase letters, and dashes are permitted." // Error message goes here
+  //   }
+  // })
+    
+  
+  // const [category, setcategory] =  getStaticProps() 
+  // export async function getStaticPaths() {
+  //   return { paths, fallback: false };
+  // }
+
+  const categories = ["category/a", "category/b"];
+
+  const paths = categories.map((category) => ({
+    params: { slug: category },
+  }));
 
   const handleChange = (e) => {
     const { name, value, className, type, placeholder } = e.target;
@@ -50,17 +73,19 @@ const Addcategory = () => {
     e.preventDefault();
     if (
       name.length == 0 ||
+      slug.length == 0 ||
       status.length == 0 ||
       description.length == 0 ||
       image.length == 0
     ) {
       setError(true);
     }
-    if (name && status && description && image) {
+    if (name  && slug && status && description && image) {
       console.log(
         "name: ",
         name,
-        
+        "slug: ",
+        slug,
         "\nstatus: ",
         status,
         "\ndescription: ",
@@ -110,6 +135,24 @@ const Addcategory = () => {
             ""
           )}
           </div>
+          <div>
+        <label htmlFor="Slug">Slug</label>
+          <input
+            type="text"
+            name="slug"
+            id="slug"
+            className="form-control"
+            placeholder="Please Enter Your slug name."
+            onChange={handleChange}
+            value={slug}
+          />
+          {error && name.length <=  /(^[a-z0-9-]+$)/ ? (
+            <label className={styles.validation}>Invalid slug: Only numbers, lowercase letters, and dashes are permitted.</label>
+          ) : (
+            ""
+          )}
+          </div>
+          
 
           <div>
           <label htmlFor="Name">Name</label>
