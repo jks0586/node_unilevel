@@ -12,6 +12,7 @@ import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 const addProduct1 = () => {
   const initalState = {
     name: "",
+    slug:"",
     quality: "",
     quantity: "",
     stockquantity: "",
@@ -30,6 +31,7 @@ const addProduct1 = () => {
   const [message, setMessage] = useState();
   const {
     quality,
+    slug,
     quantity,
     price,
     image,
@@ -57,7 +59,7 @@ const addProduct1 = () => {
     {
       setUserData({ ...userData, [name]: value });
     }
-  };
+  }; 
 
   //For Single Image
   const handleFileChange = (e) => {
@@ -122,6 +124,7 @@ const addProduct1 = () => {
     e.preventDefault();
     if (
       name.length == 0 ||
+      slug.length == 0 ||
       quality.length == 0 ||
       price.length == 0 ||
       quantity.length == 0 ||
@@ -134,6 +137,7 @@ const addProduct1 = () => {
     }
     if (
       name &&
+      slug &&
       price &&
       quality &&
       quantity &&
@@ -147,6 +151,8 @@ const addProduct1 = () => {
         name,
         "\nquantity: ",
         quantity,
+        "\nslug: ",
+        slug,
         "\nstockquantity: ",
         stockquantity,
         "\nprice: ",
@@ -205,6 +211,23 @@ const addProduct1 = () => {
                 ""
               )}
             </div>
+            <div>
+            <label htmlFor="Slug">Slug</label>
+              <input
+                type="text"
+                name="slug"
+                id="slug"
+                className="form-control"
+                placeholder="Please Enter Your slug name."
+                onChange={handleChange}
+                value={slug}
+              />
+              {error && name.length <=  /(^[a-z0-9-]+$)/ ? (
+                <label className={styles.validation}>Invalid slug: Only numbers, lowercase letters, and dashes are permitted.</label>
+              ) : (
+                ""
+              )}
+              </div>
 
             <div>
               <label htmlFor="quantity">quantity</label>

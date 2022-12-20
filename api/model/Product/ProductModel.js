@@ -11,6 +11,11 @@ var productSchema = mongoose.Schema({
     type: String, 
    // ref: 'Category' 
   },
+
+  //for singleSlug
+  slug: {
+    type: String,
+  },
     
   name: {
     type: String,

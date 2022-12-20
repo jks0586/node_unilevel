@@ -19,6 +19,7 @@ const addProduct = async (req, res, next) => {
       price: req.body.price,
       description: req.body.description,
       image: req.file.filename,
+      slug: req.body.slug,
       category: req.body.category,
     });
 
@@ -29,6 +30,22 @@ const addProduct = async (req, res, next) => {
       .send({ success: true, msg: "Product Details", data: product_data });
   } catch (error) {
     res.status(400).send({ success: false, msg: error.message });
+  }
+};
+
+//for single slug
+const getSingleProducts= async (req, res) => {
+  console.log(req.params.slug);
+  try {
+   const product = await Product.findOne({ slug: req.params.slug });
+    // const Products = await Product.find({ product: product._id });
+    // Products.map((value, index) => {
+    //   return (value.image = process.env.API_URL + value.image);
+    // });
+
+    res.json(product);
+  } catch (error) {
+    res.send("Error", error);
   }
 };
 
@@ -99,6 +116,7 @@ const deleteProduct = async (req, res) => {
 module.exports = {
   addProduct,
   getProduct,
+  getSingleProducts,
   updateProduct,
   findSingleProduct,
   deleteProduct,

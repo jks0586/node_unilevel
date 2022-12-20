@@ -24,6 +24,7 @@ const Product = () => {
   const [rowData, setRowData] = useState([
     "price",
     "name",
+    "slug",
     "quantity",
     "description",
     "specialprice",
@@ -72,6 +73,7 @@ const Product = () => {
     { field: "name", filter: "agTextColumnFilter" },
     { field: "price", filter: true },
     { field: "category", filter: true },
+    { field: "slug", filter: true },
     { field: "quantity", filter: true },
     { field: "quality", filter: true },
     { field: "stockquantity", filter: true },
