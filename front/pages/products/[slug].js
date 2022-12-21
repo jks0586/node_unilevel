@@ -1,64 +1,51 @@
-import { useRouter } from 'next/router'
-import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
+import React, { useRef, useEffect, useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 import Link from "next/link";
-import axios from 'axios';
+import styles from "../../styles/slug.module.css";
 
-
-const Singleproduct  = () => {
-  const [product, setProduct] = useState([]);
-  const dataFetchProduct = useRef(false);
- // const dataFetchcategory = useRef(false);
+const Product = () => {
+  const [product, setProduct] = useState("");
+  const dataFetchproduct = useRef(false);
   const router = useRouter();
-//  const { category } = router.query;
-  
+
   useEffect(() => {
-    if (dataFetchProduct.current) return;
-    const singleslug = window.location.pathname.split("/")[2];
-    // console.log(slug);
-    dataFetchProduct.current = true;
+    if (dataFetchproduct.current) return;
+    const slug = window.location.pathname.split("/")[2];
+    // console.log(product);
+    dataFetchproduct.current = true;
 
-    if (dataFetchProduct.current) return;
-    dataFetchProduct.current = true;
     const getProduct = async () => {
-      // console.log(process.env.API_URL);
-
-      const res = await axios.get("http://localhost:5000/products/" + singleslug);
-      res.data.map((value, index) => {
-        setProduct((product) => [...product, value]);
-      });
+      const res = await axios.get(
+        "http://localhost:5000/singleproduct/" + slug
+      );
+      // console.log(res.data.image);
+      setProduct(res.data);
     };
     getProduct();
+    // console.log(product);
   }, []);
 
   return (
-    <div>
-    <div className="p-4">
-    <div className="grid grid-cols-3 gap-4">
-     {
-      product.map((value,index)=>{
-        return (
-          <div>
-            <a>
-              <img
-                src={value.image}
-                className="rounded"
-                width={500}
-                height={500}
-              />
-            </a>
-            {value.description}
-            {value.price}
-          {value.name}
-          </div>
-        )
-      })
-     }
+    <div className="w-full flex">
+      <div className="w-100">
+        <div class="w-100 block flex-grow lg:flex  lg:w-auto p-2">
+          <a>
+            <img
+              src={product.image}
+              className="rounded"
+              width={850}
+              height={850}
+            />
+          </a>
+         Name: {product.name}
+          <br />
+         Price: {product.price}
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-);
+  );
 };
 
-
-export default Singleproduct 
+export default Product;

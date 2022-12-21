@@ -34,26 +34,23 @@ const addProduct = async (req, res, next) => {
 };
 
 //for single slug
-const getSingleProducts= async (req, res) => {
-  console.log(req.params.slug);
+const getSingleProducts = async (req, res) => {
+  // console.log(req.params.slug);
   try {
-   const product = await Product.findOne({ slug: req.params.slug });
-    // const Products = await Product.find({ product: product._id });
-    // Products.map((value, index) => {
-    //   return (value.image = process.env.API_URL + value.image);
-    // });
+    const product = await Product.findOne({ slug: req.params.slug });
 
+    product.image = process.env.API_URL + product.image;
     res.json(product);
   } catch (error) {
-    res.send("Error", error);
+    res.send(["Error", error]);
   }
 };
 
-const getProducts= async (req, res) => {
+const getProducts = async (req, res) => {
   console.log(req.params.slug);
   try {
     const category = await Category.findOne({ slug: req.params.slug });
-    
+
     // const Products = await Product.find({ '_id': Product.categories }, { $push: { products: Product._id } });
     // const Products = await Product.find().populate("category");
     const Products = await Product.find({ category: category._id });
@@ -70,7 +67,7 @@ const getProducts= async (req, res) => {
 const getProduct = async (req, res) => {
   try {
     // console.log(req.body);
-     // const Products = await Product.find({ '_id': Product.categories }, { $push: { products: Product._id } });
+    // const Products = await Product.find({ '_id': Product.categories }, { $push: { products: Product._id } });
     const Products = await Product.find({});
     Products.map((value, index) => {
       return (value.image = process.env.API_URL + value.image);
@@ -85,7 +82,9 @@ const getProduct = async (req, res) => {
 //Getting a single product by id
 const findSingleProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate("categories");
+    const product = await Product.findById(req.params.id).populate(
+      "categories"
+    );
     product.image = process.env.API_URL + product.image;
     res.json(product);
   } catch (error) {

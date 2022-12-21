@@ -32,11 +32,6 @@ const Category = () => {
     getProduct();
   }, []);
 
-  // const handler = function(req, res){
-  //   const { categoryid } = req.query
-  //   res.end(`Category: ${categoryid}`)
-  // }
-
   return (
     <div className="p-2">
       <div className="grid grid-cols-3 gap-2">
