@@ -169,9 +169,9 @@ const addProduct1 = () => {
 
       dispatch(addProduct(userData, router));
 
-      // alert("Submit");
-      // console.log(userData);
-      // router.push("/dashProduct");
+      alert("Submit");
+      console.log(userData);
+      router.push("/product/producttable");
     }
   };
   const removeImage = (i) => {

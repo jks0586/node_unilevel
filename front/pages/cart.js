@@ -7,7 +7,9 @@ const Category = () => {
  
   return (
     <div>
-  fhfgjhghj
+    <main>
+    <h1>Shopping Cart</h1>
+  </main>
   
   </div>
   );

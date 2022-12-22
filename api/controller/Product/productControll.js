@@ -82,9 +82,8 @@ const getProduct = async (req, res) => {
 //Getting a single product by id
 const findSingleProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id).populate(
-      "categories"
-    );
+    const product = await Product.findById(req.params.id)
+    
     product.image = process.env.API_URL + product.image;
     res.json(product);
   } catch (error) {

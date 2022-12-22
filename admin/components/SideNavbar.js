@@ -76,7 +76,7 @@ function SideNavbar() {
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
                 <ImCart className="text-2xl text-gray-600 text-white " />
                 <h3 className="text-base text-gray-800 text-white font-semibold ">
-                  <Link href="/dashProduct">Product</Link>
+                  <Link href="/product/producttable">Product</Link>
                 </h3>
               </div>
               <div className="flex  mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
