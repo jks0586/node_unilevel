@@ -1,24 +1,37 @@
+const Description = require("../../model/DescriptionModel");
+require("dotenv").config(); 
+const multer = require("multer");
 
 
 
-const util = require("util");
-const multer = require("multer");z
-const maxSize = 2 * 1024 * 1024;
-
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __basedir + "/resources/static/assets/uploads/");
-  },
-  filename: (req, file, cb) => {
-    console.log(file.originalname);
-    cb(null, file.originalname);
-  },
-});
-
-let uploadFile = multer({
-  storage: storage,
-  limits: { fileSize: maxSize },
-}).single("file");
-
-let uploadFileMiddleware = util.promisify(uploadFile);
-module.exports = uploadFileMiddleware;
+const addImage = (req, res) => {
+  // console.log(req.files);
+  // console.log(req.file.filename);
+  // console.log(req.body);
+   try {
+     const description_data=process.env.API_URL+req.file.filename;
+     console.log(description_data);
+     res.json(description_data);
+   } catch (error) {
+     res.status(400).send({ success: false, msg: error.message });
+   }
+ };
+ 
+ const getDescription = async (req, res) => {
+   try {
+     const description = await Description.find();
+     description.map((value,index)=>{
+     return value.image=process.env.UPLOAD_URL+value.image;
+     })
+  
+     res.json(description);
+   } catch (error) {
+     res.send("Error", error);
+   }
+ };
+ 
+ module.exports = {
+  addImage,
+  getDescription,
+  
+};

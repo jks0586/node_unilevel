@@ -3,13 +3,28 @@ import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import styles from "../../styles/slug.module.css"
+import styles from "../../styles/slug.module.css";
+import Head from "../../components/Head";
+import ProductList from "../../components/ProductList";
+import CartList from "../products/cart";
+
 const Category = () => {
   const [product, setProduct] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
   const dataFetchProduct = useRef(false);
   const dataFetchcategory = useRef(false);
   const router = useRouter();
   const { category } = router.query;
+
+  const addToCart = (data) => {
+    setCart([...cart, { ...data, quantity: 1 }]);
+  };
+
+  const handleShow = (value) => {
+    setShowCart(value);
+  };
 
   // const {category_Id} = router.query
 
@@ -38,12 +53,12 @@ const Category = () => {
         {product.map((value, price, index) => {
           return (
             <div>
-            <Link
-            href={{
-              pathname: '/products/[slug]',
-              query: { slug: value.slug },
-            }}
-          >
+              <Link
+                href={{
+                  pathname: "/products/[slug]",
+                  query: { slug: value.slug },
+                }}
+              >
                 <a>
                   <img
                     src={value.image}
@@ -54,14 +69,16 @@ const Category = () => {
                 </a>
               </Link>
               {value.name}
-              <br/>
-              ${value.price}
-              <div className="md:flex md:items-center">
-              <div className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded">
-              <button>Add to cart 🛒</button>
-              </div>
-           
-              </div>
+              <br />${value.price}
+              <Head count={cart.length} handleShow={handleShow}></Head>
+              {showCart ? (
+                <CartList cart={cart}></CartList>
+              ) : (
+                <ProductList
+                  product={product}
+                  addToCart={addToCart}
+                ></ProductList>
+              )}
             </div>
           );
         })}
@@ -71,3 +88,9 @@ const Category = () => {
 };
 
 export default Category;
+// <div className="md:flex md:items-center">
+//               <div className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded">
+//               <button>Add to cart 🛒</button>
+//               </div>
+
+//               </div>

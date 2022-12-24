@@ -12,6 +12,7 @@ const Admin = require("./model/Admin")
 const multer = require("multer");
 const path = require("path");
 const authenticate= require('./controller/middleware/authenticate')
+//const Imageuploadcontroller = require("./controller/middleware/Imageuploadcontroller.js")
 
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
@@ -25,6 +26,7 @@ const authenticate= require('./controller/middleware/authenticate')
 const storage = multer.diskStorage({
   destination: "uploads",
   filename: (req, file, cb) => {
+    // console.log(file);
     return cb(
       null,
       `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
@@ -91,6 +93,8 @@ router.get("/products/:slug", ProductController.getProducts);
 router.get("/singleproduct/:slug", ProductController.getSingleProducts);
 
 
+
+
 //Category Use
 router.post("/add/category",upload.single("image"), CategoryController.addCategory);
 router.get("/category", CategoryController.getCategory);
@@ -108,9 +112,10 @@ router.delete("/role/:id", RoleController.deleteRole);
 // Setting routes
 router.post("/setting/create", SettingController.createSetting);
 router.post("/setting", SettingController.getSetting);
-
-//Reletion category and product for frontEnd 
-
+ 
+//description image
+// router.post("/add/image",upload.single('upload'),Imageuploadcontroller.addImage);
+// router.get("/description", Imageuploadcontroller.getDescription);
 
 module.exports = router;
 //app.use(upload.array());
