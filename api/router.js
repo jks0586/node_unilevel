@@ -12,7 +12,7 @@ const Admin = require("./model/Admin")
 const multer = require("multer");
 const path = require("path");
 const authenticate= require('./controller/middleware/authenticate')
-//const Imageuploadcontroller = require("./controller/middleware/Imageuploadcontroller.js")
+const Imageuploadcontroller = require("./controller/middleware/Imageuploadcontroller.js")
 
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
@@ -114,7 +114,7 @@ router.post("/setting/create", SettingController.createSetting);
 router.post("/setting", SettingController.getSetting);
  
 //description image
-// router.post("/add/image",upload.single('upload'),Imageuploadcontroller.addImage);
+router.post("/add/image",upload.single('upload'),Imageuploadcontroller.addImage);
 // router.get("/description", Imageuploadcontroller.getDescription);
 
 module.exports = router;

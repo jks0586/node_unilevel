@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavItem from "./NavItem";
 import Link from "next/link";
-import { FaUserAlt } from "react-icons/Fa";
+import { FaUserAlt } from "react-icons/fa";
 import { ImHome, ImCart } from "react-icons/im";
 import { MdContactPhone } from "react-icons/md";
 import styles from "../styles/Product.module.css";

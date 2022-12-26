@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/dashboard.module.css";
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
-import CKeditor from "../../components/CKeditor";
+import dynamic from "next/dynamic";
 import Select2 from "react-select2-wrapper";
 import axios from "axios";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
 const addProduct1 = () => {
+  const Editor = dynamic(() => import("../../components/Editor"), { ssr: false });
   const initalState = {
     name: "",
     slug:"",
@@ -396,11 +397,11 @@ const addProduct1 = () => {
             )}
             <label htmlFor="description">Description</label>
             <div>
-              <CKeditor
+              <Editor
                 name="description"
                 onChange={(data) => {
                   // const data = data;
-                  console.log(data);
+                  // console.log(data);
                   setUserData({ ...userData, description: data });
                   // onChange(data);
                 }}

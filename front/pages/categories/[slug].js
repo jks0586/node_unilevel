@@ -60,24 +60,26 @@ const Category = () => {
                 }}
               >
                 <a>
-                  <img
-                    src={value.image}
-                    className="rounded"
-                    width={500}
-                    height={500}
-                  />
+                  <img src={value.image} className="rounded" width="100%" />
                 </a>
               </Link>
-              {value.name}
-              <br />${value.price}
+              <p> Name. {value.name} </p>
+              <p> Rs. {value.price} </p>
+
               <Head count={cart.length} handleShow={handleShow}></Head>
               {showCart ? (
                 <CartList cart={cart}></CartList>
               ) : (
-                <ProductList
-                  product={product}
-                  addToCart={addToCart}
-                ></ProductList>
+                <div className="md:flex md:items-center">
+                  <div className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded">
+                    <button
+                      product={product}
+                      onClick={() => addToCart(value)}
+                    >
+                      Add to cart 🛒
+                    </button>
+                  </div>
+                </div>
               )}
             </div>
           );
@@ -94,3 +96,11 @@ export default Category;
 //               </div>
 
 //               </div>
+
+// {value.name}
+// <br />${value.price}
+// height={500}
+// <ProductList
+//                   product={product}
+//                   addToCart={addToCart}
+//                 ></ProductList>

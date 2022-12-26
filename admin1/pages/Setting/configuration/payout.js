@@ -1,0 +1,206 @@
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import Adminlayout from "../../../components/Adminlayout";
+import HeaderSettings from "../../../components/Header";
+import Settings from "../../../components/Settings";
+import { postDataApiSetting } from '../../../config/fetchData';
+import { addSetting } from '../../../redux/actions/settingAction';
+import styles from "../../../styles/NDesign.module.css";
+
+
+const Payout = () => {
+  const initalState = {
+    CompanyCommission: "",
+    JoinCommission: "",
+    ReferralCommissionorAffiliateCommission: "",
+    ServiceCharges: "",
+    TDS: "",
+  };
+
+  const [userData, setUserData] = useState(initalState);
+  const { CompanyCommission, JoinCommission, ReferralCommissionorAffiliateCommission, ServiceCharges, TDS } =
+    userData;
+  const { auth } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleChange = (e) => {
+    const { name, value, className, type, placeholder } = e.target;
+    console.log(e.target.attributes, className);
+    {
+      setUserData({ ...userData, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let finaldata = {
+      setting_key: "payout_settings",
+      setting_value: JSON.stringify(userData),
+    };
+    // console.log(finaldata);
+
+    {
+      dispatch(addSetting(finaldata, router));
+    }
+  };
+
+  useEffect(() => {
+    const postdata = { setting_key: "payout_settings" };
+
+    const response = postDataApiSetting("setting", postdata).then(
+      (response) => {
+        console.log(response);
+        const resvalue = JSON.parse(response.value);
+        initalState.CompanyCommission = resvalue.CompanyCommission;
+        initalState.JoinCommission = resvalue.JoinCommission;
+        initalState.ReferralCommissionorAffiliateCommission = resvalue.ReferralCommissionorAffiliateCommission;
+        initalState.ServiceCharges = resvalue.ServiceCharges;
+        initalState.TDS = resvalue.TDS;
+        setUserData({ ...userData, initalState });
+
+      }
+    );
+  }, []);
+
+  return (
+    <Adminlayout>
+    <div className="container">
+        <Settings />
+        <div className="w-full flex">
+        <HeaderSettings /> 
+        <div className="w-100">
+        <div className="flex items-center justify-between flex-wrap bg-gray-500 p-2">
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div class="text-sm lg:flex-grow">
+            <h1 className={styles.header}>Payout</h1>
+          </div>
+        </div>
+      </div> 
+        <form
+        className="table-layout: auto w-full max-w-lg"
+        onSubmit={handleSubmit}
+      >
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 pr-4"
+              htmlFor="inline-full-name"
+            >
+            Company Commission
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              name="CompanyCommission"
+              onChange={handleChange}
+              value={CompanyCommission}
+            />
+          </div>
+        </div>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="inline-full-name"
+            >
+            Join Commission
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              name="JoinCommission"
+              onChange={handleChange}
+              value={JoinCommission	}
+            />
+          </div>
+        </div>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="inline-full-name"
+            >
+            Referral Commissionor 
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              name="ReferralCommissionorAffiliateCommission"
+              onChange={handleChange}
+              value={ ReferralCommissionorAffiliateCommission}
+            />
+          </div>
+        </div>
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="inline-full-name"
+            >
+            Service Charges
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              name="ServiceCharges"
+              onChange={handleChange}
+              value={ServiceCharges}
+            />
+          </div>
+        </div>
+
+        <div className="md:flex md:items-center mb-6">
+          <div className="md:w-1/3">
+            <label
+              className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+              htmlFor="inline-full-name"
+            >
+            TDS
+            </label>
+          </div>
+          <div className="md:w-2/3">
+            <input
+              className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              name="TDS"
+              onChange={handleChange}
+              value={TDS}
+            />
+          </div>
+        </div>
+
+        <div className="md:flex md:items-center">
+          <div className="md:w-1/3"></div>
+          <div className="md:w-8/3">
+            <input
+              type="submit"
+              className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              value="submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </Adminlayout>
+  )
+}
+
+export default Payout

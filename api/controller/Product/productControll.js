@@ -111,6 +111,18 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+// //Add to Cart Product
+//  const addToCart = async (req, res) => {
+//  try {
+//   const addCart = await Product.findById(req.params.id)
+    
+//   addCart.image = process.env.API_URL + addCart.image;
+//   res.json(addCart);
+// } catch (error) {
+//   res.send(["Error", error]);
+// }
+// };
+
 module.exports = {
   addProduct,
   getProduct,

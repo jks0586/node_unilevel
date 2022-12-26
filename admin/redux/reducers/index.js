@@ -9,6 +9,4 @@ export default combineReducers({
   posts,
   alert,
   category
- 
-  
 });

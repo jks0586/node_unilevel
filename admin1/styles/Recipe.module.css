@@ -1,0 +1,139 @@
+.loginform {
+  text-align: center;
+}
+
+.loginform > input {
+  width: 80%;
+  margin: 10px;
+  border: 2px solid rgb(5, 6, 6);
+  padding: 10px;
+  text-align: center;
+}
+/* 
+.loginform > input[type="submit"] {
+  background-color: rgb(240, 230, 230);
+  border: 5px solid rgb(91, 92, 90);
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: larger;
+  text-align: center;
+} */
+.button {
+  height: 50px;
+
+  color: beige;
+  font-size: larger;
+  font-weight: bolder;
+  border-radius: 1rem;
+  border: 5px solid rgb(91, 92, 90);
+  background-color: rgb(212, 211, 211);
+}
+
+.formbottom {
+  text-align: center;
+  font-weight: bold;
+  text-indent: 6%;
+  margin: 2%;
+}
+.div {
+  width: 50%;
+  height: 300px;
+  background-color: rgb(170, 173, 173);
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  text-align: center;
+  padding: 4%;
+}
+
+/* .div1 {
+  width: 90%;
+  height: auto;
+  background-color: rgb(106, 110, 110);
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bolder;
+  text-align: center;
+} */
+
+/* .form {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form > h3 {
+  text-align: center;
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+.form > input,
+.form > select {
+  width: 100%;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0rem;
+  border-radius: 1rem;
+  border: 2px solid linear-gradient(35deg, #494949, #313131);
+}
+
+.form > select {
+  background-color: #fff;
+}
+
+.form > input[type="submit"] {
+  background: linear-gradient(35deg, #494949, #313131);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.form > textarea {
+  width: 100%;
+  border-radius: 1rem;
+  border: 2px solid linear-gradient(35deg, #494949, #313131);
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.form > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.5rem;
+}
+
+.form > div > div {
+  display: relative;
+  text-align: center;
+}
+
+.form > div > div > span {
+  position: absolute;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  background: linear-gradient(35deg, #e29b9b, #e97474, #be1a1a);
+  cursor: pointer;
+}
+
+.form > div > div > img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    margin-bottom: 5rem;
+  }
+  .form > div {
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  }
+  .form > div > div > img {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+  }
+} */

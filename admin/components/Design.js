@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/NDesign.module.css";
 import { ImHome, ImCart } from "react-icons/im";
-import { FaUserAlt } from "react-icons/Fa";
+import { FaUserAlt } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { MdAddShoppingCart, MdContactMail } from "react-icons/md";
 
