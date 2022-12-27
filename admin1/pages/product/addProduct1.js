@@ -5,11 +5,22 @@ import styles from "../../styles/dashboard.module.css";
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
 import CKeditor from "../../components/Editor";
-import Select2 from "react-select2-wrapper";
+//import Loadable from "react-loadable"
+//import dynamic from "next/dynamic";
 import axios from "axios";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
 const addProduct1 = () => {
+  //const Editor = dynamic(() => import("../../components/Editor"), { ssr: false });
+
+  //secound method 
+  // const CKeditor = Loadable({
+  //   //import your loader with the full name of the js file
+  //   loader: () => import("../../components/Editor"),
+  //   loading() {
+  //     return <div>Loading...</div>
+  //   }
+  //   })
   const initalState = {
     name: "",
     slug:"",
@@ -396,7 +407,7 @@ const addProduct1 = () => {
             )}
             <label htmlFor="description">Description</label>
             <div>
-              <CKeditor
+             <CKeditor
                 name="description"
                 onChange={(data) => {
                   // const data = data;
@@ -432,5 +443,27 @@ const addProduct1 = () => {
 //             onChange={handleChange}
 //             value={description}
 //           />
+// <label htmlFor="description">Description</label>
+// <div>
+//   <CKeditor
+//     name="description"
+//     onChange={(data) => {
+//       // const data = data;
+//       console.log(data);
+//       setUserData({ ...userData, description: data });
+//       // onChange(data);
+//     }}
+//     editorLoaded={editorLoaded}
+//   />
+//   {JSON.stringify(data)}
+// </div>
+
+// {error && description.length <= 0 ? (
+//   <label className={styles.validate}>
+//     description can't be Empty
+//   </label>
+// ) : (
+//   ""
+// )}
 
 export default addProduct1;

@@ -19,7 +19,15 @@ const Category = () => {
   const { category } = router.query;
 
   const addToCart = (data) => {
-    setCart([...cart, { ...data, quantity: 1 }]);
+      // console.log(data);
+      
+      setCart([...cart, { ...data, quantity: 1 }]);
+      const ele = document.querySelector("[data-key='"+data._id+"']");
+      const cartele = document.querySelector("#head-cart .sup");
+      cartele.innerText =cart.length;
+      console.log(cart);
+
+    // setCart([...cart, { ...data, quantity: 1 }]);
   };
 
   const handleShow = (value) => {
@@ -50,9 +58,9 @@ const Category = () => {
   return (
     <div className="p-2">
       <div className="grid grid-cols-3 gap-2">
-        {product.map((value, price, index) => {
+        {product.map((value, index) => {
           return (
-            <div>
+            <div data-key={value._id}>
               <Link
                 href={{
                   pathname: "/products/[slug]",
@@ -65,12 +73,11 @@ const Category = () => {
               </Link>
               <p> Name. {value.name} </p>
               <p> Rs. {value.price} </p>
+              
+      
+            
 
-              <Head count={cart.length} handleShow={handleShow}></Head>
-              {showCart ? (
-                <CartList cart={cart}></CartList>
-              ) : (
-                <div className="md:flex md:items-center">
+              <div className="md:flex md:items-center">
                   <div className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded">
                     <button
                       product={product}
@@ -80,7 +87,7 @@ const Category = () => {
                     </button>
                   </div>
                 </div>
-              )}
+
             </div>
           );
         })}

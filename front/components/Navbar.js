@@ -4,10 +4,10 @@ import CartList from "../pages/products/cart";
 import NavItem from "./NavItem";
 import Head from "./head";
 const MENU_LIST = [
-  { text: "Home", href: "/" },
-  { text: "Login", href: "/login" },
-  { text: "Cart", href: "/products/cart" },
-  
+  { text: "Home", href: "/",sethref:true },
+  { text: "Login", href: "/login" ,sethref:true},
+  { text: "Cart", href: "/products/cart",sethref:false,componet:'Head'},
+  { text: "Shop", href: "/shop",sethref:true},
 ];
 
    const Navbar = () => {
@@ -15,10 +15,8 @@ const MENU_LIST = [
   const [showCart, setShowCart] = useState(false);
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
-
-  const addToCart = (data) => {
-    setCart([...cart, { ...data, quantity: 1 }]);
-  };
+  const [cartshow,setCartshow]=useState(false);
+  
 
   const handleShow = (value) => {
     setShowCart(value);
@@ -32,7 +30,13 @@ const MENU_LIST = [
             <h1 className="logo">Hello Letscms</h1>
           </a>
         </Link>
+        <div>
         <Head count={cart.length} handleShow={handleShow}></Head>
+        {
+          showCart ?
+            <CartList cart={cart} ></CartList> :
+        ""}
+        </div>
         
         <div
           onClick={() => setNavActive(!navActive)}
@@ -45,16 +49,27 @@ const MENU_LIST = [
         <div className={`${navActive ? "active" : ""} nav__menu-list`}>
           {MENU_LIST.map((menu, idx) => (
             <div
-              onClick={() => {
-                setActiveIdx(idx);
-                setNavActive(false);
-              }}
+            onClick={(e) => {
+              e.preventDefault();
+              // alert('aaaaa');
+              setActiveIdx(idx);
+              setNavActive(false);
+                (menu.componet !='' && menu.componet=='Head')?setCartshow(true):null;
+            }}
               key={menu.text}
             >
-              <NavItem active={activeIdx === idx} {...menu} />
+              <NavItem sethref={menu.sethref} active={activeIdx === idx} {...menu} />
+              
             </div>
+
           ))}
+
+          
         </div>
+        {
+            (cartshow)?
+            <Head />:null
+          }
       </nav>
     </header>
   );

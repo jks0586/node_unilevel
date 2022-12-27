@@ -990,12 +990,12 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     "to-fast-properties" "^2.0.0"
 
-"@ckeditor/ckeditor5-adapter-ckfinder@^35.3.2":
-  "integrity" "sha512-xbWTHkYI64u14p3yhAlljVpF4L3qbg/YZvG4rFp/+KaUCcFJZyIJhOjCfUAbHHl9dD+74cvb2Uy0ZW6424nB2Q=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-adapter-ckfinder/-/ckeditor5-adapter-ckfinder-35.3.2.tgz"
-  "version" "35.3.2"
+"@ckeditor/ckeditor5-adapter-ckfinder@^35.4.0":
+  "integrity" "sha512-0o0nkggKYwjx60Ge7GGuJp2jJGwGW9LlAOZEVPTMRG8b/uSzMNLHyCChKeakRO4z7tiopJM6o9Y8sfbDM/nKpA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-adapter-ckfinder/-/ckeditor5-adapter-ckfinder-35.4.0.tgz"
+  "version" "35.4.0"
   dependencies:
-    "ckeditor5" "^35.3.2"
+    "ckeditor5" "^35.4.0"
 
 "@ckeditor/ckeditor5-alignment@^35.4.0":
   "integrity" "sha512-hRrP7b5VBsndwxzyNvUpGqTtUsCPDFRWSJq8vk9hk3f0AjioJZE0/rQA9U41dYKZdOKpTXBVrt+3DBMjObV6cQ=="
@@ -1004,7 +1004,7 @@
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-autoformat@^35.3.2", "@ckeditor/ckeditor5-autoformat@^35.4.0":
+"@ckeditor/ckeditor5-autoformat@^35.4.0":
   "integrity" "sha512-4vAOaoiziR2XN8KmismiBiknCeOYKtskW8yQnSrFWUX3Fkok3KrHaRFr48AbIN4pHI2xTMKPLeMLeRtZd8tTVw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-autoformat/-/ckeditor5-autoformat-35.4.0.tgz"
   "version" "35.4.0"
@@ -1019,59 +1019,59 @@
     "ckeditor5" "^35.4.0"
     "lodash-es" "^4.17.15"
 
-"@ckeditor/ckeditor5-basic-styles@^35.3.2", "@ckeditor/ckeditor5-basic-styles@^35.4.0":
+"@ckeditor/ckeditor5-basic-styles@^35.4.0":
   "integrity" "sha512-6JkoplYMwIHN1E/w3DoY0i95B41sbGwsNAtlvx6qaBvNKkLu4rRCtiBUJDnx8qZxxQXHih5ZOw8bUQHl4mt8hw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-basic-styles/-/ckeditor5-basic-styles-35.4.0.tgz"
   "version" "35.4.0"
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-block-quote@^35.3.2", "@ckeditor/ckeditor5-block-quote@^35.4.0":
+"@ckeditor/ckeditor5-block-quote@^35.4.0":
   "integrity" "sha512-AXoJhSVwl/RSelmxqxMcLq0VUXubjEvMc32xvF6CyUkc/vlSkZec6noznXyVo0P5TXOxsFbzwFAdBOSFTFjD+A=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-block-quote/-/ckeditor5-block-quote-35.4.0.tgz"
   "version" "35.4.0"
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-build-classic@^35.3.2":
-  "integrity" "sha512-p+WDMfweDQK4l57ze8BYJZ1x5MpTrP5z3KzKAzVuv+lVHtpx1e7LhMuMVCYzHE9CpfQoSalCesyBP6El3oFTBQ=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-35.3.2.tgz"
-  "version" "35.3.2"
+"@ckeditor/ckeditor5-build-classic@^35.4.0":
+  "integrity" "sha512-DDvhtoOggo2B7/M+XPReIkFOvkXzzjTP3d4dzakODIFhZ5Y633U0NlIwTeMP/KVvTfzmesW9FJzER0fbVosQgA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-35.4.0.tgz"
+  "version" "35.4.0"
   dependencies:
-    "@ckeditor/ckeditor5-adapter-ckfinder" "^35.3.2"
-    "@ckeditor/ckeditor5-autoformat" "^35.3.2"
-    "@ckeditor/ckeditor5-basic-styles" "^35.3.2"
-    "@ckeditor/ckeditor5-block-quote" "^35.3.2"
-    "@ckeditor/ckeditor5-ckbox" "^35.3.2"
-    "@ckeditor/ckeditor5-ckfinder" "^35.3.2"
-    "@ckeditor/ckeditor5-cloud-services" "^35.3.2"
-    "@ckeditor/ckeditor5-easy-image" "^35.3.2"
-    "@ckeditor/ckeditor5-editor-classic" "^35.3.2"
-    "@ckeditor/ckeditor5-essentials" "^35.3.2"
-    "@ckeditor/ckeditor5-heading" "^35.3.2"
-    "@ckeditor/ckeditor5-image" "^35.3.2"
-    "@ckeditor/ckeditor5-indent" "^35.3.2"
-    "@ckeditor/ckeditor5-link" "^35.3.2"
-    "@ckeditor/ckeditor5-list" "^35.3.2"
-    "@ckeditor/ckeditor5-media-embed" "^35.3.2"
-    "@ckeditor/ckeditor5-paragraph" "^35.3.2"
-    "@ckeditor/ckeditor5-paste-from-office" "^35.3.2"
-    "@ckeditor/ckeditor5-table" "^35.3.2"
-    "@ckeditor/ckeditor5-typing" "^35.3.2"
+    "@ckeditor/ckeditor5-adapter-ckfinder" "^35.4.0"
+    "@ckeditor/ckeditor5-autoformat" "^35.4.0"
+    "@ckeditor/ckeditor5-basic-styles" "^35.4.0"
+    "@ckeditor/ckeditor5-block-quote" "^35.4.0"
+    "@ckeditor/ckeditor5-ckbox" "^35.4.0"
+    "@ckeditor/ckeditor5-ckfinder" "^35.4.0"
+    "@ckeditor/ckeditor5-cloud-services" "^35.4.0"
+    "@ckeditor/ckeditor5-easy-image" "^35.4.0"
+    "@ckeditor/ckeditor5-editor-classic" "^35.4.0"
+    "@ckeditor/ckeditor5-essentials" "^35.4.0"
+    "@ckeditor/ckeditor5-heading" "^35.4.0"
+    "@ckeditor/ckeditor5-image" "^35.4.0"
+    "@ckeditor/ckeditor5-indent" "^35.4.0"
+    "@ckeditor/ckeditor5-link" "^35.4.0"
+    "@ckeditor/ckeditor5-list" "^35.4.0"
+    "@ckeditor/ckeditor5-media-embed" "^35.4.0"
+    "@ckeditor/ckeditor5-paragraph" "^35.4.0"
+    "@ckeditor/ckeditor5-paste-from-office" "^35.4.0"
+    "@ckeditor/ckeditor5-table" "^35.4.0"
+    "@ckeditor/ckeditor5-typing" "^35.4.0"
 
-"@ckeditor/ckeditor5-ckbox@^35.3.2":
-  "integrity" "sha512-+CFxfJbu0cYlgt2VVLcuMfEpt3VP3n6xVzi8fFFJAZAYy41qyNMWfYtPzL/NLVMQF2PKjt13YTSGyI1dd+1D/w=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-ckbox/-/ckeditor5-ckbox-35.3.2.tgz"
-  "version" "35.3.2"
+"@ckeditor/ckeditor5-ckbox@^35.4.0":
+  "integrity" "sha512-kpEleQLsu3/nyvc46zkWBp3EvvxinnQfmwvi52h+FLbbI0TE0dxadRppQHZjHXd4yw29N6B1ePeMAVFRX1iYjQ=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-ckbox/-/ckeditor5-ckbox-35.4.0.tgz"
+  "version" "35.4.0"
   dependencies:
-    "ckeditor5" "^35.3.2"
+    "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-ckfinder@^35.3.2":
-  "integrity" "sha512-AGVshHFOE+Hd+PrjaoscEQeAj92LTRQkl/uXDLxsTDALV9VHm6bBzgCEYLDXf3e/k10Zxcnv6gNm3hi4FaOFMg=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-ckfinder/-/ckeditor5-ckfinder-35.3.2.tgz"
-  "version" "35.3.2"
+"@ckeditor/ckeditor5-ckfinder@^35.4.0":
+  "integrity" "sha512-PeA3PA1c1JGn9f+rZlnWHSuXUU4DjWU4oUp5tMWAtS8OV1srJ2DbU/+Z/WZHO4jmDMfQX9XmN5B/sdLvTQ7ZjQ=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-ckfinder/-/ckeditor5-ckfinder-35.4.0.tgz"
+  "version" "35.4.0"
   dependencies:
-    "ckeditor5" "^35.3.2"
+    "ckeditor5" "^35.4.0"
 
 "@ckeditor/ckeditor5-clipboard@^35.4.0":
   "integrity" "sha512-B6rIQxvOrHvO9TZRC8JA0wKk+IfN880UJkYIg1qlhf9HFNVjdVbtHaiCsPD+TzGmQN3XHXfNjgjabGRIn0iZmw=="
@@ -1084,7 +1084,7 @@
     "@ckeditor/ckeditor5-widget" "^35.4.0"
     "lodash-es" "^4.17.11"
 
-"@ckeditor/ckeditor5-cloud-services@^35.3.2", "@ckeditor/ckeditor5-cloud-services@^35.4.0":
+"@ckeditor/ckeditor5-cloud-services@^35.4.0":
   "integrity" "sha512-iavLfEKx0GVPMIyPnnOlD9TCVVLIrwp1dCQAfO3A7WUySiLBcC7ShJ+6Bm00CVQQE6VtrYOevrKN/RcRzImzHw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-cloud-services/-/ckeditor5-cloud-services-35.4.0.tgz"
   "version" "35.4.0"
@@ -1149,14 +1149,14 @@
     "semver" "^7.3.4"
     "webpack-sources" "^2.0.1"
 
-"@ckeditor/ckeditor5-easy-image@^35.3.2":
-  "integrity" "sha512-91n/VMp7qnaas4/2S+TYHRACD62bEnGtb63MgPCZifHae1AaqQsn5t+eMCFlZ7tT2yKaQMNR0QBnbKLKS/QeqQ=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-easy-image/-/ckeditor5-easy-image-35.3.2.tgz"
-  "version" "35.3.2"
+"@ckeditor/ckeditor5-easy-image@^35.4.0":
+  "integrity" "sha512-DRCQ/zh2Ul0f7RrSBG3WYKnZbrU2jj1RazX4qZM1b1WlM81y7+i+Rnp209JIT9TnlrTdYJy2EUY17YHughuyzA=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-easy-image/-/ckeditor5-easy-image-35.4.0.tgz"
+  "version" "35.4.0"
   dependencies:
-    "ckeditor5" "^35.3.2"
+    "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-editor-classic@^35.3.2", "@ckeditor/ckeditor5-editor-classic@^35.4.0":
+"@ckeditor/ckeditor5-editor-classic@^35.4.0":
   "integrity" "sha512-EqAqFD/5oPtDMU2AoH3eJaDplcS8MxfkiRQ5hzeC1JeIPT94w5FCHnB4SAkjLPDnlyZnBWOOYdZSuln2TRIbEw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-editor-classic/-/ckeditor5-editor-classic-35.4.0.tgz"
   "version" "35.4.0"
@@ -1180,7 +1180,7 @@
     "@ckeditor/ckeditor5-core" "^35.4.0"
     "@ckeditor/ckeditor5-engine" "^35.4.0"
 
-"@ckeditor/ckeditor5-essentials@^35.3.2", "@ckeditor/ckeditor5-essentials@^35.4.0":
+"@ckeditor/ckeditor5-essentials@^35.4.0":
   "integrity" "sha512-tTtTb4NYSQi99LPDzAVUnFhW6iTqSuaylkg0XnDvO2lVR3tAA27gOOjGqc8Ri9NMGGeZkFTvXpnVkXkFnDP2nQ=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-essentials/-/ckeditor5-essentials-35.4.0.tgz"
   "version" "35.4.0"
@@ -1194,7 +1194,7 @@
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-heading@^35.3.2", "@ckeditor/ckeditor5-heading@^35.4.0":
+"@ckeditor/ckeditor5-heading@^35.4.0":
   "integrity" "sha512-cZwKzAg0USxaDZstQXKMkzrE+fOEr+6YFtXpHGrKgsaisI9xkuOWD40dZvLovTmENLGPopDkdfGewj8jscB9Kg=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-heading/-/ckeditor5-heading-35.4.0.tgz"
   "version" "35.4.0"
@@ -1230,7 +1230,7 @@
     "ckeditor5" "^35.4.0"
     "lodash-es" "^4.17.15"
 
-"@ckeditor/ckeditor5-image@^35.3.2", "@ckeditor/ckeditor5-image@^35.4.0":
+"@ckeditor/ckeditor5-image@^35.4.0":
   "integrity" "sha512-SQ+IiIB6SLhdhVy3gRKxxfBXpLikInvaP3ILOvPQlaC0Bt5ciJ3t/180zCBlbCvvRwIQNo4bYbZc5cI8UBIAaA=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-image/-/ckeditor5-image-35.4.0.tgz"
   "version" "35.4.0"
@@ -1239,14 +1239,14 @@
     "ckeditor5" "^35.4.0"
     "lodash-es" "^4.17.15"
 
-"@ckeditor/ckeditor5-indent@^35.3.2", "@ckeditor/ckeditor5-indent@^35.4.0":
+"@ckeditor/ckeditor5-indent@^35.4.0":
   "integrity" "sha512-FNp5S6t/RlY4eARR4E/jzxqjAbsGMa+30ZKS9maTOCx0TDmvmjD0jvZc9+1fe/KzSBk9wtmHYOil1J+W66rKvw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-indent/-/ckeditor5-indent-35.4.0.tgz"
   "version" "35.4.0"
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-link@^35.3.2", "@ckeditor/ckeditor5-link@^35.4.0":
+"@ckeditor/ckeditor5-link@^35.4.0":
   "integrity" "sha512-aqHFwlnGyjW/fp/fklD1VupYLsfbvSwsh9RFGIdgJL4TuWnlhxR5JXCOAKyZtvCWpdyuKyqzEB8EV0NQAa+OMg=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-link/-/ckeditor5-link-35.4.0.tgz"
   "version" "35.4.0"
@@ -1255,7 +1255,7 @@
     "ckeditor5" "^35.4.0"
     "lodash-es" "^4.17.15"
 
-"@ckeditor/ckeditor5-list@^35.3.2", "@ckeditor/ckeditor5-list@^35.4.0":
+"@ckeditor/ckeditor5-list@^35.4.0":
   "integrity" "sha512-fPENWzEicpoXZsDmGR6EiR/j3Z4Q3KYAsBMsmWf8YwUlbM/hERt+V3yIB+LKdGQKbFrL6CWOA1JBB4tmmwd50A=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-list/-/ckeditor5-list-35.4.0.tgz"
   "version" "35.4.0"
@@ -1273,7 +1273,7 @@
     "turndown" "^6.0.0"
     "turndown-plugin-gfm" "^1.0.2"
 
-"@ckeditor/ckeditor5-media-embed@^35.3.2", "@ckeditor/ckeditor5-media-embed@^35.4.0":
+"@ckeditor/ckeditor5-media-embed@^35.4.0":
   "integrity" "sha512-So+BYkI82pdIGP2VQ+b+gstEOnHLHA9yBX94pTJM9eW1O+ZTPMR1t2wJFFmEbCjQUYDVC8SdGUGaOb1gaeVXiw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-media-embed/-/ckeditor5-media-embed-35.4.0.tgz"
   "version" "35.4.0"
@@ -1296,7 +1296,7 @@
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-paragraph@^35.3.2", "@ckeditor/ckeditor5-paragraph@^35.4.0":
+"@ckeditor/ckeditor5-paragraph@^35.4.0":
   "integrity" "sha512-8nhkEEFv1WClhH6q/HW8P596d+dlatSVc46kQ2+jGlYirL8P66tV/nK+OiE8z1d897oVr4QPGsqk2qGkRFUChw=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-paragraph/-/ckeditor5-paragraph-35.4.0.tgz"
   "version" "35.4.0"
@@ -1305,17 +1305,17 @@
     "@ckeditor/ckeditor5-ui" "^35.4.0"
     "@ckeditor/ckeditor5-utils" "^35.4.0"
 
-"@ckeditor/ckeditor5-paste-from-office@^35.3.2":
-  "integrity" "sha512-CHmhw9/deTS3o+4NqIEL41Yd2WXqP3z4VYR4DHZGK6iI2DKTrLcHU/ofz8fQHnU/7JqtiiZpPlZLnGRr3Yq6+Q=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-paste-from-office/-/ckeditor5-paste-from-office-35.3.2.tgz"
-  "version" "35.3.2"
+"@ckeditor/ckeditor5-paste-from-office@^35.4.0":
+  "integrity" "sha512-Uav1z9t52+qcu1axykcZ/NeH7JnURuZF9l0o+Pq/sNg3zjzVqB92V5cvFXg9hXeod8LzxlNLHy1BR8ZWTHeKHQ=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-paste-from-office/-/ckeditor5-paste-from-office-35.4.0.tgz"
+  "version" "35.4.0"
   dependencies:
-    "ckeditor5" "^35.3.2"
+    "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-react@^5.0.3":
-  "integrity" "sha512-uUVz8HOe7M1h/TnEjaM9F77Gqyn5SrTwzy8p1KwtKSccUPbNtKY96aPkO/ZiG3kCDJtp7Vi26XJThaoaiLZdjQ=="
-  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-react/-/ckeditor5-react-5.0.3.tgz"
-  "version" "5.0.3"
+"@ckeditor/ckeditor5-react@^5.0.5":
+  "integrity" "sha512-s/1WrQPQzoFjIphL6j0hpI0bYfLe9C0UhADLaD8YvVsgUhRuWobdelNODVUx/jFBcCsYvR36909B7M2+Sbnfdg=="
+  "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-react/-/ckeditor5-react-5.0.5.tgz"
+  "version" "5.0.5"
   dependencies:
     "prop-types" "^15.7.2"
 
@@ -1357,7 +1357,7 @@
   dependencies:
     "ckeditor5" "^35.4.0"
 
-"@ckeditor/ckeditor5-table@^35.3.2", "@ckeditor/ckeditor5-table@^35.4.0":
+"@ckeditor/ckeditor5-table@^35.4.0":
   "integrity" "sha512-u2g3CIqXO7ByrfFVqlHagPssta8hd/zSE37CjFuylc5KYVmMxcuh3TiFirKaladH92/3gjfnf+GWEC5X14mA8w=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-table/-/ckeditor5-table-35.4.0.tgz"
   "version" "35.4.0"
@@ -1372,7 +1372,7 @@
   dependencies:
     "@ckeditor/ckeditor5-ui" "^35.4.0"
 
-"@ckeditor/ckeditor5-typing@^35.3.2", "@ckeditor/ckeditor5-typing@^35.4.0":
+"@ckeditor/ckeditor5-typing@^35.4.0":
   "integrity" "sha512-Ad/PHWbVWcnAj9oevkkfLqf6CmvCFOti466uhvfOCKRNVf2+/xuGwleOGr8W6Lir/x/qav7ojFjKPKDxqbPXhA=="
   "resolved" "https://registry.npmjs.org/@ckeditor/ckeditor5-typing/-/ckeditor5-typing-35.4.0.tgz"
   "version" "35.4.0"
@@ -2443,7 +2443,7 @@
   "resolved" "file:ckeditor"
   "version" "0.0.1"
 
-"ckeditor5@^35.3.2", "ckeditor5@^35.4.0":
+"ckeditor5@^35.4.0":
   "integrity" "sha512-vBEQVkFCbjYmEPVkyWsOqU44DOovUio6xBuCwroe4TuJLplqeRasCjFwB0DPknXQU8U0iM3Lh/QSKRyN92pw3Q=="
   "resolved" "https://registry.npmjs.org/ckeditor5/-/ckeditor5-35.4.0.tgz"
   "version" "35.4.0"
@@ -5052,7 +5052,7 @@
     "react-is" "^16.3.2"
     "warning" "^4.0.0"
 
-"prop-types@^15.0.0", "prop-types@^15.5.8", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.8.1":
+"prop-types@^15.0.0", "prop-types@^15.5.0", "prop-types@^15.5.8", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -5190,6 +5190,13 @@
   "integrity" "sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA=="
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
+
+"react-loadable@^5.5.0":
+  "integrity" "sha512-C8Aui0ZpMd4KokxRdVAm2bQtI03k2RMRNzOB+IipV3yxFTSVICv7WoUr5L9ALB5BmKO1iHgZtWM8EvYG83otdg=="
+  "resolved" "https://registry.npmjs.org/react-loadable/-/react-loadable-5.5.0.tgz"
+  "version" "5.5.0"
+  dependencies:
+    "prop-types" "^15.5.0"
 
 "react-popper@^2.2.4":
   "integrity" "sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q=="
