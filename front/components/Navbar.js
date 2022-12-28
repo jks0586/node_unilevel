@@ -3,11 +3,18 @@ import React, { useState } from "react";
 import CartList from "../pages/products/cart";
 import NavItem from "./NavItem";
 import Head from "./head";
+import { AiFillHome } from "react-icons/ai";
+import { RiShoppingCart2Fill } from "react-icons/ri";
+import Logo from "./Logo";
+import Card from "./card"
+import Cartpopup from "./cartpopup";
 const MENU_LIST = [
-  { text: "Home", href: "/",sethref:true },
-  { text: "Login", href: "/login" ,sethref:true},
-  { text: "Cart", href: "/products/cart",sethref:false,componet:'Head'},
-  { text: "Shop", href: "/shop",sethref:true},
+  // { text: "Cart", href: "/products/cart",sethref:false,componet:'Head'},
+// { text: 'Login', href: "/login" ,sethref:true},
+  // { text: <RiShoppingCart2Fill/>, href: "/products/cart",sethref:false,componet:'Head'},
+  // { text: <RiShoppingCart2Fill/>, href: "/components/card",sethref:true},
+  { text: <AiFillHome/>, href: "/",sethref:true },
+  // { text: 'Shop', href: "/shop" ,sethref:true},
 ];
 
    const Navbar = () => {
@@ -24,19 +31,14 @@ const MENU_LIST = [
 
   return (
     <header>
+    <Cartpopup open={showCart}/>
       <nav className={`nav`}>
         <Link href={"/"}>
           <a>
-            <h1 className="logo">Hello Letscms</h1>
+            <h1 className="logo"><Logo/></h1>
           </a>
         </Link>
-        <div>
-        <Head count={cart.length} handleShow={handleShow}></Head>
-        {
-          showCart ?
-            <CartList cart={cart} ></CartList> :
-        ""}
-        </div>
+       
         
         <div
           onClick={() => setNavActive(!navActive)}
@@ -63,16 +65,18 @@ const MENU_LIST = [
             </div>
 
           ))}
-
-          
-        </div>
-        {
-            (cartshow)?
-            <Head />:null
-          }
+         
+          <h1 ><Card/></h1>
+          </div>
+        
       </nav>
     </header>
   );
 };
 
 export default Navbar;
+// <Head count={cart.length} handleShow={handleShow}></Head>
+// {
+//   showCart ?
+//     <CartList cart={cart} ></CartList> :
+// ""}

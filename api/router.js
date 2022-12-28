@@ -6,7 +6,8 @@ const AdminController = require("./controller/AdminController");
 const ProductController = require("./controller/Product/productControll");
 const CategoryController = require("./controller/Category/categoryController");
 const RoleController = require("./controller/Role/roleController");
-const SettingController = require("./controller/Setting/SettingController")
+const SettingController = require("./controller/Setting/SettingController");
+const CartController = require("./controller/Cart/cartController")
 const User = require("./model/User");
 const Admin = require("./model/Admin")
 const multer = require("multer");
@@ -102,6 +103,7 @@ router.get("/category/:id", CategoryController.findSingleCategory);
 router.put("/category/:id",upload.single("image"),CategoryController.updateCategory);
 router.delete("/category/:id", CategoryController.deleteCategory);
 
+
 //Role Use 
 router.post("/add/role",upload.single("image"),RoleController.addRole);
 router.get("/role", RoleController.getRole);
@@ -116,6 +118,13 @@ router.post("/setting", SettingController.getSetting);
 //description image
 router.post("/add/image",upload.single('upload'),Imageuploadcontroller.addImage);
 // router.get("/description", Imageuploadcontroller.getDescription);
+
+//Cart Use
+router.post("/add/cart",upload.single("image"), CartController.addCart);
+router.get("/cart", CartController.getCart);
+router.get("/cart/:id", CartController.findSingleCart);
+router.put("/cart/:id",upload.single("image"),CartController.updateCart);
+router.delete("/cart/:id", CartController.deleteCart);
 
 module.exports = router;
 //app.use(upload.array());

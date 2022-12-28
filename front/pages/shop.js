@@ -1,23 +1,26 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from 'react'
+import { Modal, ModalBody, ModalHeader } from 'reactstrap'
 
-const Category = () => {
- 
+const Shop = () => {
+  const [modal, semodal] = useState(false)
   return (
     <div>
-    <main>
-    <h1>Shopping Cart</h1>
-  </main>
-  
-  </div>
-  );
-};
+   <Modal size="lg" isOpen={modal} toggle={()=>semodal(!modal)}>
+   <ModalHeader  toggle={()=>semodal(!modal)}>
+   Popup
+   </ModalHeader>
+   <ModalBody>
+   
+   </ModalBody>
+   </Modal>
+      <button className='btn mt-3' style={{backgroundColor:"red", color:"white"}} onClick={()=>semodal(true)}>
+      Open Model</button>
+    </div>
+  )
+}
 
+export default Shop
 
-
-export default Category;
 // <div className="p-4">
 // <div className="grid grid-cols-3 gap-4">
 //   <div className="item">
