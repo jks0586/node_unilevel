@@ -10,6 +10,7 @@ const Product = () => {
   const dataFetchproduct = useRef(false);
   const router = useRouter();
 
+  
   useEffect(() => {
     if (dataFetchproduct.current) return;
     const slug = window.location.pathname.split("/")[2];
@@ -30,7 +31,7 @@ const Product = () => {
   return (
     <div className="w-full flex">
       <div className="w-100">
-        <div class="w-100 block flex-grow lg:flex  lg:w-auto p-2">
+        <div className="w-100 block flex-grow lg:flex  lg:w-auto p-2">
           <a>
             <img
               src={product.image}

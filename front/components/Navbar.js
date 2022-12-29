@@ -31,7 +31,7 @@ const MENU_LIST = [
 
   return (
     <header>
-    <Cartpopup open={showCart}/>
+  
       <nav className={`nav`}>
         <Link href={"/"}>
           <a>
@@ -67,6 +67,7 @@ const MENU_LIST = [
           ))}
          
           <h1 ><Card/></h1>
+          <h1 ><Cartpopup/></h1>
           </div>
         
       </nav>
