@@ -1,20 +1,9 @@
-import React, { useState } from 'react'
-import { Modal, ModalBody, ModalHeader } from 'reactstrap'
-
+import React from 'react'
+import Header from '../components/Header'
 const Shop = () => {
-  const [modal, semodal] = useState(false)
   return (
     <div>
-   <Modal size="lg" isOpen={modal} toggle={()=>semodal(!modal)}>
-   <ModalHeader  toggle={()=>semodal(!modal)}>
-   Popup
-   </ModalHeader>
-   <ModalBody>
-   
-   </ModalBody>
-   </Modal>
-      <button className='btn mt-3' style={{backgroundColor:"red", color:"white"}} onClick={()=>semodal(true)}>
-      Open Model</button>
+      <Header/>
     </div>
   )
 }
