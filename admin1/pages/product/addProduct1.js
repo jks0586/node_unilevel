@@ -4,23 +4,24 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/dashboard.module.css";
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
-import CKeditor from "../../components/Editor";
-//import Loadable from "react-loadable"
+//import CKeditor from "../../components/Editor";
+import Loadable from "react-loadable"
 //import dynamic from "next/dynamic";
 import axios from "axios";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
-const addProduct1 = () => {
+const Editor = Loadable({
+  //import your loader with the full name of the js file
+  loader: () => import("../../components/Editor"),
+  loading() {
+    return <div>Loading...</div>
+  }
+  });
+const addProduct11 = () => {
   //const Editor = dynamic(() => import("../../components/Editor"), { ssr: false });
 
   //secound method 
-  // const CKeditor = Loadable({
-  //   //import your loader with the full name of the js file
-  //   loader: () => import("../../components/Editor"),
-  //   loading() {
-  //     return <div>Loading...</div>
-  //   }
-  //   })
+  
   const initalState = {
     name: "",
     slug:"",
@@ -107,30 +108,6 @@ const addProduct1 = () => {
      getCategory();
   }, []);
 
-//   const handleCategory = (event) => {
-//     const getCategory = event.target.value;
-//     // setCategory(getCategory);
-// }
-
-  //For MultiImage
-
-  // const handleFileChange = (e) => {
-  //   e.preventDefault();
-  //   let file = e.target.files;
-  //   for (let i = 0; i < file.length; i++) {
-  //     const fileType = file[i]["type"];
-  //     const validImageTypes = ["image/gif", "image/jpeg", "image/png"];
-  //     if (validImageTypes.includes(fileType)) {
-  //       setFile([...files, file[i]]);
-  //     }
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   setUserData({ ...userData, ["image"]: files });
-  //   console.log(userData);
-  // }, [files]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -180,9 +157,9 @@ const addProduct1 = () => {
 
       dispatch(addProduct(userData, router));
 
-      alert("Submit");
-      console.log(userData);
-      router.push("/product/producttable");
+      // alert("Submit");
+      // console.log(userData);
+      // router.push("/product/producttable");
     }
   };
   const removeImage = (i) => {
@@ -407,7 +384,7 @@ const addProduct1 = () => {
             )}
             <label htmlFor="description">Description</label>
             <div>
-             <CKeditor
+             <Editor
                 name="description"
                 onChange={(data) => {
                   // const data = data;

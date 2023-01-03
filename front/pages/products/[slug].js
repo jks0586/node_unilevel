@@ -36,14 +36,29 @@ const Product = () => {
             <img
               src={product.image}
               className="rounded"
-              width={850}
-              height={850}
+              width={700}
+              height={700}
             />
           </a>
+         <p className="p-4">
          Name: {product.name}
-          <br />
-         Price: {product.price}
-        </div>
+         <br/>
+        {product.price}
+        <br/>
+       
+        {product.description}
+        
+         </p>
+         
+       
+        <div className="md:flex md:items-center">
+        <div className="shadow bg-gray-500  focus:shadow-outline focus:outline-none text-white font-bold py-2 px-8 rounded">
+        <button>Add to cart 🛒</button>
+         </div>
+
+          </div>
+          </div>
+        
       </div>
     </div>
   );

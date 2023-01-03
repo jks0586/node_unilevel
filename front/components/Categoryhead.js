@@ -2,8 +2,8 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React,{useRef,useEffect,useState} from "react";
-
-
+import Section2 from "../components/Section2"
+import Footer from "../components/Footer"
 const Category = () => {
   const [category, setCategory] = useState([]);
   const dataFetchCategory = useRef(false);
@@ -44,15 +44,21 @@ const Category = () => {
                 />
               </a>
             </Link>
-            {value.name}
+           {value.name}
             </div>
           )
         })
        }
-        
+       <div className="col-start-1 col-end-8">
+        <Section2/>
+        </div>
+        <div className="col-start-1 col-end-8">
+        <Footer/>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Category;
+//className="rounded"

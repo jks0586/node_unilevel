@@ -8,6 +8,7 @@ import { RiShoppingCart2Fill } from "react-icons/ri";
 import Logo from "./Logo";
 import Card from "./card";
 import Cartpopup from "./cartpopup";
+
 const MENU_LIST = [
   // { text: "Cart", href: "/products/cart",sethref:false,componet:'Head'},
   // { text: 'Login', href: "/login" ,sethref:true},
@@ -31,13 +32,13 @@ const Navbar = () => {
   return (
     <header>
       <nav className={`nav`}>
-        <Link href={"/"}>
+       
           <a>
             <h1 className="logo">
               <Logo />
             </h1>
           </a>
-        </Link>
+     
 
         <div
           onClick={() => setNavActive(!navActive)}
@@ -68,8 +69,8 @@ const Navbar = () => {
               />
             </div>
           ))}
-
-         
+      <h1 ><Card/></h1>
+        
         </div>
       </nav>
     </header>
@@ -87,3 +88,6 @@ export default Navbar;
 // <h1>
 // <Cartpopup />
 // </h1>
+
+// <Link href={"/"}>
+// </Link>

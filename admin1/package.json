@@ -9,9 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^35.4.0",
     "@ckeditor/ckeditor5-react": "^5.0.5",
-    "@ckeditor/ckeditor5-upload": "^35.4.0",
     "@headlessui/react": "^1.6.3",
     "@hookform/resolvers": "^2.9.10",
     "@redux-devtools/extension": "^3.2.3",
