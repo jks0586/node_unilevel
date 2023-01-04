@@ -2,3 +2,4 @@ api/node_modules
 frontend/node_modules
 admin/node_modules
 editor/node_modules
+editor/ckeditor/node_modules
