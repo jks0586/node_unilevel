@@ -26,7 +26,7 @@ const Product = (props) => {
   };
 
   return (
-    <div className="h-100 p-2 card">
+    <div className="h-100 p-2 card transform transition duration-500 hover:scale-125">
       <div key={props.product._id} data-key={props.product._id}>
         <Link
           href={{
@@ -62,6 +62,7 @@ const Product = (props) => {
         {showCart ? <Cartpopup cartstatus={true} /> : null}
       </div>
     </div>
+  
   );
 };
 

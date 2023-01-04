@@ -74,7 +74,7 @@ const {category_Id} = router.query
 
   return (
     
-    <div  className="card-wrapper">
+    <div>
         <div className="p-2">
           <div className="grid grid-cols-4 gap-2 ">
             {product.map((value, index) => {

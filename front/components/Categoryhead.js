@@ -23,6 +23,7 @@ const Category = () => {
   }, []);
   
   return (
+  
     <div className="p-2">
       <div className="grid grid-cols-7 gap-4">
        {
@@ -35,10 +36,10 @@ const Category = () => {
                 query: { slug: value.slug },
               }}
             >
-              <a>
+              <a >
                 <img
                   src={value.image}
-                  className="rounded"
+                  className="rounded transform transition duration-500 hover:scale-125 "
                   width={100}
                   height={100}
                 />

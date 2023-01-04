@@ -4,23 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "../../styles/dashboard.module.css";
 import Adminlayout from "../../components/Adminlayout";
 import { addProduct } from "../../redux/actions/productAction";
-//import CKeditor from "../../components/Editor";
+import CKeditor from "../../components/Editor";
 import Loadable from "react-loadable"
 //import dynamic from "next/dynamic";
 import axios from "axios";
 import { GLOBAL_CONSTANT } from "../../config/GlobalConstant";
 
-const Editor = Loadable({
-  //import your loader with the full name of the js file
-  loader: () => import("../../components/Editor"),
-  loading() {
-    return <div>Loading...</div>
-  }
-  });
+// const Editor = Loadable({
+//   //import your loader with the full name of the js file
+//   loader: () => import("../../components/Editor"),
+//   loading() {
+//     return <div>Loading...</div>
+//   }
+//   });
 const addProduct11 = () => {
   //const Editor = dynamic(() => import("../../components/Editor"), { ssr: false });
 
-  //secound method 
+ 
   
   const initalState = {
     name: "",
@@ -384,7 +384,7 @@ const addProduct11 = () => {
             )}
             <label htmlFor="description">Description</label>
             <div>
-             <Editor
+             <CKeditor
                 name="description"
                 onChange={(data) => {
                   // const data = data;
@@ -443,4 +443,4 @@ const addProduct11 = () => {
 //   ""
 // )}
 
-export default addProduct1;
+export default addProduct11;

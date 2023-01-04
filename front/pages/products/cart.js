@@ -1,9 +1,8 @@
-
 import React from 'react'
 
 const Cart = () => {
   return (
-    <div>
+   
     <div className="container p-2 mx-auto mt-2 bg-white">
     <div className="w-full overflow-x-auto">
       <div className="my-2">
@@ -40,27 +39,7 @@ const Cart = () => {
               </button>
             </td>
           </tr>
-          <tr>
-            <td className="p-4 px-6 text-center whitespace-nowrap">Iphone 12</td>
-            <td className="p-4 px-6 text-center whitespace-nowrap">
-              <div>
-                <button className="px-2 py-0 shadow">-</button>
-                <input
-                  type="text"
-                  name="qty"
-                  value="1"
-                  className="w-12 text-center bg-gray-100 outline-none"
-                />
-                <button className="px-2 py-0 shadow">+</button>
-              </div>
-            </td>
-            <td className="p-4 px-6 text-center whitespace-nowrap">$12,00</td>
-            <td className="p-4 px-6 text-center whitespace-nowrap">
-              <button className="px-2 py-0 text-red-100 bg-red-600 rounded">
-                x
-              </button>
-            </td>
-          </tr>
+        
           <tr>
             <td className="p-4 px-6 text-center whitespace-nowrap">Iphone 13</td>
             <td className="p-4 px-6 text-center whitespace-nowrap">
@@ -125,7 +104,7 @@ const Cart = () => {
     </div>
     </div>
     
-    </div>
+    
   )
 }
 
