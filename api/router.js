@@ -14,7 +14,7 @@ const multer = require("multer");
 const path = require("path");
 const authenticate= require('./controller/middleware/authenticate')
 const Imageuploadcontroller = require("./controller/middleware/Imageuploadcontroller.js")
-
+const CheckController = require('./controller/check')
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, "uploads");
@@ -66,6 +66,10 @@ router.post("/signin", AuthController.signin);
 // admin
 router.post("/register", AdminController.register);
 router.post("/login", AdminController.login);
+
+// admin
+router.post("/register/check", CheckController.register);
+router.post("/login/check", CheckController.login);
 
 
 // Posts routes

@@ -26,7 +26,7 @@ const Login = () => {
   
   useEffect(() => {
     if (auth.token) {
-      router.push("/dashProduct");
+      router.push("/product/producttable");
     }
   }, [auth]);
 

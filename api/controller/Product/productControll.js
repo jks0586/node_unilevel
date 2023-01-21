@@ -63,6 +63,8 @@ const getProducts = async (req, res) => {
     res.send("Error", error);
   }
 };
+
+
 //Getting all product
 const getProduct = async (req, res) => {
   try {
@@ -82,8 +84,8 @@ const getProduct = async (req, res) => {
 //Getting a single product by id
 const findSingleProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id)
-    
+    const product = await Product.findById(req.params.id);
+
     product.image = process.env.API_URL + product.image;
     res.json(product);
   } catch (error) {
@@ -110,18 +112,6 @@ const deleteProduct = async (req, res) => {
     res.send("Error", error);
   }
 };
-
-// //Add to Cart Product
-//  const addToCart = async (req, res) => {
-//  try {
-//   const addCart = await Product.findById(req.params.id)
-    
-//   addCart.image = process.env.API_URL + addCart.image;
-//   res.json(addCart);
-// } catch (error) {
-//   res.send(["Error", error]);
-// }
-// };
 
 module.exports = {
   addProduct,
